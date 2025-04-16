@@ -1,3 +1,4 @@
+/*universal Design*/
 *{
     margin: 0;
     padding: 0;
@@ -17,6 +18,7 @@ body {
     background-color: var(--color-background);
     color: var(--color-text);
 }
+/*--------------Header design start---------------*/
 .contrainer .header nav ul{ 
     margin: 20px;
     padding: 20px;
@@ -26,3 +28,92 @@ body {
     align-items: center;
     flex-direction: row;
 }
+/*----------Header design End------------------*/
+
+/*------------Registration form start------------*/
+.reg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.regContainer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 500px;
+    max-width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: var(--color-primary);
+    text-decoration: solid;
+    margin-bottom: 25px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+    color: #333;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+.gender-group {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.gender-group label {
+    margin-bottom: 0;
+}
+.login-link {
+    text-align: center;
+    margin: 15px;
+    font-size: 14px;
+    color: #333;
+}
+
+.login-link a {
+    color: var(--color-primary);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-link a:hover {
+    color: var(--btn-hover);
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+/*-------------registration from end-------------*/
