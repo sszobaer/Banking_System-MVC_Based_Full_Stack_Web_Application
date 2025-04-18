@@ -1,35 +1,3 @@
-/*universal Design*/
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-a {
-    text-decoration: none;
-    color: inherit;
-}
-li{
-    list-style: none;
-}
-body {
-    font-family: var(--font-family);
-    font-size: var(--font-size-base);
-    line-height: 1.6;
-    background-color: var(--color-background);
-    color: var(--color-text);
-}
-/*--------------Header design start---------------*/
-.contrainer .header nav ul{ 
-    margin: 20px;
-    padding: 20px;
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    align-items: center;
-    flex-direction: row;
-}
-/*----------Header design End------------------*/
-
 /*------------Registration form start------------*/
 .reg{
     display: flex;
@@ -43,7 +11,7 @@ body {
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 500px;
+    width: 800px;
     max-width: 100%;
 }
 
@@ -62,6 +30,14 @@ form {
 .form-group {
     margin-bottom: 20px;
 }
+.name-group {
+    display: flex;
+    gap: 20px;
+}
+
+.name-field {
+    flex: 1;
+}
 
 label {
     font-weight: 500;
@@ -78,6 +54,7 @@ input, select {
     box-sizing: border-box;
     font-size: 14px;
     transition: border-color 0.3s ease;
+    cursor: pointer;
 }
 
 input:focus, select:focus {
@@ -87,8 +64,9 @@ input:focus, select:focus {
 
 .gender-group {
     display: flex;
-    gap: 15px;
+    gap: 10px;
     align-items: center;
+    cursor: pointer;
 }
 
 .gender-group label {
@@ -114,6 +92,11 @@ input:focus, select:focus {
 .error-message {
     color: red;
     font-size: 14px;
-    margin-top: 5px;
+    margin-top: 4px;
+}
+.success-message{
+    color: green;
+    font-size: 14px;
+    margin-top: 4px;
 }
 /*-------------registration from end-------------*/
