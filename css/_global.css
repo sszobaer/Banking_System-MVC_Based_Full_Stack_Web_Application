@@ -1,4 +1,70 @@
+/*universal Design*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+li{
+    list-style: none;
+}
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    background-color: var(--color-background);
+    color: var(--color-text);
+}
+/*--------------Header design start---------------*/
+.contrainer .header nav ul {
+    background-color: var(--color-header);
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    font-weight: 800;
+}
 
+/* 📱 Hover effect styles (from earlier) */
+/* Hover Effect */
+.contrainer .header nav ul li {
+    list-style: none;
+    position: relative;
+    cursor: pointer;
+    padding: 10px 15px;
+    transition: all 0.3s ease;
+  }
+  
+  .contrainer .header nav ul li::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    background-color: var(--color-primary, #ff7a00);
+    left: 0;
+    bottom: 0;
+    transition: 0.4s ease;
+  }
+  
+  .contrainer .header nav ul li:hover,
+  .contrainer .header nav ul li.active-nav {
+    color: var(--color-primary, #ff7a00);
+    transform: scale(1.05);
+  }
+  
+  .contrainer .header nav ul li:hover::after,
+  .contrainer .header nav ul li.active-nav::after {
+    width: 100%;
+  }
+  
+
+
+/*----------Header design End------------------*/
 /* Button design 1 */
 .btn {
     position: relative;
@@ -86,7 +152,7 @@
     transform: translateY(2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
-.btn2:focus {
+.btn2:focus{
     outline: none;
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.5);
 } 
