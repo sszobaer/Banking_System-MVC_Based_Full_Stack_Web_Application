@@ -54,7 +54,6 @@ input, select {
     box-sizing: border-box;
     font-size: 14px;
     transition: border-color 0.3s ease;
-    cursor: pointer;
 }
 
 input:focus, select:focus {
@@ -100,3 +99,110 @@ input:focus, select:focus {
     margin-top: 4px;
 }
 /*-------------registration from end-------------*/
+/*-------------Header of dashboard Start------------------*/
+.profile-header {
+    padding: 15px 30px;
+}
+
+.header-content ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 20px;
+}
+
+.header-content ul li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 20px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.header-content ul li a:hover {
+    color: var(--color-primary);
+    transform: scale(1.2);
+}
+.notification {
+    position: relative;
+}
+
+.notification-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    display: none;
+}
+.message {
+    position: relative;
+}
+
+.message-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    padding: 2px 6px;
+    border-radius: 50%;
+    font-weight: bold;
+    box-shadow: 0 0 4px rgba(0,0,0,0.3);
+    display: none;
+}
+
+.main-content {
+    padding: 30px;
+    background-color: #f4f4f8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Container that holds balance and name */
+.balance-and-name {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 25px 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;            
+    max-width: 400px;
+}
+
+/* Headings and text styles */
+.balance h2,
+.name h2,
+.accountNumber h2 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+.balance p {
+    font-size: 28px;
+    color: var(--color-primary);
+    font-weight: bold;
+    margin-top: 0;
+    text-align: left;
+}
+
+/* Section spacing */
+.balance,
+.name,
+.accountNumber {
+    margin-bottom: 20px;
+}
+
+.accountNumber {
+    margin-bottom: 0;
+}
+

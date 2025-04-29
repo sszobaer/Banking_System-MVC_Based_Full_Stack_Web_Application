@@ -27,12 +27,21 @@ let nameValidation = () => {
 let emailValidation = () => {
   const email = document.getElementById("email").value.trim();
   const errorDiv = document.getElementById("emailError");
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (email === "") {
     errorDiv.textContent = "Please enter your email.";
     return false;
-  } else if (!emailRegex.test(email)) {
+  }
+
+  if (!email.includes("@") || !email.includes(".")) {
+    errorDiv.textContent = "Email must contain '@' and '.'";
+    return false;
+  }
+
+  const atPosition = email.indexOf("@");
+  const dotPosition = email.lastIndexOf(".");
+
+  if (atPosition < 1 || dotPosition < atPosition + 2 || dotPosition + 1 >= email.length) {
     errorDiv.textContent = "Invalid email format.";
     return false;
   }
@@ -41,19 +50,25 @@ let emailValidation = () => {
   return true;
 };
 
-let phoneValidation = () => {
-  const phone = document.getElementById("phone").value.trim();
-  const errorDiv = document.getElementById("phoneError");
-  const phoneRegex = /^\d{10}$/;
 
-  if (phone === "") {
+let phoneValidation = () => {
+  const phoneNo = document.getElementById("phone").value.trim();
+  const errorDiv = document.getElementById("phoneError");
+
+  if (phoneNo === "") {
     errorDiv.textContent = "Please enter your phone number.";
     return false;
-  } else if (!phoneRegex.test(phone)) {
-    errorDiv.textContent = "Phone number must be 10 digits.";
+  } else if (phoneNo.length !== 11) {
+    errorDiv.textContent = "Phone number must be 11 digits.";
     return false;
   }
 
+  for (let i = 0; i < phoneNo.length; i++) {
+    if (phoneNo[i] < "0" || phoneNo[i] > "9") {
+      errorDiv.textContent = "Phone number must contain only digits.";
+      return false;
+    }
+  }
   errorDiv.textContent = "";
   return true;
 };
@@ -147,7 +162,7 @@ let confirmPasswordValidation = () => {
   return true;
 };
 const registrationValidation = () => {
-  const isValid =
+  return (
     nameValidation() &&
     emailValidation() &&
     phoneValidation() &&
@@ -156,10 +171,15 @@ const registrationValidation = () => {
     accountTypeValidation() &&
     depositValidation() &&
     passwordValidation() &&
-    confirmPasswordValidation();
-
-    if(isValid){
-      window.location.href = "login.html";
-    }
-    return false;
+    confirmPasswordValidation()
+  );
 };
+
+const regButton = document.getElementById("regBtn");
+regButton.addEventListener("click", (event) => {
+  event.preventDefault();
+  if (registrationValidation()) {
+    alert("Registration successful!");
+    window.location.href = "login.html";
+  }
+});
