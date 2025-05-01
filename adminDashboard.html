@@ -51,40 +51,35 @@
         </div>
         <!------------------- Header End --------------------------------->
         <!--------------------- Sidebar Start ----------------------------->
-        <div class="container">
-            <aside class="sidebar">
-                <ul>
-                    <li><a href="#"><img class="profile-logo"
-                                src="img/avatar.jpg" alt="avatar">
-                            <span class="profile-name">Zobaer Ahmed</span>
-                        </a></li>
-                    <li>
-                        <div class="search-container">
-                            <i class="fas fa-search search-icon"></i>
-                            <input type="search" name="search" id="search"
-                                placeholder="Search...">
-                        </div>
-                    </li>
-                    <li class="notification">
-                        <a href="#"><i
-                                class="fa-solid fa-bell"></i>Notification</a>
-                        <span class="notification-count">3</span>
-                    </li>
-                    <li><a href="#"><i class="fa-solid fa-cash-register"></i>
-                            Pay Bill</a></li>
-                    <li><a href="#"><i
-                                class="fa-solid fa-money-bill-transfer"></i>
-                            Transfer Money</a></li>
-                    <li><a href="#"><i class="fa-solid fa-money-bill"></i>
-                            Withdraw Money</a></li>
-                    <li><a href="#"><i
-                                class="material-symbols-outlined">savings</i>
-                            Deposit Money</a></li>
-                    <li><a href="#"><i class="fa-solid fa-landmark"></i>
-                            Loan Application</a></li>
-                </ul>
-            </aside>
-        </div>
+        <aside class="sidebar">
+            <ul>
+                <li><a href="adminProfile.html"><img class="profile-logo"
+                            src="img/avatar.jpg" alt="avatar">
+                        <span class="profile-name">Zobaer Ahmed</span>
+                    </a></li>
+                <li>
+                    <div class="search-container">
+                        <i class="fas fa-search search-icon"></i>
+                        <input type="search" name="search" id="search"
+                            placeholder="Search...">
+                    </div>
+                </li>
+                <li class="notification">
+                    <a href="#"><i
+                            class="fa-solid fa-bell"></i>Notification</a>
+                    <span class="notification-count">3</span>
+                </li>
+                <li><a href="#"><i class="fa-solid fa-money-bill"></i>
+                        Transactions</a></li>
+                <li><a href="#"><i class="fa-solid fa-chart-line"></i>
+                        Reports</a></li>
+                <li><a href="#"><i class="fa-solid fa-cog"></i>
+                        Settings</a></li>
+                <li><a href="#"><i class="fa-solid fa-users"></i>
+                        Manage Users</a></li>
+
+            </ul>
+        </aside>
         <!--------------------- Sidebar End ------------------------------->
         <!--------------------- Dashboard Start --------------------------->
         <section class="dashboard" id="dashboard">
@@ -92,89 +87,53 @@
                 <div class="left-section">
                     <div class="balance-and-name">
                         <div class="balance">
-                            <h2>Account Balance</h2>
+                            <h2>Total Balance</h2>
                             <p>$10,000.00</p>
                         </div>
                         <div class="name">
                             <h2>Welcome, Zobaer Ahmed</h2>
                         </div>
-                        <div class="accountNumber">
-                            <h2>Account Number: 123456789</h2>
+                        <div class="role">
+                            <h2>Role: <span class="role-type">Admin</span></h2>
                         </div>
                     </div>
-                    <div class="transactions">
-                        <div class="transactions-title">
-                            <h1>Recent Transactions</h1>
-                        </div>
-                        <div class="transactions-table-div">
-                            <table class="transactions-table">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Description</th>
-                                        <th>Amount</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>---</td>
-                                        <td>---</td>
-                                        <td>---</td>
-                                        <td>---</td>
-                                    </tr>
-                                    <tr>
-                                        <td>---</td>
-                                        <td>---</td>
-                                        <td>---</td>
-                                        <td>---</td>
-                                    </tr>
-                                    <tr>
-                                        <td>---</td>
-                                        <td>---</td>
-                                        <td>---</td>
-                                        <td>---</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
                     </div>
-                </div>
-                <div class="right-section">
-                    <div class="deposits-withdrawals">
-                        <div class="deposits-main">
-                            <div class="deposits-title">
-                                <h1>Deposit</h1>
-                            </div>
-                            <div class="amount">
-                                <h1>$2,000</h1>
-                            </div>
-                            <div class="chart-section">
+                    <div class="right-section">
+                        <div class="deposits-withdrawals">
+                            <div class="deposits-main">
+                                <div class="deposits-title">
+                                    <h1>Total Deposits</h1>
+                                </div>
+                                <div class="amount">
+                                    <h1>$2,000</h1>
+                                </div>
+                                <div class="chart-section">
 
-                                <div class="chart-header">
-                                    <p>Income chart will be displayed here.</p>
+                                    <div class="chart-header">
+                                        <p>Income chart will be displayed
+                                            here.</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="withdrawals-main">
-                            <div class="withdrawals-title">
-                                <h1>Withdrawals</h1>
-                            </div>
-                            <div class="amount">
-                                <h1>$2,000</h1>
-                            </div>
-                            <div class="chart-section">
-                                <div class="chart-header">
-                                    <p>Expenses chart will be displayed
-                                        here.</p>
+                            <div class="withdrawals-main">
+                                <div class="withdrawals-title">
+                                    <h1>Total Withdrawals</h1>
+                                </div>
+                                <div class="amount">
+                                    <h1>$2,000</h1>
+                                </div>
+                                <div class="chart-section">
+                                    <div class="chart-header">
+                                        <p>Expenses chart will be displayed
+                                            here.</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!--------------------- Dashboard End ----------------------------->
-</body>
+        </section>
+        <!--------------------- Dashboard End ----------------------------->
+    </body>
