@@ -87,11 +87,11 @@ let dobValidation = () => {
 };
 
 let genderValidation = () => {
-  const genderElems = document.getElementsByName("gender");
+  const genders= document.getElementsByName("gender");
   const errorDiv = document.getElementById("genderError");
   let isSelected = false;
 
-  for (let gender of genderElems) {
+  for (let gender of genders) {
     if (gender.checked) {
       isSelected = true;
       break;
