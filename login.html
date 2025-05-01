@@ -54,7 +54,7 @@
         <section class="reg" id="reg">
             <div class="regContainer">
                 <h1>Login to your account</h1>
-                <form id="registrationForm" onsubmit="return loginValidation()">
+                <form id="registrationForm" method="post" action="">
 
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -74,7 +74,7 @@
                         Not registered yet? <a href="signUp.html">Create
                             Account</a>
                     </div>
-                    <button class="btn">Login</button>
+                    <button class="btn" id="loginBtn">Login</button>
                 </form>
             </div>
         </section>

@@ -3,6 +3,7 @@
     --color-primary: #ff7a00; /* Primary color for buttons and links */
     --color-secondary: #182978; 
     --btn-hover:var(--color-text); 
+    --color-gradient: linear-gradient(134deg, #ffaf36, #ff930e, #ff3e04);
     --color-background: #f4f4f4; 
     --color-header: #ffffff;
     --color-text: #333; 

@@ -28,9 +28,12 @@ body {
     align-items: center;
     flex-direction: row;
     font-weight: 800;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
 }
 
-/* 📱 Hover effect styles (from earlier) */
 /* Hover Effect */
 .contrainer .header nav ul li {
     list-style: none;
@@ -65,6 +68,49 @@ body {
 
 
 /*----------Header design End------------------*/
+/*------------------ design start-----------------*/
+/* Sidebar Styling */
+.sidebar {
+    width: 220px;
+    height: 100vh;
+    margin-bottom: 98px;
+    background-color: var(--color-primary);
+    padding-top: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    color: white;
+    position: fixed; 
+    overflow-y: auto;
+    z-index: 1000;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin: 10px 0;
+  }
+  
+  .sidebar a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    transition: background 0.3s ease;
+  }
+  
+  .sidebar a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+  }
+  
+  .sidebar a:hover {
+    background-color: #e65100; 
+  }
+
 /* Button design 1 */
 .btn {
     position: relative;
@@ -79,6 +125,7 @@ body {
     overflow: hidden;
     z-index: 1;
     transition: color 0.4s ease;
+    border-radius: 8px;
 }
 
 .btn::before {
@@ -91,6 +138,7 @@ body {
     background-color: var(--color-text);
     z-index: -1;
     transition: width 0.4s ease;
+    border-radius: 8px;
 }
 
 .btn:hover::before {
@@ -125,6 +173,7 @@ body {
     overflow: hidden;
     z-index: 1;
     transition: color 0.4s ease;
+    border-radius: 8px;
 }
 
 .btn2::before {
@@ -137,6 +186,7 @@ body {
     background-color: var(--color-text);
     z-index: -1;
     transition: width 0.4s ease;
+    border-radius: 8px;
 }
 
 .btn2:hover::before {
@@ -156,3 +206,54 @@ body {
     outline: none;
     box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.5);
 } 
+
+/* ---------Form Design---------------- */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+.name-group {
+    display: flex;
+    gap: 20px;
+}
+
+.name-field {
+    flex: 1;
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 8px;
+    display: block;
+    color: #333;
+}
+
+input, select {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+input:focus, select:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+.gender-group {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    cursor: pointer;
+}
+
+.gender-group label {
+    margin-bottom: 0;
+}

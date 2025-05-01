@@ -21,56 +21,6 @@ h1 {
     text-decoration: solid;
     margin-bottom: 25px;
 }
-
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.form-group {
-    margin-bottom: 20px;
-}
-.name-group {
-    display: flex;
-    gap: 20px;
-}
-
-.name-field {
-    flex: 1;
-}
-
-label {
-    font-weight: 500;
-    margin-bottom: 8px;
-    display: block;
-    color: #333;
-}
-
-input, select {
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    width: 100%;
-    box-sizing: border-box;
-    font-size: 14px;
-    transition: border-color 0.3s ease;
-}
-
-input:focus, select:focus {
-    border-color: var(--color-primary);
-    outline: none;
-}
-
-.gender-group {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    cursor: pointer;
-}
-
-.gender-group label {
-    margin-bottom: 0;
-}
 .login-link {
     text-align: center;
     margin: 15px;
@@ -100,29 +50,16 @@ input:focus, select:focus {
 }
 /*-------------registration from end-------------*/
 /*-------------Header of dashboard Start------------------*/
-.profile-header {
-    padding: 15px 30px;
+.sidebar .profile-logo{
+    border-radius: 50%;
+    width: 40px;
+}
+.sidebar .profile-name{
+    font-size: 18px;
+    color: #333;
+    margin-left: 10px;
 }
 
-.header-content ul {
-    list-style: none;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 20px;
-}
-
-.header-content ul li a {
-    text-decoration: none;
-    color: #000000;
-    font-size: 20px;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.header-content ul li a:hover {
-    color: var(--color-primary);
-    transform: scale(1.2);
-}
 .notification {
     position: relative;
 }
@@ -140,56 +77,45 @@ input:focus, select:focus {
     box-shadow: 0 0 4px rgba(0,0,0,0.3);
     display: none;
 }
-.message {
-    position: relative;
-}
-
-.message-count {
-    position: absolute;
-    top: -8px;
-    right: -8px;
-    background-color: red;
-    color: white;
-    font-size: 12px;
-    padding: 2px 6px;
-    border-radius: 50%;
-    font-weight: bold;
-    box-shadow: 0 0 4px rgba(0,0,0,0.3);
-    display: none;
-}
 
 .main-content {
-    padding: 30px;
-    background-color: #f4f4f8;
-    min-height: 100vh;
+    margin-left: 220px; 
+    margin-top: 98px;
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
+    padding: 30px;
+    background-color: var(--color-background);
+    min-height: 100vh;
 }
 
 /* Container that holds balance and name */
 .balance-and-name {
-    background-color: #ffffff;
-    border-radius: 12px;
-    padding: 25px 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background: var(--color-gradient); 
+    border-radius: 12px; 
+    padding: 25px 30px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
     width: 100%;            
     max-width: 400px;
 }
 
+
 /* Headings and text styles */
+.left-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 .balance h2,
 .name h2,
 .accountNumber h2 {
     font-size: 20px;
-    color: #333;
+    color: #000000;
     margin-bottom: 8px;
     text-align: left;
 }
 
 .balance p {
     font-size: 28px;
-    color: var(--color-primary);
+    color: white;
     font-weight: bold;
     margin-top: 0;
     text-align: left;
@@ -205,4 +131,211 @@ input:focus, select:focus {
 .accountNumber {
     margin-bottom: 0;
 }
+/* Debit card design */
+.debit-card {
+    background-color: #e0e0e0; 
+    width: 100%;
+    height: 230px;
+    border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px;
+    margin-top: 20px;
+}
 
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chip {
+    width: 40px;
+    height: 30px;
+    background: linear-gradient(135deg, #ffd700 60%, #ff8c00); /* Gold gradient */
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.card-type {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--color-text);
+}
+
+.card-middle {
+    text-align: center;
+}
+
+.card-number {
+    font-size: 1.6em;
+    letter-spacing: 4px;
+    color: #222;
+    margin-bottom: 10px;
+}
+
+.expiry-date {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.card-holder {
+    font-size: 0.9em;
+    text-transform: uppercase;
+    color: #333;
+}
+
+.bank-logo {
+    font-size: 1em;
+    font-weight: bold;
+    color: var(--color-primary); 
+}
+
+.deposits-main, .withdrawals-main {
+    background: #f9f9f9;
+    border-radius: 12px;
+    padding: 20px;
+    margin:0 20px 20px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+    width: 160%;
+}
+.deposits-main .amount{
+    display: flex;
+    justify-content: end;
+}
+.deposits-main .amount h1{
+    margin: 8px;
+    font-weight: 500;
+    color:black;
+}
+
+
+.deposits-title, .withdrawals-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.withdrawals-main .amount{
+    display: flex;
+    justify-content: end;
+}
+.withdrawals-main .amount h1{
+    margin: 8px;
+    font-weight: 500;
+    color:black;
+}
+.chart-section {
+    height: 200px; 
+    background-color: #fff;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+/* Style for the search bar container */
+.search-container {
+    display: flex; 
+    align-items: center; 
+    background-color: var(--color-primary);
+    border-radius: 25px; 
+    padding: 8px 15px; 
+    margin-left: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+    width: 200px;
+    height: 40px;
+    transition: all 0.3s ease; 
+    border: 1px solid var(--color-primary);
+}
+
+.search-container:focus-within {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    border-color: var(--color-secondary);  
+}
+
+/* Style for the search icon */
+.search-icon {
+    margin-right: 10px; 
+    color: white; 
+}
+
+/* Style for the search input */
+#search {
+    border: none; 
+    outline: none; 
+    flex: 1;
+    font-size: 16px;
+    background-color: var(--color-primary); 
+    color: var(--color-text);
+    width:20px ; 
+}
+
+#search::placeholder {
+    color: #bbb; 
+}
+
+/* Table for recent transactions */
+.transactions{
+    margin-top: 20px;
+}
+.transactions-table-div{
+
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+.transactions .transactions-title h1{
+    margin: 5px;
+}
+.transactions-table {
+    margin: 20px;
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: #f8f8f8;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+}
+
+.transactions-table th, .transactions-table td {
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+}
+
+.transactions-table th {
+    background-color: var(--color-primary);
+    color: white;
+}
+
+.transactions-table tr:nth-child(even) {
+    background-color: #f4f4f4; 
+}
+
+.transactions-table tr:hover {
+    background-color: #e2e2e2;
+}
+
+.transactions-table td {
+    color: #333;
+}
+
+.transactions-table .completed {
+    color: green;
+}
+
+.transactions-table .pending {
+    color: red;
+}

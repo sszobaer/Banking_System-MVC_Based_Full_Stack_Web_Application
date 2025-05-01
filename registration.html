@@ -54,7 +54,7 @@
         <section class="reg" id="reg">
             <div class="regContainer">
                 <h1>Bank Registration Form</h1>
-                <form id="registrationForm">
+                <form id="registrationForm" method="post" action="php/register.php">
                     <div class="form-group">
                         <div class="name-group">
                             <div class="name-field">
@@ -63,7 +63,7 @@
                                     name="firstName"
                                     placeholder="Enter your first name">
                                 <div id="firstNameError"
-                                    class="error-message"></div>
+                                    class="error-message" name="error-message"></div>
                             </div>
                             <div class="name-field">
                                 <label for="lastName">Last Name</label>
@@ -149,11 +149,11 @@
                     <div class="login-link">
                         Already have an account? <a href="login.html">Login</a>
                     </div>
-                    <button class="btn" id="regBtn">Register</button>
+                    <button class="btn" id="regBtn" name="regBtn">Register</button>
                 </form>
             </div>
         </section>
         <!--------------------Sign Up End---------------------------------->
-        <script src="js/registrationValidation.js"></script>
+        <!-- <script src="js/registrationValidation.js"></script> -->
     </body>
 </html>
