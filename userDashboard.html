@@ -18,6 +18,12 @@
             rel="stylesheet">
         <link rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=savings" />
+            <!-- jsPDF library -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<!-- jsPDF AutoTable plugin -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+
     </head>
     <body>
         <!------------------- Header Start ------------------------------->
@@ -56,7 +62,7 @@
         <div class="container">
             <aside class="sidebar">
                 <ul>
-                    <li><a href="#"><img class="profile-logo"
+                    <li><a href="userProfile.html"><img class="profile-logo"
                                 src="img/avatar.jpg" alt="avatar">
                             <span class="profile-name">Zobaer Ahmed</span>
                         </a></li>
@@ -100,9 +106,8 @@
                         <div class="name">
                             <h2>Welcome, Zobaer Ahmed</h2>
                         </div>
-                        <div class="accountNumber">
-                            <h2>Account Number: <span
-                                    class="accNumber">*************</span></h2>
+                        <div class="role">
+                            <h2>Role: <span class="role-type">User</span></h2>
                         </div>
                     </div>
                     <a href="#">
@@ -122,44 +127,6 @@
                             </div>
                         </div>
                     </a>
-
-                    <div class="transactions">
-                        <div class="transactions-title">
-                            <h1>Recent Transactions</h1>
-                        </div>
-                        <div class="transactions-table-div">
-                            <table class="transactions-table">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Description</th>
-                                        <th>Amount</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>---</td>
-                                        <td>---</td>
-                                        <td>---</td>
-                                        <td>---</td>
-                                    </tr>
-                                    <tr>
-                                        <td>---</td>
-                                        <td>---</td>
-                                        <td>---</td>
-                                        <td>---</td>
-                                    </tr>
-                                    <tr>
-                                        <td>---</td>
-                                        <td>---</td>
-                                        <td>---</td>
-                                        <td>---</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
                 </div>
                 <div class="right-section">
                     <div class="deposits-withdrawals">
@@ -195,7 +162,70 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
-    <!--------------------- Dashboard End ----------------------------->
-</body>
+            <div class="down-section">
+                <div class="transactions">
+                    <div class="transactions-title">
+                        <h1>Recent Transactions</h1>
+                    </div>
+
+                    <div class="transactions-controls">
+                        <input type="date" id="filter-date">
+                        <input type="number" id="filter-amount"
+                            placeholder="Amount">
+                        <select id="filter-type">
+                            <option value="">All Types</option>
+                            <option value="credit">Credit</option>
+                            <option value="debit">Debit</option>
+                        </select>
+                        <input type="text" id="search-reference"
+                            placeholder="Search Merchant/Ref">
+                    </div>
+                    <div class="button">
+                        <button class="btn" id="download-pdf">Download
+                            PDF <i class="fa-solid fa-file-pdf"></i></button>
+                    </div>
+
+                    <div class="transactions-table-div">
+                        <table class="transactions-table">
+                            <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Description</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>2025-04-15</td>
+                                    <td>Amazon - Ref123</td>
+                                    <td>120</td>
+                                    <td class="completed">Completed</td>
+                                </tr>
+                                <tr>
+                                    <td>2025-04-16</td>
+                                    <td>Netflix - Ref456</td>
+                                    <td>15</td>
+                                    <td class="pending">Pending</td>
+                                </tr>
+                                <tr>
+                                    <td>2025-04-17</td>
+                                    <td>PayPal - Credit - Ref789</td>
+                                    <td>500</td>
+                                    <td class="completed">Completed</td>
+                                </tr>
+                                <tr>
+                                    <td>2025-04-18</td>
+                                    <td>Apple - Debit - Ref999</td>
+                                    <td>250</td>
+                                    <td class="completed">Completed</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--------------------- Dashboard End ----------------------------->
+        <script src="js/transaction.js"></script>
+    </body>
