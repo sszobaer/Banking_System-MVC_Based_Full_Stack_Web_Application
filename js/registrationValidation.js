@@ -41,7 +41,11 @@ let emailValidation = () => {
   const atPosition = email.indexOf("@");
   const dotPosition = email.lastIndexOf(".");
 
-  if (atPosition < 1 || dotPosition < atPosition + 2 || dotPosition + 1 >= email.length) {
+  if (
+    atPosition < 1 ||
+    dotPosition < atPosition + 2 ||
+    dotPosition + 1 >= email.length
+  ) {
     errorDiv.textContent = "Invalid email format.";
     return false;
   }
@@ -49,7 +53,6 @@ let emailValidation = () => {
   errorDiv.textContent = "";
   return true;
 };
-
 
 let phoneValidation = () => {
   const phoneNo = document.getElementById("phone").value.trim();
@@ -87,7 +90,7 @@ let dobValidation = () => {
 };
 
 let genderValidation = () => {
-  const genders= document.getElementsByName("gender");
+  const genders = document.getElementsByName("gender");
   const errorDiv = document.getElementById("genderError");
   let isSelected = false;
 
@@ -136,7 +139,11 @@ let depositValidation = () => {
 let passwordValidation = () => {
   const password = document.getElementById("password").value.trim();
   const errorDiv = document.getElementById("passwordError");
-
+  if(password === ""){
+    errorDiv.textContent = "Password is required";
+    errorDiv.style.color = "red";
+    return false;
+  }
   if (password.length < 6) {
     errorDiv.textContent = "Password must be at least 6 characters.";
     return false;
@@ -152,14 +159,68 @@ let confirmPasswordValidation = () => {
     .getElementById("confirmPassword")
     .value.trim();
   const errorDiv = document.getElementById("confirmPasswordError");
-
+  if(!confirmPassword){
+    errorDiv.textContent = "Confirm Password is required";
+    errorDiv.style.color = "red";
+    return false;
+  }
   if (confirmPassword !== password) {
     errorDiv.textContent = "Passwords do not match.";
+    errorDiv.style.color = "red"
     return false;
   }
 
   errorDiv.textContent = "";
   return true;
+};
+
+let presentAddressValidation = () => {
+  const presentAddress = document.getElementById("presentAdress").value.trim();
+  const errorDiv = document.getElementById("presentAdressError");
+
+  if (presentAddress === "") {
+    errorDiv.textContent = "Present address is required.";
+    errorDiv.style.color = "red";
+    return false;
+  } else {
+    errorDiv.textContent = "";
+    return true;
+  }
+};
+let permanentAdressVAlidation = () => {
+  const permanentAddress = document
+    .getElementById("permanentAdress")
+    .value.trim();
+  const errorDiv = document.getElementById("permanentAdressError");
+
+  if (permanentAddress === "") {
+    errorDiv.textContent = "Permanent address is required.";
+    errorDiv.style.color = "red";
+    return false;
+  } else {
+    errorDiv.textContent = "";
+    return true;
+  }
+};
+
+let profilePhotoValidation = () => {
+  const profilePhoto = document.getElementById("profile-photo");
+  const profilePhotoError = document.getElementById("profilePhotoError");
+  const photoFile = profilePhoto.files[0];
+  const isValidImg = ["image/jpg", "image/jpeg", "image/png"];
+
+  if (!photoFile) {
+    profilePhotoError.textContent = "Profile photo is required";
+    profilePhotoError.style.color = "red";
+    return false;
+  } else if (!isValidImg.includes(photoFile.type)) {
+    profilePhotoError.textContent = "Only jpg, jpeg, or png format are allowed";
+    profilePhotoError.style.color = "red";
+    return false;
+  } else {
+    profilePhotoError.textContent = "";
+    return true;
+  }
 };
 const registrationValidation = () => {
   return (
@@ -171,7 +232,10 @@ const registrationValidation = () => {
     accountTypeValidation() &&
     depositValidation() &&
     passwordValidation() &&
-    confirmPasswordValidation()
+    confirmPasswordValidation() &&
+    presentAddressValidation() &&
+    permanentAdressVAlidation() &&
+    profilePhotoValidation()
   );
 };
 
