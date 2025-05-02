@@ -1,11 +1,235 @@
+/* ---------------Hero Section Start-------------------*/
+.hero {
+    margin-top: 98px;
+    height: 100vh;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.8) 30%, rgba(0, 0, 0, 0) 100%),
+    url('../img/hero-img.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    padding-left: 5%;
+    color: white;
+  }
+  
+  .hero-content {
+    max-width: 500px;
+  }
+  
+  .hero .hero-title h1 {
+    color: white;
+    font-size: 60px;
+    line-height: 1.2em;
+    font-weight: 800;
+    text-transform: capitalize;
+    width: 800px;
+    text-align: left;
+  }
+  .hero .hero-content .buttons .btn{
+    border-radius: 0 !important;
+  }
+  
+  .hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+  }
+  /* ---------------Hero Section End-------------------*/
+  /*----------------services section start*/
+  .services {
+    text-align: center;
+    padding: 60px 20px;
+    background: #fff;
+    font-family: sans-serif;
+  }
+  
+  .section-header .tagline {
+    color: #007bff;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .section-header h2 {
+    font-size: 32px;
+    margin: 10px 0;
+    font-weight: bold;
+  }
+  
+  .section-header .subheading {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 40px;
+  }
+  
+  .services-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+  }
+  
+  .service-card {
+    background: #fff;
+    width: 300px;
+    padding: 30px 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+    text-align: left;
+    transition: all 0.3s ease;
+    color: #111;
+  }
+  
+  .service-card h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    color: #111;
+    transition: color 0.3s;
+  }
+  
+  .service-card p {
+    font-size: 14px;
+    color: #555;
+    transition: color 0.3s;
+  }
+  
+  .service-card .icon {
+    width: 60px;
+    height: 60px;
+    background: #fcefe6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    transition: background 0.3s;
+  }
+  
+  .service-card .icon i{
+    width: 30px;
+    height: 30px;
+    filter: none;
+    transition: filter 0.3s;
+  }
+  .service-card:hover {
+    background-color: #0d1b4c;
+    color: #fff;
+  }
+  
+  .service-card:hover h3,
+  .service-card:hover p {
+    color: #fff;
+  }
+  
+  .service-card:hover .icon {
+    background-color: rgba(255, 255, 255, 0.15);
+  }
+  
+  .service-card:hover .icon img {
+    filter: brightness(0) invert(1);
+  }
+  
+  .read-more {
+    color: #ff7300;
+    font-weight: bold;
+    display: inline-block;
+    margin-top: 15px;
+    text-decoration: none;
+  }
+  .read-more span {
+    margin-left: 5px;
+  }
+  /*--------------------------services End-------------------------------*/
+
+  /*-------------------------About section start-------------------*/
+  .about {
+    padding: 60px 20px;
+    background-color: #f4f7fa;
+  }
+  
+  .about-container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 40px;
+    align-items: center;
+  }
+  
+  .about-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  }
+  
+  .about-content {
+    flex: 1;
+    min-width: 300px;
+  }
+  
+  .subtitle {
+    color: #0066cc;
+    font-weight: bold;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  
+  .about-content h2 {
+    font-size: 32px;
+    color: #222;
+    margin: 0 0 20px;
+  }
+  
+  .about-content p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .features {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .feature-box {
+    background: #ffffff;
+    padding: 12px 20px;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .note-box {
+    background: #ffffff;
+    padding: 15px 20px;
+    border-left: 4px solid #3366ff;
+    margin-bottom: 25px;
+    color: #444;
+    font-style: italic;
+  }
+  
+  .btn {
+    display: inline-block;
+    background-color: #ff7900;
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+/*-------------------------About section start-------------------*/
 /*------------Registration form start------------*/
-.reg{
+.reg, 
+.edit-profile{
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top: 98px;
 }
-.regContainer {
+.regContainer, 
+.editProfileContainer {
     margin-top: 20px;
     margin-bottom: 20px;
     background-color: #fff;
@@ -28,7 +252,18 @@ h1 {
     font-size: 14px;
     color: #333;
 }
-
+.forgot-password{
+    text-align: end;
+    margin: 0 15px;
+    font-size: 14px;
+    color:var(--color-primary);
+}
+.forgot-password a{
+    cursor: pointer;
+}
+.forgot-password a:hover{
+    color: var(--btn-hover);
+}
 .login-link a {
     color: var(--color-primary);
     text-decoration: none;
@@ -99,7 +334,7 @@ h1 {
     padding: 25px 30px; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
     width: 100%;            
-    max-width: 400px;
+    max-width: 500px;
 }
 
 
@@ -382,19 +617,16 @@ h1 {
     color: white;
 }
 
-.transactions-table tr:nth-child(even),
-.profile-table tr:nth-child(even) {
-    background-color: #f9f9f9;
+.transactions-table tr:nth-child(even) {
+    background-color: #fff4e4;
 }
 
-.transactions-table tr:hover,
-.profile-table tr:hover {
-    background-color: #eef7ff;
+.transactions-table tr:hover {
+    background-color: #ffcc88;
 }
 
-.transactions-table td,
-.profile-table td {
-    color: #333;
+.transactions-table td {
+    color: #000000;
 }
 
 .transactions-table .completed{
@@ -445,6 +677,13 @@ h1 {
     margin: 2px;
     align-content: center;
 }
+.profile-table tr:nth-child(even){
+    background-color: rgb(239, 239, 239);
+}
+.profile-table td{
+    color: #000000;
+    font-size: var(--font-size-base);
+}
 .profile-table-div .profile-table tr td .profile-container {
     display: flex;
     justify-content: center; 
@@ -467,9 +706,59 @@ h1 {
 .profile-table-div .profile-table tr td button {
     padding: 10px 20px;   
 }
+.edit-profile{
+    margin-left: 250px;
+}
+/*Forgot Password Design*/
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: var(--color-background);
+}
+.modal-content {
+    background-color: #fff;
+    margin: 10% auto;
+    padding: 2rem;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+  }
 
-
-
-
+  .close {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  label, input {
+    display: block;
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .button-group{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
+  .button-group button {
+    flex: 1; 
+    text-align: center;
+  }
+  .button-group .btn,
+  .button-group .btn2{
+    width: 50%;
+  }
 
 
