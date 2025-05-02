@@ -54,7 +54,7 @@
         <section class="reg" id="reg">
             <div class="regContainer">
                 <h1>Login to your account</h1>
-                <form id="registrationForm" method="post" action="">
+                <form id="registrationForm" method="post" action>
 
                     <div class="form-group">
                         <label for="email">Email</label>
@@ -65,11 +65,18 @@
 
                     <div class="form-group">
                         <label for="password">Password</label>
-                        <input type="password" id="password" name="password"
-                            placeholder="Enter your password">
+                        <div class="password-container">
+                            <input type="password" class="password-field"
+                                id="password" name="password"
+                                placeholder="Enter your Password">
+                            <span class="toggle-password eye-icon">👁️</span>
+                        </div>
                         <div id="passwordError" class="error-message"></div>
                     </div>
 
+                    <div class="forgot-password">
+                        <a href="forgotPassword.html">forgot Password?</a>
+                    </div>
                     <div class="login-link">
                         Not registered yet? <a href="signUp.html">Create
                             Account</a>
@@ -80,5 +87,6 @@
         </section>
         <!--------------------Login End---------------------------------->
         <script src="js/loginValidation.js"></script>
+        <script src="js/index.js"></script>
     </body>
 </html>
