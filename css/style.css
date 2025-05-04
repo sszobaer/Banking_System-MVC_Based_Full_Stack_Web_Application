@@ -759,4 +759,159 @@ h1 {
   .button-group .btn,
   .button-group .btn2{
     width: 50%;
+<<<<<<< HEAD
   }
+=======
+  }
+
+/* Features Section */
+.features {
+    background-color: #f9f9f9;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  .features h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+  .features-grid {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .feature-item {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(2, 2, 2, 0.05);
+    transition: transform 0.3s ease;
+  }
+  .feature-item:hover {
+    transform: translateY(-8px);
+  }
+  .feature-item i {
+    font-size: 40px;
+    margin-bottom: 20px;
+    color: #007bff;
+  }
+  .feature-item h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  /* Testimonials Section */
+  .testimonials {
+    background-color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  .testimonials h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+  }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+  .testimonial {
+    background: #f1f1f1;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+  }
+  .testimonial p {
+    font-style: italic;
+    font-size: 16px;
+  }
+  .testimonial h4 {
+    margin-top: 15px;
+    font-weight: 600;
+  }
+/* contcat section */
+ 
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    max-width: 1200px;
+    margin: auto;
+    gap: 40px;
+  }
+  
+  .contact-info {
+    flex: 1;
+  }
+  
+  .contact-info h4 {
+    color: orangered;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .contact-info h2 {
+    font-weight: 900;
+    margin: 10px 0;
+  }
+  
+  .contact-info p {
+    line-height: 1.6;
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .contact-info .info i {
+    color: orangered;
+    margin-right: 10px;
+  }
+  
+  .social i {
+    margin: 10px 10px 0 0;
+    font-size: 18px;
+    color: orangered;
+    cursor: pointer;
+  }
+  
+  .contact-form {
+    flex: 1;
+  }
+  
+  .contact-form form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  input, textarea {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+  
+  .btn {
+    background-color: orangered;
+    color: white;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: black;
+  }
+
+  
+  .btn i {
+    margin-left: 8px;
+  }
+>>>>>>> dcab950fa5dae5a0a175b39b543df7cc5b4b8794
