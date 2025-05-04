@@ -1,3 +1,4 @@
+//Zobaer
 let profilePhotoValidation = () => {
   const profilePhoto = document.getElementById("profile-photo");
   const profilePhotoError = document.getElementById("profilePhotoError");

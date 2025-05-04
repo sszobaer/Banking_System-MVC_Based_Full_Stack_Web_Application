@@ -1,3 +1,4 @@
+//Zobaer
 let emailValidation = () => {
   const email = document.getElementById("email").value.trim();
   const errorDiv = document.getElementById("emailError");

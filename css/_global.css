@@ -315,18 +315,26 @@ input:focus, select:focus {
     cursor: pointer;
     font-size: 18px;
 }
-.form-group-terms{
-    display: flex;
-}
-/*------------------Footer Area-----------------------------*/
-.footer-area {
-    background-color: wheat;
-    padding: 20px 0; 
-    text-align: center; 
-    font-family: sans-serif; 
+.form-group-terms {
+    margin-top: 10px;
+    font-family: Arial, sans-serif;
 }
 
-.footer-area .container {
+input[type="checkbox"] {
+    width: 30px !important;
+} 
+.termsNdcondition:hover{
+    color: var(--color-primary);
+}
+
+/* ------------------Footer Area----------------------------- */
+.footer-area {
+    background: black;
+    padding: 20px 0; 
+    text-align: center; 
+}
+
+.footer-area .footer-container {
     max-width: 960px;
     margin: 0 auto;
 }
@@ -335,6 +343,10 @@ input:focus, select:focus {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 10px;
+    color:whitesmoke;
+}
+.footer-area .text-follow{
+    color:var(--color-primary);
 }
 
 .footer-area .social {
@@ -344,14 +356,14 @@ input:focus, select:focus {
 .footer-area .social h5 {
     font-size: 1rem;
     margin-bottom: 10px;
-    color: #555;
+    color: #ffffff;
 }
 
 .footer-area .social a {
     display: inline-block;
     margin: 0 10px;
     font-size: 1.5rem; 
-    color: #333; 
+    color: #ffffff; 
     transition: color 0.3s ease; 
 }
 
@@ -365,7 +377,7 @@ input:focus, select:focus {
     color:  red;
 }
 .footer-area .social .twitter:hover {
-    color: rgb(0, 102, 255);
+    color: #1da1f2;
 }
 .footer-area .social .linkedin:hover {
     color:  #0077b5;
@@ -376,7 +388,7 @@ input:focus, select:focus {
 
 .footer-area .copyrights {
     font-size: 0.9rem;
-    color: #777; /* Example copyright text color */
+    color: #777; 
 }
 
 .footer-area .copyrights .para {
@@ -385,13 +397,13 @@ input:focus, select:focus {
 
 .footer-area .copyrights a {
     color: #007bff; 
-    text-decoration: none;
+    text-decoration: none; 
     transition: color 0.3s ease;
 }
 
 .footer-area .copyrights a:hover {
-    color: #0056b3; 
+    color: var(--color-primary); 
 }
-.footer-name{
+.footer-area .text-name{
     color: var(--color-primary);
 }

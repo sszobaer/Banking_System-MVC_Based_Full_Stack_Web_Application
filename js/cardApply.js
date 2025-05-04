@@ -110,84 +110,50 @@ let genderValidation = () => {
   return true;
 };
 
-let accountTypeValidation = () => {
-  const accountType = document.getElementById("accountType").value;
-  const errorDiv = document.getElementById("accountTypeError");
+let cardTypeValidation = () => {
+  const cardType = document.getElementById("cardType").value;
+  const errorDiv = document.getElementById("cardTypeError");
 
-  if (accountType === "") {
-    errorDiv.textContent = "Please select an account type.";
+  if (cardType === "") {
+    errorDiv.textContent = "Please select an card type.";
     return false;
   }
 
   errorDiv.textContent = "";
   return true;
 };
+let cardBrandValidation = () => {
+  const cardBrand = document.getElementById("cardBrand").value;
+  const errorDiv = document.getElementById("cardBrandError");
 
-let depositValidation = () => {
-  const deposit = document.getElementById("initialDeposit").value.trim();
-  const errorDiv = document.getElementById("initialDepositError");
-
-  if (deposit === "" || isNaN(deposit) || Number(deposit) <= 0) {
-    errorDiv.textContent = "Please enter a valid deposit amount.";
+  if (cardBrand === "") {
+    errorDiv.textContent = "Please select an Card brand.";
     return false;
   }
 
   errorDiv.textContent = "";
   return true;
 };
+let occupationValidation = () => {
+  const occupation = document.getElementById("occupation").value.trim();
+  const occupationError = document.getElementById("occupationError");
 
-let nidValidation = () =>{
-  const nid = document.getElementById("nidNumber").value.trim();
-  const errorDiv = document.getElementById("nidNumberError");
-
-  if (nid === "") {
-    errorDiv.textContent = "Please enter your nid/passport number.";
+  if (occupation === "") {
+    occupationError.textContent = "Occupation is required.";
+    occupationError.style.color = "red";
     return false;
-  } else if (nid.length !== 10) {
-    errorDiv.textContent = "NID / Passport number must be 10 digits.";
-    return false;
+  } else {
+    occupationError.textContent = "";
+    return true;
   }
-
-  for (let i = 0; i < nid.length; i++) {
-    if (nid[i] < "0" || nid[i] > "9") {
-      errorDiv.textContent = "NID / Passport number must contain only digits.";
-      return false;
-    }
-  }
-  errorDiv.textContent = "";
-  return true;
-};
-let passwordValidation = () => {
-  const password = document.getElementById("password").value.trim();
-  const errorDiv = document.getElementById("passwordError");
-  if(password === ""){
-    errorDiv.textContent = "Password is required";
-    errorDiv.style.color = "red";
-    return false;
-  }
-  if (password.length < 6) {
-    errorDiv.textContent = "Password must be at least 6 characters.";
-    return false;
-  }
-
-  errorDiv.textContent = "";
-  return true;
 };
 
-let confirmPasswordValidation = () => {
-  const password = document.getElementById("password").value.trim();
-  const confirmPassword = document
-    .getElementById("confirmPassword")
-    .value.trim();
-  const errorDiv = document.getElementById("confirmPasswordError");
-  if(!confirmPassword){
-    errorDiv.textContent = "Confirm Password is required";
-    errorDiv.style.color = "red";
-    return false;
-  }
-  if (confirmPassword !== password) {
-    errorDiv.textContent = "Passwords do not match.";
-    errorDiv.style.color = "red"
+let monthlyIncomeValidation = () => {
+  const monthlyIncome = document.getElementById("monthlyIncome").value.trim();
+  const errorDiv = document.getElementById("monthlyIncomeError");
+
+  if (monthlyIncome === "" || isNaN(monthlyIncome) || Number(monthlyIncome) <= 0) {
+    errorDiv.textContent = "Please enter a valid income amount.";
     return false;
   }
 
@@ -196,8 +162,8 @@ let confirmPasswordValidation = () => {
 };
 
 let presentAddressValidation = () => {
-  const presentAddress = document.getElementById("presentAdress").value.trim();
-  const errorDiv = document.getElementById("presentAdressError");
+  const presentAddress = document.getElementById("presentAddress").value.trim();
+  const errorDiv = document.getElementById("presentAddressError");
 
   if (presentAddress === "") {
     errorDiv.textContent = "Present address is required.";
@@ -210,9 +176,9 @@ let presentAddressValidation = () => {
 };
 let permanentAdressVAlidation = () => {
   const permanentAddress = document
-    .getElementById("permanentAdress")
+    .getElementById("permanentAddress")
     .value.trim();
-  const errorDiv = document.getElementById("permanentAdressError");
+  const errorDiv = document.getElementById("permanentAddressError");
 
   if (permanentAddress === "") {
     errorDiv.textContent = "Permanent address is required.";
@@ -243,30 +209,29 @@ let profilePhotoValidation = () => {
     return true;
   }
 };
-let termsValidation = ()=>{
-  const terms = document.getElementById('terms');
-  const termsError = document.getElementById('termsError');
-  if(!terms.checked){
+let termsValidation = () => {
+  const terms = document.getElementById("terms");
+  const termsError = document.getElementById("termsError");
+  if (!terms.checked) {
     termsError.textContent = "Terms and condition must be checked";
     termsError.style.color = "red";
     return false;
-  }else{
+  } else {
     termsError.textContent = "";
     return true;
   }
-}
-const registrationValidation = () => {
+};
+const applyValidation = () => {
   return (
     nameValidation() &&
     emailValidation() &&
     phoneValidation() &&
     dobValidation() &&
     genderValidation() &&
-    accountTypeValidation() &&
-    depositValidation() &&
-    nidValidation() &&
-    passwordValidation() &&
-    confirmPasswordValidation() &&
+    cardTypeValidation()&&
+    cardBrandValidation()&&
+    occupationValidation()&&
+    monthlyIncomeValidation()&&
     presentAddressValidation() &&
     permanentAdressVAlidation() &&
     profilePhotoValidation() &&
@@ -274,11 +239,11 @@ const registrationValidation = () => {
   );
 };
 
-const regButton = document.getElementById("regBtn");
-regButton.addEventListener("click", (event) => {
+const applyButton = document.getElementById("applyBtn");
+applyButton.addEventListener("click", (event) => {
   event.preventDefault();
-  if (registrationValidation()) {
-    alert("Registration successful!");
-    window.location.href = "login.html";
+  if (applyValidation()) {
+    alert("Your record is stored! You will get a email soon.");
+    window.location.href = "index.html";
   }
 });

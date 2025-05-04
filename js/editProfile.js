@@ -1,3 +1,4 @@
+//Zobaer
 let nameValidation = () => {
     const firstName = document.getElementById("firstName").value.trim();
     const lastName = document.getElementById("lastName").value.trim();

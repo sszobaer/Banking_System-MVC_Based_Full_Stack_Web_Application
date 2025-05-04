@@ -709,60 +709,6 @@ h1 {
 .edit-profile{
     margin-left: 250px;
 }
-/*Forgot Password Design*/
-.modal{
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: var(--color-background);
-}
-.modal-content {
-    background-color: #fff;
-    margin: 10% auto;
-    padding: 2rem;
-    border-radius: 10px;
-    width: 400px;
-    max-width: 90%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    position: relative;
-  }
-
-  .close {
-    position: absolute;
-    top: 8px;
-    right: 16px;
-    font-size: 24px;
-    font-weight: bold;
-    cursor: pointer;
-  }
-  label, input {
-    display: block;
-    width: 100%;
-    margin-bottom: 1rem;
-  }
-  .button-group{
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    gap: 20px;
-  }
-  .button-group button {
-    flex: 1; 
-    text-align: center;
-  }
-  .button-group .btn,
-  .button-group .btn2{
-    width: 50%;
-<<<<<<< HEAD
-  }
-=======
-  }
 
 /* Features Section */
 .features {
@@ -831,17 +777,13 @@ h1 {
 /* contcat section */
  
   
-  .container {
+  .contact-container{
     display: flex;
     justify-content: space-between;
     padding: 40px;
     max-width: 1200px;
     margin: auto;
     gap: 40px;
-  }
-  
-  .contact-info {
-    flex: 1;
   }
   
   .contact-info h4 {
@@ -866,21 +808,12 @@ h1 {
     margin-right: 10px;
   }
   
-  .social i {
-    margin: 10px 10px 0 0;
-    font-size: 18px;
-    color: orangered;
-    cursor: pointer;
-  }
-  
-  .contact-form {
-    flex: 1;
-  }
   
   .contact-form form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    width: 100%;
   }
   
   input, textarea {
@@ -914,4 +847,41 @@ h1 {
   .btn i {
     margin-left: 8px;
   }
->>>>>>> dcab950fa5dae5a0a175b39b543df7cc5b4b8794
+
+  /* Terms CSS */
+  .terms-container {
+    max-width: 850px;
+    margin: 120px auto 60px auto;
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+}
+
+.terms-container h1 {
+    color: var(--color-primary);
+    font-size: 28px;
+}
+
+.terms-container h2 {
+    color: #333;
+    margin-top: 30px;
+}
+
+.terms-container p {
+    margin: 12px 0;
+    line-height: 1.6;
+}
+
+.terms-container a {
+    color: #0a4d8c;
+    text-decoration: none;
+}
+
+.terms-container a:hover {
+    text-decoration: underline;
+}
+
+.terms-container ul {
+    margin-left: 20px;
+}
