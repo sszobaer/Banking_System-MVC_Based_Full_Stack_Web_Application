@@ -315,3 +315,83 @@ input:focus, select:focus {
     cursor: pointer;
     font-size: 18px;
 }
+.form-group-terms{
+    display: flex;
+}
+/*------------------Footer Area-----------------------------*/
+.footer-area {
+    background-color: wheat;
+    padding: 20px 0; 
+    text-align: center; 
+    font-family: sans-serif; 
+}
+
+.footer-area .container {
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.footer-area .mainText {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.footer-area .social {
+    margin-bottom: 20px;
+}
+
+.footer-area .social h5 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.footer-area .social a {
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 1.5rem; 
+    color: #333; 
+    transition: color 0.3s ease; 
+}
+
+.footer-area .social .facebook:hover {
+    color: #007bff;
+}
+.footer-area .social .instagram:hover {
+    color:  #e1306c;
+}
+.footer-area .social .youtube:hover {
+    color:  red;
+}
+.footer-area .social .twitter:hover {
+    color: rgb(0, 102, 255);
+}
+.footer-area .social .linkedin:hover {
+    color:  #0077b5;
+}
+.footer-area .social .github:hover {
+    color: black;
+}
+
+.footer-area .copyrights {
+    font-size: 0.9rem;
+    color: #777; /* Example copyright text color */
+}
+
+.footer-area .copyrights .para {
+    margin: 0;
+}
+
+.footer-area .copyrights a {
+    color: #007bff; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-area .copyrights a:hover {
+    color: #0056b3; 
+}
+.footer-name{
+    color: var(--color-primary);
+}

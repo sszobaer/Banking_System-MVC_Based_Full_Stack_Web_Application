@@ -443,7 +443,7 @@ h1 {
     background: #f9f9f9;
     border-radius: 12px;
     padding: 20px;
-    margin:0 20px 20px 20px;
+    margin:0 20px 40px 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
     width: 175%;
 }
@@ -760,5 +760,3 @@ h1 {
   .button-group .btn2{
     width: 50%;
   }
-
-
