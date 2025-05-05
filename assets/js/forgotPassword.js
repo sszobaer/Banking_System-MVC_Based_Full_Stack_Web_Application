@@ -98,7 +98,7 @@ if (nextButton) {
     nextButton.addEventListener("click", (event) => {
       event.preventDefault();
       if (emailValidation()) {
-        window.location.href = "forgotPasswordVerification.html";
+        window.location.href = "forgotPasswordVerification.php";
       }
     });
   }
@@ -106,7 +106,7 @@ if (nextButton) {
   if (cancelButton) {
     cancelButton.addEventListener("click", (event) => {
       event.preventDefault();
-      window.location.href = "index.html";
+      window.location.href = "index.php";
     });
   }
   
@@ -118,7 +118,7 @@ if (nextButton) {
         passwordValidation() &&
         confirmPasswordValidation()
       ){
-        window.location.href = "login.html";
+        window.location.href = "login.php";
       }
     });
   }
@@ -126,7 +126,7 @@ if (nextButton) {
   if (cancelBtn) {
     cancelBtn.addEventListener("click", (event) => {
       event.preventDefault();
-      window.location.href = "index.html";
+      window.location.href = "index.php";
     });
   }
   

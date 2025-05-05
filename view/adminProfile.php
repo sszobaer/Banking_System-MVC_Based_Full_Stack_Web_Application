@@ -2,23 +2,21 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>View Profile</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/_global.css">
-        <link rel="stylesheet" href="css/_variable.css">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-            rel="stylesheet">
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=savings" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>iew Profile</title>
+    <link rel="stylesheet" href="../assets/./css/./style.css">
+    <link rel="stylesheet" href="../assets/./css/./_variable.css">
+    <link rel="stylesheet" href="../assets/./css/./_global.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+        rel="stylesheet">
     </head>
     <body>
         <!------------------- Header Start ------------------------------->
@@ -73,18 +71,16 @@
                                 class="fa-solid fa-bell"></i>Notification</a>
                         <span class="notification-count">3</span>
                     </li>
-                    <li><a href="#"><i class="fa-solid fa-cash-register"></i>
-                            Pay Bill</a></li>
-                    <li><a href="#"><i
-                                class="fa-solid fa-money-bill-transfer"></i>
-                            Transfer Money</a></li>
                     <li><a href="#"><i class="fa-solid fa-money-bill"></i>
-                            Withdraw Money</a></li>
-                    <li><a href="#"><i
-                                class="material-symbols-outlined">savings</i>
-                            Deposit Money</a></li>
-                    <li><a href="#"><i class="fa-solid fa-landmark"></i>
-                            Loan Application</a></li>
+                            Transactions</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chart-line"></i>
+                            Reports</a></li>
+                    <li><a href="#"><i class="fa-solid fa-cog"></i>
+                            Settings</a></li>
+                    <li><a href="manageUsers.html"><i
+                                class="fa-solid fa-users"></i>
+                            Manage Users</a></li>
+
                 </ul>
             </aside>
         </div>
@@ -147,7 +143,7 @@
                         <tr>
                             <td colspan="2">
                                 <div class="button-container">
-                                    <a href="userEditProfile.html"><button
+                                    <a href="adminEditProfile.html"><button
                                             class="btn">Edit
                                             information</button></a>
                                     <a href="changeAvatar.html"><button class="btn2">Change

@@ -3,56 +3,24 @@
 <html lang="en">
 
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Apply for debit / Credit Card</title>
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/_global.css">
-        <link rel="stylesheet" href="css/_variable.css">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-            rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Card</title>
+    <link rel="stylesheet" href="../assets/./css/./style.css">
+    <link rel="stylesheet" href="../assets/./css/./_variable.css">
+    <link rel="stylesheet" href="../assets/./css/./_global.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+        rel="stylesheet">
     </head>
 
     <body>
-        <!------------------- Header Start------------------------------->
-        <div class="contrainer">
-            <header class="header">
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="apply.html">Apply Now</a></li>
-                        <li><a href="blog.html">Blog</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                        <li>
-                            <a href="registration.html">
-                                <button class="btn">
-                                    Open An Account
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="login.html" id="login-btn">
-                                <button class="btn2">
-                                    Login
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
-        <!------------------- Header End --------------------------------->
         <!--------------------Card Apply Start-------------------------------->
         <section class="reg" id="reg">
             <div class="regContainer">
@@ -204,43 +172,6 @@
         </section>
 
         <!--------------------Card Apply End---------------------------------->
-        <!---------------------Footer Start---------------------------------------->
-        <section class="footer" id="footer">
-            <footer class="footer-area">
-                <div class="container">
-                    <div class="mainText">Aura Bank PLC</div>
-                    <div class="social">
-                        <h5 class="text-follow">FOLLOW ME</h5>
-                        <a href="https://www.facebook.com/zobaer.ahmed.121"
-                            class="facebook"><i
-                                class="fab fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/sheikh_shah_zobaer/"
-                            class="instagram"><i
-                                class="fab fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/@CodeCraftZobaer"
-                            class="youtube"><i
-                                class="fab fa-youtube"></i></a>
-                        <a href="https://x.com/sszobaer"><i
-                                class="fab fa-twitter" class="twitter"></i></a>
-                        <a
-                            href="https://www.linkedin.com/in/s-s-zobaer-ahmed-209bab296/"
-                            class="linkedin"><i
-                                class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/sszobaer"><i
-                                class="fab fa-github" class="github"></i></a>
-                    </div>
-                    <div class="copyrights">
-                        <p class="para">
-                            Copyright &copy; 2025 All rights reserved | This is
-                            made with by
-                            <a href="#"><span class="footer-name">S S Zobaer
-                                    Ahmed</span></a>
-                        </p>
-                    </div>
-                </div>
-            </footer>
-        </section>
-        <!---------------------Footer End------------------------------------------->
         <script src="js/cardApply.js"></script>
         <script src="js/index.js"></script>
     </body>

@@ -1,55 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Index</title>
-        <link rel="stylesheet" href="  css/style.css">
-        <link rel="stylesheet" href=" css/_global.css">
-        <link rel="stylesheet" href=" css/_variable.css">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-            crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-            rel="stylesheet">
 
-    </head>
-    <body>
-        <!------------------- Header Start (Zobaer)------------------------------->
-        <div class="contrainer">
-            <header class="header">
-                <nav>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                        <li>
-                            <a href="registration.html">
-                                <button class="btn">
-                                    Open An Account
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="login.html" id="login-btn">
-                                <button class="btn2">
-                                    Login
-                                    <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </a>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-        </div>
-        <!------------------- Header End --------------------------------->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="./assets/./css/./style.css">
+    <link rel="stylesheet" href="./assets/./css/./_global.css">
+    <link rel="stylesheet" href="./assets/./css/./_variable.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+        rel="stylesheet">
 
+</head>
+
+<body>
+    <?php
+    include "./view/header.php";
+    if (isset($_GET["registration"])) {
+        include "../BankingSystem/view/registration.php";
+    } else if (isset($_GET["login"])) {
+        include "../BankingSystem/view/login.php";
+    } else if(isset($_GET["cardApply"])){
+        include "./view/cardApply.php";
+    }
+    else {
+    ?>
         <!---------------------Hero Start(Zobaer)--------------------------------->
         <section class="hero" id="hero">
             <div class="hero-content">
@@ -60,7 +42,7 @@
                     banking—anytime, anywhere.</p>
                 <div class="buttons">
                     <a href="#" class="btn">Make an Appointment</a>
-                    <a href="cardApply.html" class="btn3">Apply for Card</a>
+                    <a href="?cardApply=true" class="btn3">Apply for Card</a>
                 </div>
             </div>
         </section>
@@ -121,7 +103,7 @@
         <section class="about" id="about">
             <div class="about-container">
                 <div class="about-image">
-                    <img src="img/aboutImg.jpg" alt="About Image">
+                    <img src="./assets/./img/./aboutImg.jpg" alt="About Image">
                 </div>
                 <div class="about-content">
                     <span class="subtitle">About Our Bank</span>
@@ -236,50 +218,11 @@
             </div>
         </section>
         <!---------------------Contact End--------------------------------------->
+    <?php
+    }
+    include "../BankingSystem/view/footer.php";
+    ?>
+    <script src="js/index.js"></script>
+</body>
 
-        <!---------------------Footer Start(Zobaer)---------------------------------------->
-        <section class="footer" id="footer">
-            <footer class="footer-area">
-                <div class="footer-container">
-                    <div class="mainText">Aura Bank PLC</div>
-                    <div class="followNdSocial">
-                        <h5 class="text-follow">FOLLOW ME</h5>
-                        <div class="social">
-                            <a href="https://www.facebook.com/zobaer.ahmed.121"
-                                class="facebook"><i
-                                    class="fab fa-facebook"></i></a>
-                            <a
-                                href="https://www.instagram.com/sheikh_shah_zobaer/"
-                                class="instagram"><i
-                                    class="fab fa-instagram"></i></a>
-                            <a href="https://www.youtube.com/@CodeCraftZobaer"
-                                class="youtube"><i
-                                    class="fab fa-youtube"></i></a>
-                            <a href="https://x.com/sszobaer"><i
-                                    class="fab fa-twitter"
-                                    class="twitter"></i></a>
-                            <a
-                                href="https://www.linkedin.com/in/s-s-zobaer-ahmed-209bab296/"
-                                class="linkedin"><i
-                                    class="fab fa-linkedin"></i></a>
-                            <a href="https://github.com/sszobaer"><i
-                                    class="fab fa-github"
-                                    class="github"></i></a>
-                        </div>
-                    </div>
-                    <div class="copyrights">
-                        <p class="para">
-                            Copyright &copy; 2025 All rights reserved | This is
-                            made with by
-                            <a href="#"><span class="text-name">Code
-                                    Craft Zobaer</span></a>
-                        </p>
-                    </div>
-                </div>
-            </footer>
-        </section>
-        <!---------------------Footer End------------------------------------------->
-
-        <script src="js/index.js"></script>
-    </body>
 </html>
