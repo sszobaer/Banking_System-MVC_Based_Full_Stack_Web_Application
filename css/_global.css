@@ -315,9 +315,9 @@ input:focus, select:focus {
     cursor: pointer;
     font-size: 18px;
 }
-.form-group-terms {
-    margin-top: 10px;
-    font-family: Arial, sans-serif;
+.form-group-checkBox {
+    margin-bottom: 15px;
+    font-family: var(--font-family);
 }
 
 input[type="checkbox"] {

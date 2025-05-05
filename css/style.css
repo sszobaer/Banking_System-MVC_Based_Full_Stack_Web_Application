@@ -439,43 +439,23 @@ h1 {
     color: var(--color-primary); 
 }
 
-.deposits-main, .withdrawals-main {
+.transactions-main {
     background: #f9f9f9;
     border-radius: 12px;
     padding: 20px;
     margin:0 20px 40px 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
     width: 175%;
+    height: 500px;
 }
-.deposits-main .amount{
-    display: flex;
-    justify-content: end;
-}
-.deposits-main .amount h1{
-    margin: 8px;
-    font-weight: 500;
-    color:black;
-}
-
-
-.deposits-title, .withdrawals-title {
+.transactions-title {
     font-size: 24px;
     font-weight: bold;
     color: #333;
     margin-bottom: 15px;
 }
-
-.withdrawals-main .amount{
-    display: flex;
-    justify-content: end;
-}
-.withdrawals-main .amount h1{
-    margin: 8px;
-    font-weight: 500;
-    color:black;
-}
 .chart-section {
-    height: 200px; 
+    height: 400px; 
     background-color: #fff;
     border-radius: 8px;
     border: 1px solid #ddd;
@@ -483,6 +463,25 @@ h1 {
     justify-content: center;
     align-items: center;
     width: 100%;
+}
+.chart-section canvas {
+  max-width: 400px;
+  margin: auto;
+  display: block;
+}
+.bottom-section{
+  margin-left: 220px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.deposits, .withdrawals, .transfers{
+  background: var(--color-gradient); 
+    border-radius: 12px; 
+    padding: 25px 30px; 
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
+    width: 300px;            
+    max-width: 500px;
 }
 /* Style for the search bar container */
 .search-container {
