@@ -222,14 +222,16 @@
 /*-------------------------About section start-------------------*/
 /*------------Registration form start------------*/
 .reg, 
-.edit-profile{
+.edit-profile,
+.deposits-main{
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 98px;
 }
 .regContainer, 
-.editProfileContainer {
+.editProfileContainer,
+.deposit-container {
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: #fff;
@@ -374,7 +376,7 @@ h1 {
 /* Debit card design */
 .debit-card {
   background-color: #e0e0e0; 
-  width: 100%;
+  width: 105%;
   height: 230px;
   border-radius: 10px;
   box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.8);
@@ -713,7 +715,8 @@ justify-content: space-around;
 .profile-table-div .profile-table tr td button {
   padding: 10px 20px;   
 }
-.edit-profile{
+.edit-profile,
+.deposits-main{
   margin-left: 250px;
 }
 
@@ -870,7 +873,8 @@ input, textarea {
   font-size: 28px;
 }
 
-.terms-container h2 {
+.terms-container
+ h2 {
   color: #333;
   margin-top: 30px;
 }

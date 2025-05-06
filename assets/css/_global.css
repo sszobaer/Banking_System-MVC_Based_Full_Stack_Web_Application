@@ -35,6 +35,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
+    z-index: 1000;
 }
 
 /* Hover Effect */
@@ -309,6 +310,7 @@ input:focus, select:focus {
 }
 .eye-icon {
     position: absolute;
+    z-index: -1;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);

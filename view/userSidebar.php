@@ -25,7 +25,7 @@
                             Transfer Money</a></li>
                     <li><a href="#"><i class="fa-solid fa-money-bill"></i>
                             Withdraw Money</a></li>
-                    <li><a href="#"><i
+                    <li><a href="./deposits.php"><i
                                 class="material-symbols-outlined">savings</i>
                             Deposit Money</a></li>
                     <li><a href="#"><i class="fa-solid fa-landmark"></i>

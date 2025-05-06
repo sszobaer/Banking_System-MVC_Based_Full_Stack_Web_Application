@@ -1,0 +1,7 @@
+
+Fixed Deposit:
+	100000
+	Any time I can withdraw, but the interest will be reduced. Suppose I have 10% interest for 10 yrs if I withdraw money before the date the percentage will be reduced
+
+DPS:
+	I can fixed EMI time fixed. If I withdraw before the time then the parcantage will be reduced.

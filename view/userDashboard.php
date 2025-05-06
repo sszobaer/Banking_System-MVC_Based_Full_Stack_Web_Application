@@ -75,17 +75,17 @@
         </div>
         <div class="bottom-section">
             <div class="deposits">
-                <i class="fa-solid fa-arrow-up-from-bracket"></i>
+            <i class="fa-solid fa-upload"></i>
                 <h2>Deposits</h2>
                 <p>$3,000</p>
             </div>
             <div class="withdrawals">
-                <i class="fa-solid fa-arrow-down"></i>
+            <i class="fa-solid fa-download"></i>
                 <h2>Withdrawals</h2>
                 <p>$1,200</p>
             </div>
             <div class="transfers">
-                <i class="fa-solid fa-right-left"></i>
+                <i class="fa-solid fa-money-bill-transfer"></i>
                 <h2>Transfers</h2>
                 <p>$800</p>
             </div>
