@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Index</title>
-    <link rel="stylesheet" href="./assets/./css/./style.css">
-    <link rel="stylesheet" href="./assets/./css/./_global.css">
-    <link rel="stylesheet" href="./assets/./css/./_variable.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/_variable.css">
+    <link rel="stylesheet" href="assets/css/_global.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -23,14 +23,6 @@
 <body>
     <?php
     include "./view/header.php";
-    if (isset($_GET["registration"])) {
-        include "../BankingSystem/view/registration.php";
-    } else if (isset($_GET["login"])) {
-        include "../BankingSystem/view/login.php";
-    } else if(isset($_GET["cardApply"])){
-        include "./view/cardApply.php";
-    }
-    else {
     ?>
         <!---------------------Hero Start(Zobaer)--------------------------------->
         <section class="hero" id="hero">
@@ -42,7 +34,7 @@
                     banking—anytime, anywhere.</p>
                 <div class="buttons">
                     <a href="#" class="btn">Make an Appointment</a>
-                    <a href="?cardApply=true" class="btn3">Apply for Card</a>
+                    <a href="view/cardApply.php" class="btn3">Apply for Card</a>
                 </div>
             </div>
         </section>
@@ -124,7 +116,7 @@
                         We are committed to empowering your financial future.
                     </div>
 
-                    <a href="registration.html" class="btn">Apply For An Account
+                    <a href="view/registration.php" class="btn">Apply For An Account
                         <i
                             class="fa-solid fa-arrow-right"></i></a>
                 </div>
@@ -218,11 +210,8 @@
             </div>
         </section>
         <!---------------------Contact End--------------------------------------->
-    <?php
-    }
-    include "../BankingSystem/view/footer.php";
-    ?>
-    <script src="js/index.js"></script>
+    <?php include "../BankingSystem/view/footer.php";?>
+    <script src="../assets/js/index.js"></script>
 </body>
 
 </html>

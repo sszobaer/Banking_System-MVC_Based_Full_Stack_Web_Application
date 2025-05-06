@@ -279,6 +279,6 @@ regButton.addEventListener("click", (event) => {
   event.preventDefault();
   if (registrationValidation()) {
     alert("Registration successful!");
-    window.location.href = "login.html";
+    window.location.href = "login.php";
   }
 });

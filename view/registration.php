@@ -6,9 +6,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
-    <link rel="stylesheet" href="../assets/./css/./style.css">
-    <link rel="stylesheet" href="../assets/./css/./_variable.css">
-    <link rel="stylesheet" href="../assets/./css/./_global.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/_variable.css">
+    <link rel="stylesheet" href="../assets/css/_global.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -21,6 +21,9 @@
 </head>
 
 <body>
+<?php
+    include "./header.php";
+    ?>
     <!--------------------Sign Up Start-------------------------------->
     <section class="reg" id="reg">
         <div class="regContainer">
@@ -164,16 +167,19 @@
                 </div>
 
                 <div class="login-link">
-                    Already have an account? <a href="login.html">Login</a>
+                    Already have an account? <a href="./login.php">Login</a>
                 </div>
                 <button class="btn" id="regBtn"
                     name="regBtn">Register</button>
             </form>
         </div>
     </section>
+    <?php
+    include "./footer.php";
+    ?>
     <!--------------------Sign Up End---------------------------------->
-    <script src="../assets//js//registrationValidation.js"></script>
-    <script src="../assets//js//index.js"></script>
+    <script src="../assets/js/registrationValidation.js"></script>
+    <script src="../assets/js/index.js"></script>
 </body>
 
 </html>

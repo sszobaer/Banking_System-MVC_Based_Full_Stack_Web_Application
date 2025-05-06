@@ -1,16 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Dashboard</title>
-</head>
-<body>
     <!--------------------- Sidebar Start ----------------------------->
     <aside class="sidebar">
         <ul>
             <li><a href="adminProfile.html"><img class="profile-logo"
-                        src="../assets//img//avatar.jpg" alt="avatar">
+                        src="../assets/img/avatar.jpg" alt="avatar">
                     <span class="profile-name">Zobaer Ahmed</span>
                 </a></li>
             <li>
@@ -37,5 +29,3 @@
         </ul>
     </aside>
     <!--------------------- Sidebar End ------------------------------->
-</body>
-</html>

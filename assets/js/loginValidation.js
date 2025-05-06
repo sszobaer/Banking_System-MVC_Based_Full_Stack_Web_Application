@@ -32,7 +32,7 @@ let emailValidation = () => {
 let passwordValidation = () => {
   const password = document.getElementById("password").value.trim();
   const error = document.getElementById("passwordError");
-  if(!password){
+  if (!password) {
     error.textContent = "Password is requied";
     return false;
   }
@@ -44,24 +44,11 @@ let passwordValidation = () => {
   return true;
 };
 
-const loginBtn = document.getElementById("loginBtn");
-const headerLoginBtn = document.getElementById("login-btn");
+const loginForm = document.getElementById("loginForm");
 
-loginBtn.addEventListener("click", (event) => {
+loginForm.addEventListener("submit", (event) => {
   event.preventDefault();
   if (emailValidation() && passwordValidation()) {
-    const email = document.getElementById("email").value.trim();
-    const password = document.getElementById("password").value.trim();
-    if (email === "user@fake.com" && password === "user123") {
-      alert("Login successful!");
-      window.location.href = "userDashboard.html";
-
-    } else if (email === "admin@fake.com" && password === "admin123") {
-      alert("Login successful!");
-      window.location.href = "adminDashboard.html";
-      headerLoginBtn.textContent = "LogOut";
-    } else {
-      alert("email or password is invalid");
-    }
+    loginForm.submit();
   }
 });
