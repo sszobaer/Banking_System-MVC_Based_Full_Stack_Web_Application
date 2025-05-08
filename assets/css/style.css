@@ -231,7 +231,8 @@
 }
 .regContainer, 
 .editProfileContainer,
-.deposit-container {
+.deposit-container,
+.bill-pay-container {
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: #fff;
@@ -298,7 +299,7 @@ h1 {
   margin-left: 10px;
 }
 
-.notification {
+.notification-sidebar {
   position: relative;
 }
 
@@ -445,9 +446,9 @@ h1 {
   background: #f9f9f9;
   border-radius: 12px;
   padding: 20px;
-  margin:0 20px 40px 20px;
+  margin:0 20px 40px 30px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
-  width: 175%;
+  width: 160%;
   height: 500px;
 }
 .transactions-title {
@@ -485,7 +486,6 @@ justify-content: space-around;
   width: 300px;            
   max-width: 500px;
   transition: transform 0.3s ease, background 0.3s ease;
-  cursor: pointer;
 }
 
 .deposits:hover, .withdrawals:hover, .transfers:hover {
@@ -716,8 +716,12 @@ justify-content: space-around;
   padding: 10px 20px;   
 }
 .edit-profile,
-.deposits-main{
+.deposits-main,
+.bill-pay-main{
   margin-left: 250px;
+}
+.bill-pay-main{
+  margin-top: 118px;
 }
 
 /* Features Section */
@@ -896,3 +900,110 @@ input, textarea {
 .terms-container ul {
   margin-left: 20px;
 }
+
+/* notification start */
+
+.notification-container {
+  max-width: 800px;
+  margin: 98px 20px 20px 300px;
+  padding: 0 20px;
+}
+
+.headings {
+  margin-top: 130px;
+  background-color: #ffffff;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.headings h1 {
+  margin: 0;
+  color: var(--color-primary);
+  font-size: 2em;
+}
+
+.notification-box {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.notification-box h2 {
+  margin: 0 0 20px;
+  color: #333;
+  font-size: 1.5em;
+}
+
+.notification {
+  border-left: 4px solid;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 0 4px 4px 0;
+  position: relative;
+}
+
+.notification.transaction {
+  border-color: #007bff;
+  background-color: #e7f3ff;
+}
+
+.notification.alert {
+  border-color: #dc3545;
+  background-color: #f8d7da;
+}
+
+.notification.update {
+  border-color: #28a745;
+  background-color: #d4edda;
+}
+
+.notification.read {
+  opacity: 0.7;
+}
+
+.notification p {
+  margin: 5px 0;
+  color: #333;
+}
+
+.notification .date {
+  font-size: 0.9em;
+  color: #666;
+}
+
+.notification .action {
+  font-size: 0.9em;
+  color: #007bff;
+  text-decoration: none;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+
+.notification .action:hover {
+  text-decoration: underline;
+}
+
+.mark-all {
+  display: block;
+  text-align: right;
+  margin-bottom: 20px;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+
+.mark-all:hover {
+  text-decoration: underline;
+}
+
+.no-notifications {
+  text-align: center;
+  color: #666;
+  padding: 20px;
+}
+
+/* notification End */

@@ -68,6 +68,10 @@ body {
   .contrainer .header nav ul li.active-nav::after {
     width: 100%;
   }
+  .contrainer .header nav ul li:hover::after,
+  .contrainer .header nav ul li.active-nav::after {
+    width: 100%;
+  }
   
 
 
@@ -310,7 +314,6 @@ input:focus, select:focus {
 }
 .eye-icon {
     position: absolute;
-    z-index: -1;
     right: 10px;
     top: 50%;
     transform: translateY(-50%);
