@@ -19,6 +19,10 @@
         rel="stylesheet">
     </head>
     <body>
+        <?php
+        include "./header.php";
+        include "./userSidebar.php";
+        ?>
         <!--------------------Forgot password form start-------------->
         <section class="reg" id="reg">
             <div class="regContainer">

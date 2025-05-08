@@ -43,7 +43,7 @@
                         <option value="fixed">Fixed Deposit</option>
                         <option value="recurring">Recurring Deposit</option>
                     </select>
-                    <div id="depositTypeError" class="error"></div>
+                    <div id="depositTypeError" class="error-message"></div>
                 </div>
                 <div class="form-group" id="tenureGroup">
                     <label for="tenure">Tenure (Months)</label>
@@ -54,7 +54,7 @@
                         <option value="24">24 Months</option>
                         <option value="36">36 Months</option>
                     </select>
-                    <div id="tenureError" class="error"></div>
+                    <div id="tenureError" class="error-message"></div>
                 </div>
                 <div class="form-group" id="frequencyGroup">
                     <label for="frequency">Deposit Frequency</label>
@@ -64,7 +64,7 @@
                         <option value="quarterly">Quarterly</option>
                         <option value="semi-annually">Semi-Annually</option>
                     </select>
-                    <div id="frequencyError" class="error"></div>
+                    <div id="frequencyError" class="error-message"></div>
                 </div>
                 <div class="form-group" id="depositMethodGroup">
                     <label for="depositMethod">Deposit Method</label>
@@ -74,7 +74,7 @@
                         <option value="check">Check</option>
                         <option value="transfer">Electronic Transfer</option>
                     </select>
-                    <div id="depositMethodError" class="error"></div>
+                    <div id="depositMethodError" class="error-message"></div>
                 </div>
                 <div class="form-group">
                     <label for="currency">Currency</label>
@@ -82,9 +82,9 @@
                         <option value="">Select currency</option>
                         <option value="USD">USD</option>
                         <option value="EUR">EUR</option>
-                        <option value="GBP">BDT</option>
+                        <option value="BDT">BDT</option>
                     </select>
-                    <div id="currencyError" class="error"></div>
+                    <div id="currencyError" class="error-message"></div>
                 </div>
                 <div class="form-group">
                     <label for="amount" id="amountLabel">Deposit Amount</label>
@@ -94,7 +94,7 @@
                 <div class="form-group">
                     <label for="memo">Memo (Optional)</label>
                     <input type="text" id="memo" placeholder="E.g., Salary, Gift">
-                    <div id="memoError" class="error"></div>
+                    <div id="memoError" class="error-message"></div>
                 </div>
                 <div class="form-group-terms">
                     <input type="checkbox" id="terms" name="terms">

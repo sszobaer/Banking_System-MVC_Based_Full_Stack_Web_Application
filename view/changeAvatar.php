@@ -19,6 +19,10 @@
         rel="stylesheet">
     </head>
     <body>
+        <?php 
+        include "./header.php";
+        include "./userSidebar.php";
+        ?>
         <!--------------------Login Start-------------------------------->
         <section class="edit-profile" id="edit-profile">
             <div class="editProfileContainer">

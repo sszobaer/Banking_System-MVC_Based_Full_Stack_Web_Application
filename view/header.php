@@ -3,11 +3,13 @@
     <header class="header">
         <nav>
             <ul>
-                <li><a href="/BankingSystem">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
                 <?php if (basename($_SERVER['PHP_SELF']) == "index.php") { ?>
+                    <li><a href="/BankingSystem">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+
                     <li>
                         <a href="./view/registration.php">
                             <button class="btn">
@@ -25,6 +27,11 @@
                         </a>
                     </li>
                 <?php } else { ?>
+                    <li><a href="/BankingSystem">Home</a></li>
+                    <li><a href="/BankingSystem">About</a></li>
+                    <li><a href="/BankingSystem">Services</a></li>
+                    <li><a href="/BankingSystem">Testimonials</a></li>
+                    <li><a href="/BankingSystem">Contact</a></li>
                     <li>
                         <a href="./registration.php">
                             <button class="btn">
