@@ -1,5 +1,5 @@
     <!--------------------- Sidebar Start ----------------------------->
-    <div class="container">
+    <div class="sidebar-container">
         <aside class="sidebar">
             <ul>
                 <li><a href="./userProfile.php"><img class="profile-logo" src="../assets/img/avatar.jpg" alt="avatar">
@@ -24,8 +24,6 @@
                         Pay Bill</a></li>
                 <li><a href="#"><i class="fa-solid fa-money-bill-transfer"></i>
                         Transfer Money</a></li>
-                <li><a href="#"><i class="fa-solid fa-money-bill"></i>
-                        Withdraw Money</a></li>
                 <li><a href="./deposits.php"><i class="material-symbols-outlined">savings</i>
                         Deposit Money</a></li>
                 <li><a href="#"><i class="fa-solid fa-landmark"></i>

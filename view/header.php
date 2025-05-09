@@ -26,6 +26,20 @@
                             </button>
                         </a>
                     </li>
+                <?php } else if (basename($_SERVER['PHP_SELF']) == "userDashboard.php") { ?>
+                    <li><a href="/BankingSystem">Home</a></li>
+                    <li><a href="/BankingSystem">About</a></li>
+                    <li><a href="/BankingSystem">Services</a></li>
+                    <li><a href="/BankingSystem">Testimonials</a></li>
+                    <li><a href="/BankingSystem">Contact</a></li>
+                    <li>
+                        <a href="./login.php" id="login-btn">
+                            <button class="btn2">
+                                Logout
+                                <i class="fa-solid fa-arrow-left"></i>
+                            </button>
+                        </a>
+                    </li>
                 <?php } else { ?>
                     <li><a href="/BankingSystem">Home</a></li>
                     <li><a href="/BankingSystem">About</a></li>
