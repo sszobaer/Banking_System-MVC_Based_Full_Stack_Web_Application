@@ -1,4 +1,5 @@
 //Zobaer
+//Pasword show and hide
 const toggleIcons = document.querySelectorAll(".toggle-password");
 
 toggleIcons.forEach(icon => {
