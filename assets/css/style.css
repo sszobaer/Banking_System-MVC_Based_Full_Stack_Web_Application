@@ -223,7 +223,9 @@
 /*------------Registration form start------------*/
 .reg, 
 .edit-profile,
-.deposits-main{
+.deposits-main,
+.card-management,
+.bill-pay-main{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -232,7 +234,8 @@
 .regContainer, 
 .editProfileContainer,
 .deposit-container,
-.bill-pay-container {
+.bill-pay-container,
+.card-management-container {
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: #fff;
@@ -305,16 +308,16 @@ h1 {
 
 .notification-count {
   position: absolute;
-  top: -8px;
-  right: -8px;
+  top: 12px;
+  right: 190px;
   background-color: red;
   color: white;
-  font-size: 12px;
+  font-size: 8px;
   padding: 2px 6px;
-  border-radius: 50%;
+  border-radius: 100%;
   font-weight: bold;
   box-shadow: 0 0 4px rgba(0,0,0,0.3);
-  display: none;
+  /* display: none; */
 }
 
 .main-content {
@@ -329,7 +332,6 @@ h1 {
   margin-top: 0px;
   position: fixed;
 }
-
 /* Container that holds balance and name */
 .balance-and-name {
   background: var(--color-gradient); 
@@ -720,9 +722,6 @@ justify-content: space-around;
 .bill-pay-main{
   margin-left: 250px;
 }
-.bill-pay-main{
-  margin-top: 118px;
-}
 
 /* Features Section */
 .features {
@@ -1007,3 +1006,38 @@ input, textarea {
 }
 
 /* notification End */
+/*Card Management Start*/
+.card-management{
+  margin-left: 220px;
+}
+.tabs {
+  display: flex;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+.tab {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  background: #eee;
+  border-radius: 4px 4px 0 0;
+}
+.tab.active {
+  background: #fff;
+  border-bottom: 2px solid var(--color-primary);
+}
+.tab-content {
+  display: none;
+}
+.tab-content.active {
+  display: block;
+}
+textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+/*Card Management End*/

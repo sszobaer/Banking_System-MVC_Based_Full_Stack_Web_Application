@@ -63,6 +63,10 @@ body {
     color: var(--color-primary, #ff7a00);
     transform: scale(1.05);
   }
+  .contrainer .header nav ul li.active{
+    color: var(--color-primary, #ff7a00);
+    border-bottom: 2px solid var(--color-primary);
+  }
   
   .contrainer .header nav ul li:hover::after,
   .contrainer .header nav ul li.active-nav::after {
