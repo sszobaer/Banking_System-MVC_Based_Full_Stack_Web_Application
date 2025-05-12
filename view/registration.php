@@ -29,7 +29,7 @@
         <div class="regContainer">
             <h1>Bank Registration Form</h1>
             <form id="registrationForm" method="post"
-                action="../controller/registrationValidation.php">
+                action="../controller/registrationController.php">
                 <div class="form-group">
                     <div class="name-group">
                         <div class="name-field">
@@ -139,7 +139,7 @@
                 <div class="form-group">
                     <label for="presentAdress">Present Address</label>
                     <input type="presentAdress" id="presentAdress"
-                        name="presentAdress"
+                        name="presentAddress"
                         placeholder="Enter your present adress">
                     <div id="presentAdressError"
                         class="error-message"></div>

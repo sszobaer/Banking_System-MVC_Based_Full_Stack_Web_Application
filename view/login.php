@@ -26,7 +26,7 @@
         <section class="reg" id="reg">
             <div class="regContainer">
                 <h1>Login to your account</h1>
-                <form id="loginForm" method="post" action="../controller/loginValidation.php">
+                <form id="loginForm" method="post" action="../controller/loginController.php">
 
                     <div class="form-group">
                         <label for="email">Email</label>

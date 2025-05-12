@@ -274,11 +274,10 @@ const registrationValidation = () => {
   );
 };
 
-const regButton = document.getElementById("regBtn");
-regButton.addEventListener("click", (event) => {
+const regForm = document.getElementById("registrationForm");
+regForm.addEventListener("submit", (event) => {
   event.preventDefault();
   if (registrationValidation()) {
-    alert("Registration successful!");
-    window.location.href = "login.php";
+    regForm.submit();
   }
 });
