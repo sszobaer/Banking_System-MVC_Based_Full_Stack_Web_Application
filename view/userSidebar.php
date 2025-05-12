@@ -26,7 +26,7 @@
                         Transfer Money</a></li>
                 <li><a href="./deposits.php"><i class="material-symbols-outlined">savings</i>
                         Deposit Money</a></li>
-                <li><a href="#"><i class="fa-solid fa-landmark"></i>
+                <li><a href="./loanApplication.php"><i class="fa-solid fa-landmark"></i>
                         Loan Application</a></li>
             </ul>
         </aside>

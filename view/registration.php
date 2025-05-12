@@ -161,7 +161,7 @@
                 </div>
                 <div class="form-group-terms">
                     <input type="checkbox" id="terms" name="terms">
-                    I agree to the <a href="terms.html" target="_blank"
+                    I agree to the <a href="./terms.php" target="_blank"
                         class="termsNdcondition">Terms & Conditions</a>
                     <div id="termsError" class="error-message"></div>
                 </div>
