@@ -60,21 +60,6 @@ let billerValidation = () => {
     return true;
   }
 };
-
-let amountValidation = () => {
-  const amount = document.getElementById("amount").value.trim();
-  const amountError = document.getElementById("amountError");
-
-  if (amount === "" || isNaN(amount) || Number(amount) <= 0) {
-    amountError.textContent = "Please enter a valid payment amount.";
-    amountError.style.color = "red";
-    return false;
-  }
-
-  amountError.textContent = "";
-  return true;
-};
-
 let currencyValidation = () => {
   const currency = document.getElementById("currency").value;
   const currencyError = document.getElementById("currencyError");
@@ -87,6 +72,19 @@ let currencyValidation = () => {
     currencyError.textContent = "";
     return true;
   }
+};
+let amountValidation = () => {
+  const amount = document.getElementById("amount").value.trim();
+  const amountError = document.getElementById("amountError");
+
+  if (amount === "" || isNaN(amount) || Number(amount) <= 0) {
+    amountError.textContent = "Please enter a valid payment amount.";
+    amountError.style.color = "red";
+    return false;
+  }
+
+  amountError.textContent = "";
+  return true;
 };
 
 let receiptValidation = () => {
@@ -139,16 +137,16 @@ let billPayValidation = () => {
     selectAccountValidation() &&
     paymentAccountNumberValidation() &&
     billerValidation() &&
-    amountValidation() &&
     currencyValidation() &&
+    amountValidation() &&
     receiptValidation() &&
     termsValidation()
   );
 };
 
 const payButton = document.getElementById("pay-btn");
-
-payButton.addEventListener("click", (event) => {
+const billPayForm = document.getElementById("billPayForm");
+billPayForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   if (billPayValidation()) {
@@ -171,6 +169,7 @@ payButton.addEventListener("click", (event) => {
     `Payment successfully processed!\nPaid from: ${selectAccountText}\nBiller: ${billerText}\nAmount: ${amount} ${currency}\nReceipt: ${receiptFileName}`;
 
     alert(successMessage);
+    billPayForm.submit();
 
     // ✅ PDF generation
     const { jsPDF } = window.jspdf;

@@ -28,10 +28,10 @@
     <section class="deposits-main" id="deposits-main">
         <div class="deposit-container">
             <h1>Make a Deposit</h1>
-            <form id="depositForm" method="post" action="../controller/depositsValidation.php">
+            <form id="depositForm" method="post" action="../controller/depositsController.php">
                 <div class="form-group">
                     <label for="accountNumber">Account Number</label>
-                    <input type="text" id="accountNumber" placeholder="Enter account number" >
+                    <input type="text" id="accountNumber" name = "accountNumber" placeholder="Enter account number" >
                     <div id="accountNumberError" class="error"></div>
                 </div>
                 <div class="form-group">
@@ -88,7 +88,7 @@
                 </div>
                 <div class="form-group">
                     <label for="amount" id="amountLabel">Deposit Amount</label>
-                    <input type="number" id="amount" placeholder="Enter deposit amount" min="1" step="0.01">
+                    <input type="number" id="amount" name = "amount"placeholder="Enter deposit amount" min="1" step="0.01">
                     <div id="amountError" class="error"></div>
                 </div>
                 <div class="form-group">

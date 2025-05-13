@@ -240,10 +240,10 @@ const applyValidation = () => {
 };
 
 const applyButton = document.getElementById("applyBtn");
-applyButton.addEventListener("click", (event) => {
+const  cardApplyForm  = document.getElementById("cardApplyForm");
+cardApplyForm.addEventListener("submit", (event) => {
   event.preventDefault();
   if (applyValidation()) {
-    alert("Your record is stored! You will get a email soon.");
-    window.location.href = "index.html";
+    cardApplyForm.submit(); 
   }
 });

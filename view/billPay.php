@@ -25,7 +25,7 @@
     <section class="bill-pay-main" id="bill-pay-main">
         <div class="bill-pay-container">
             <h1>Pay Bill</h1>
-            <form id="billPayForm" method="post" action="../controller/billPayValidation.php">
+            <form id="billPayForm" method="post" action="../controller/payBillController.php" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="selectAccount">Select Your Account</label>
                     <select id="selectAccount" name="selectAccount">
@@ -54,11 +54,6 @@
                     <div id="payeeError" class="error-message"></div>
                 </div>
                 <div class="form-group">
-                    <label for="amount">Payment Amount</label>
-                    <input type="number" id="amount" name="amount" placeholder="Enter payment amount">
-                    <div id="amountError" class="error-message"></div>
-                </div>
-                <div class="form-group">
                     <label for="currency">Currency</label>
                     <select id="currency" name="currency">
                         <option value="">Select currency</option>
@@ -67,6 +62,11 @@
                         <option value="BDT">BDT</option>
                     </select>
                     <div id="currencyError" class="error-message"></div>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Payment Amount</label>
+                    <input type="number" id="amount" name="amount" placeholder="Enter payment amount">
+                    <div id="amountError" class="error-message"></div>
                 </div>
                 <div class="form-group">
                     <label for="memo">Memo (Optional)</label>

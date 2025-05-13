@@ -1,5 +1,7 @@
-<?php 
-function validateEmail(){
+<?php
+session_start();
+function validateEmail()
+{
     $email = trim($_POST['email']);
     $atPosition = strpos($email, '@');
     $dotPosition = strrpos($email, '.');
@@ -15,7 +17,8 @@ function validateEmail(){
     }
     return true;
 }
-function validatePassword(){
+function validatePassword()
+{
     $password = trim($_POST['password']);
 
     if ($password == "") {
@@ -24,12 +27,22 @@ function validatePassword(){
     } else if (strlen($password) < 6) {
         echo "Password must be at least 6 characters<br>";
         return false;
-    } 
+    }
     return true;
 }
+$email = trim($_POST['email']);
+$password = trim($_POST['password']);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if(validateEmail() && validatePassword()){
-        header('location:../view/userDashboard.php');
+    if (validateEmail() && validatePassword()) {
+        if ($email == "user@fake.com" && $password == "password123") {
+            $_SESSION['user_email'] = $email;
+            $_SESSION['logged_in'] = true;
+
+            //print_r($_SESSION);
+            header("Location:../view/userDashboard.php");
+            exit();
+        } else {
+            echo "Invalid credentials";
+        }
     }
 }
-?>

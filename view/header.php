@@ -33,7 +33,7 @@
                     <li><a href="/BankingSystem">Testimonials</a></li>
                     <li><a href="/BankingSystem">Contact</a></li>
                     <li>
-                        <a href="./login.php" id="login-btn">
+                        <a href="../controller/logoutController.php" id="logout-btn">
                             <button class="btn2">
                                 Logout
                                 <i class="fa-solid fa-arrow-left"></i>

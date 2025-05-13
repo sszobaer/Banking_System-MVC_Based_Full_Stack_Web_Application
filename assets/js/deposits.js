@@ -93,6 +93,7 @@ let currencyValidation = () => {
 let amountValidation = () => {
     const amount = document.getElementById("amount").value.trim();
     const depositType = document.getElementById("depositType").value;
+    const currency = document.getElementById("currency").value.toUpperCase();
     const errorDiv = document.getElementById("amountError");
 
     if (amount === "") {
@@ -129,24 +130,61 @@ let amountValidation = () => {
         return false;
     }
 
-    if (depositType === "fixed" && amountValue < 1000) {
+    // Set currency-based limits
+    let minFixed = 0;
+    let maxRecurring = 0;
+    let maxDeposit = 0;
+    let currencySymbol = "";
+
+    switch (currency) {
+        case "USD":
+            minFixed = 1000;
+            maxRecurring = 5000;
+            maxDeposit = 10000;
+            currencySymbol = "$";
+            break;
+        case "EUR":
+            minFixed = 900;
+            maxRecurring = 4500;
+            maxDeposit = 8000;
+            currencySymbol = "€";
+            break;
+        case "BDT":
+            minFixed = 100000;
+            maxRecurring = 500000;
+            maxDeposit = 1000000;
+            currencySymbol = "bdt";
+            break;
+        default:
+            errorDiv.style.color = "red";
+            errorDiv.textContent = "Please select a valid currency.";
+            return false;
+    }
+
+    if (depositType === "fixed" && amountValue < minFixed) {
         errorDiv.style.color = "red";
-        errorDiv.textContent = "Fixed deposit requires minimum $1000.";
-        return false;
-    } else if (depositType === "recurring" && amountValue > 5000) {
-        errorDiv.style.color = "red";
-        errorDiv.textContent = "Recurring deposit cannot exceed $5000 per deposit.";
-        return false;
-    } else if (amountValue > 10000) {
-        errorDiv.style.color = "red";
-        errorDiv.textContent = "Amount cannot exceed $10,000.";
+        errorDiv.textContent = `Fixed deposit requires minimum ${currencySymbol}${minFixed}.`;
         return false;
     }
 
-    errorDiv.style.color = "";
+    if (depositType === "recurring" && amountValue > maxRecurring) {
+        errorDiv.style.color = "red";
+        errorDiv.textContent = `Recurring deposit cannot exceed ${currencySymbol}${maxRecurring} per deposit.`;
+        return false;
+    }
+
+    if (amountValue > maxDeposit) {
+        errorDiv.style.color = "red";
+        errorDiv.textContent = `Amount cannot exceed ${currencySymbol}${maxDeposit}.`;
+        return false;
+    }
+
     errorDiv.textContent = "";
     return true;
 };
+
+
+
 
 let memoValidation = () => {
     const memo = document.getElementById("memo").value.trim();
@@ -238,18 +276,8 @@ depositForm.addEventListener("submit", (event) => {
         const amount = document.getElementById("amount").value.trim();
         const currency = document.getElementById("currency").value;
         const memo = document.getElementById("memo").value.trim();
-
-        if ((depositType === "checking" || depositType === "savings") && depositMethod === "transfer") {
-            depositForm.submit();
-        } else {
-            const successMessage = `Deposit successful! Amount: ${currency} ${amount}`;
-            alert(successMessage);
-            depositForm.reset();
-            tenureGroup.style.display = "none";
-            frequencyGroup.style.display = "none";
-            depositMethodGroup.style.display = "none";
-            amountLabel.textContent = "Deposit Amount";
-            amountInput.placeholder = "Enter deposit amount";
-        }
+        alert('Your money is deposited!');
+        depositForm.submit();
+        
     }
 });

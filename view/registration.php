@@ -29,7 +29,7 @@
         <div class="regContainer">
             <h1>Bank Registration Form</h1>
             <form id="registrationForm" method="post"
-                action="../controller/registrationController.php">
+                action="../controller/registrationController.php" enctype="multipart/form-data">
                 <div class="form-group">
                     <div class="name-group">
                         <div class="name-field">

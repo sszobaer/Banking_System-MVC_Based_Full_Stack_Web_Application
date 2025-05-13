@@ -1,6 +1,5 @@
 <?php
-function validateName()
-{
+function validateName(){
     $firstName = trim($_POST['firstName']);
     $lastName = trim($_POST['lastName']);
     if ($firstName === "" || $lastName === "") {
@@ -10,8 +9,7 @@ function validateName()
     return true;
 }
 
-function validateEmail()
-{
+function validateEmail(){
     $email = trim($_POST['email']);
     $atPosition = strpos($email, '@');
     $dotPosition = strrpos($email, '.');
@@ -28,8 +26,7 @@ function validateEmail()
     return true;
 }
 
-function validatePhone()
-{
+function validatePhone(){
     $phone = trim($_POST['phone']);
     if ($phone == "") {
         echo "Phone number is required";
@@ -48,8 +45,7 @@ function validatePhone()
     return true;
 }
 
-function validateDateofBirth()
-{
+function validateDateofBirth(){
     $dateOfBirth = trim($_POST['dob']);
     if ($dateOfBirth == "") {
         echo "Date of Birth is required<br>";
@@ -58,89 +54,72 @@ function validateDateofBirth()
     return true;
 }
 
-function validateGender()
-{
+function validateGender(){
     if (!isset($_POST['gender']) || trim($_POST['gender']) == "") {
         echo "Gender is required<br>";
         return false;
     }
     return true;
 }
+function validateAccountNo(){
+    $accountNumber = trim($_POST["acc-no"]);
+    if (empty($accountNumber)) {
+        echo "Please enter your account number.<br>";
+        return false;
+    }
 
-function validateAccountType()
-{
-    $accountType = trim($_POST['accountType']);
-    if ($accountType == "") {
-        echo "Account Type is required<br>";
+    $length = strlen($accountNumber);
+    if ($length < 8 || $length > 12) {
+        echo "Account number must be 8-12 digits.<br>";
+        return false;
+    }
+
+    for ($i = 0; $i < $length; $i++) {
+        if ($accountNumber[$i] < "0" || $accountNumber[$i] > "9") {
+            echo "Account number must contain only digits.<br>";
+            return false;
+        }
+    }
+
+    return true;
+}
+function validateCardType(){
+    $cardType = $_POST["cardType"];
+    if(empty($cardType)){
+        echo "Card type must be checked!";
+        return false;
+    }
+    return true;
+}
+function brandValidation() {
+    if (!isset($_POST["cardBrand"])) {
+        echo "Please select a card brand.<br>";
         return false;
     }
     return true;
 }
 
-function validateInitialDeposit()
-{
-    $initialDeposit = trim($_POST['initialDeposit']);
-    if ($initialDeposit == "") {
-        echo "Initial Deposit is required<br>";
-        return false;
-    } else if (!is_numeric($initialDeposit) || $initialDeposit < 0) {
-        echo "Initial Deposit must be a valid number<br>";
+function occupationValidation() {
+    $occupation = trim($_POST["occupation"]);
+    if (empty($occupation)) {
+        echo "Please enter your occupation.<br>";
         return false;
     }
     return true;
 }
-function validateDeposit()
-{
-    $deposit = trim($_POST['initialDeposit']);
 
-    if (empty($deposit) || !is_numeric($deposit) || floatval($deposit) <= 0) {
-        echo "Please enter a valid deposit amount.";
+function incomeValidation() {
+    $income = trim($_POST["monthlyIncome"]);
+    if (empty($income)) {
+        echo "Please enter your income.<br>";
+        return false;
+    } elseif (!is_numeric($income) || floatval($income) <= 0) {
+        echo "Income must be a valid positive number.<br>";
         return false;
     }
     return true;
 }
-function validateNid()
-{
-    $nid = trim($_POST['nidNumber']);
 
-    if (empty($nid)) {
-        echo "Please enter your nid/passport number.";
-        return false;
-    } elseif (strlen($nid) !== 10) {
-        echo "NID / Passport number must be 10 digits.";
-        return false;
-    } elseif (!ctype_digit($nid)) {
-        echo "NID / Passport number must contain only digits.";
-        return false;
-    }
-    return true;
-}
-function validatePassword()
-{
-    $password = trim($_POST['password']);
-
-    if ($password == "") {
-        echo "Password is required<br>";
-        return false;
-    } else if (strlen($password) < 6) {
-        echo "Password must be at least 6 characters<br>";
-        return false;
-    }
-    return true;
-}
-function validateConfirmPassword()
-{
-    $password = trim($_POST['password']);
-    $confirmPassword = trim($_POST['confirmPassword']);
-    if (empty($confirmPassword)) {
-        echo "Confirm password is required";
-        return false;
-    } else if ($password !== $confirmPassword) {
-        echo "Password and confirm password does not match";
-        return false;
-    }
-    return true;
-}
 function validatePresentAddress()
 {
     $presentAddress = trim($_POST['presentAddress']);
@@ -153,7 +132,7 @@ function validatePresentAddress()
 }
 function validatePermanentAddress()
 {
-    $permanentAddress = trim($_POST['permanentAdress']);
+    $permanentAddress = trim($_POST['permanentAddress']);
 
     if ($permanentAddress === "") {
         echo "Permanent address is required.";
@@ -161,8 +140,8 @@ function validatePermanentAddress()
     }
     return true;
 }
-function validateUploadPhoto()
-{
+
+function profilePhotoValidation() {
     $profilePhoto = $_FILES["profile-photo"];
     if (!$profilePhoto) {
         echo "Profile Photo is required.<br>";
@@ -187,7 +166,7 @@ function validateUploadPhoto()
         return false;
     }
 
-    $uploadPath = "../assets/uploads/profilePicture/";
+    $uploadPath = "../assets/uploads/creditCardProfilePicture/";
     if (!is_dir($uploadPath)) {
         mkdir($uploadPath, 0777, true);
     }
@@ -203,31 +182,39 @@ function validateUploadPhoto()
     }
 }
 
-function registrationController()
-{
+function termsValidation() {
+    if (!isset($_POST["terms"])) {
+        echo "You must agree to the terms and conditions.<br>";
+        return false;
+    }
+    return true;
+}
+
+function registrationController() {
     return (
         validateName() &&
         validateEmail() &&
         validatePhone() &&
         validateDateofBirth() &&
         validateGender() &&
-        validateAccountType() &&
-        validateInitialDeposit() &&
-        validateDeposit() &&
-        validateNid() &&
-        validatePassword()&&
-        validateConfirmPassword() &&
-        validatePresentAddress()&&
+        validateAccountNo() &&
+        validateCardType() &&
+        brandValidation() &&
+        occupationValidation() &&
+        incomeValidation() &&
+        validatePresentAddress() &&
         validatePermanentAddress() &&
-        validateUploadPhoto()
+        profilePhotoValidation() &&
+        termsValidation()
     );
 }
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (registrationController()) {
-        echo "<script>
-            alert('Registration Successfully done!');
-            window.location.href='../view/login.php';
-        </script>";
-        exit();
+        header("Location:/BankingSystem");
+        exit;
     }
 }
+
+?>
