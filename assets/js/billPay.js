@@ -91,7 +91,7 @@ let currencyValidation = () => {
 
 let receiptValidation = () => {
   const receipt = document.getElementById("upload-receipt");
-  const receiptError = document.getElementById("uploadRreceiptError");
+  const receiptError = document.getElementById("uploadReceiptError");
   const receiptFile = receipt.files[0];
   const isValidFile = [
     "image/jpg",
@@ -147,38 +147,57 @@ let billPayValidation = () => {
 };
 
 const payButton = document.getElementById("pay-btn");
+
 payButton.addEventListener("click", (event) => {
   event.preventDefault();
+
   if (billPayValidation()) {
-    const selectAccountText = document.getElementById("selectAccount").options[document.getElementById("selectAccount").selectedIndex].text;
-    const billerText = document.getElementById("biller").options[document.getElementById("biller").selectedIndex].text;
-    const amount = parseFloat(document.getElementById("amount").value).toFixed(2);
+    const selectAccountText =
+      document.getElementById("selectAccount").options[
+        document.getElementById("selectAccount").selectedIndex
+      ].text;
+    const billerText =
+      document.getElementById("biller").options[
+        document.getElementById("biller").selectedIndex
+      ].text;
+    const amount = parseFloat(document.getElementById("amount").value).toFixed(
+      2
+    );
     const currency = document.getElementById("currency").value;
-    const receiptFileName = document.getElementById("upload-receipt").files[0].name;
+    const receiptFile = document.getElementById("upload-receipt").files[0];
+    const receiptFileName = receiptFile ? receiptFile.name : "No file uploaded";
 
-    const successMessage = document.createElement("div");
-    successMessage.className = "success-message";
-    successMessage.style.cssText = "background-color: #e6f3e6; color: #2e7d32; padding: 15px; border-radius: 4px; margin-bottom: 20px;";
-    successMessage.innerHTML = `
-        <p>Payment successfully processed!</p>
-        <p>Paid from: <strong>${selectAccountText}</strong></p>
-        <p>Biller: <strong>${billerText}</strong></p>
-        <p>Amount: <strong>${amount} ${currency}</strong></p>
-        <p>Receipt: <strong>${receiptFileName}</strong></p>
-      `;
-    const form = document.getElementById("billPayForm");
-    form.parentNode.insertBefore(successMessage, form);
+    const successMessage =
+    `Payment successfully processed!\nPaid from: ${selectAccountText}\nBiller: ${billerText}\nAmount: ${amount} ${currency}\nReceipt: ${receiptFileName}`;
 
-    // PDF download functionality
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF();
-      doc.setFontSize(12);
-      doc.text("Payment Confirmation", 20, 20);
-      doc.text(`Paid from: ${selectAccountText}`, 20, 30);
-      doc.text(`Biller: ${billerText}`, 20, 40);
-      doc.text(`Amount: ${amount} ${currency}`, 20, 50);
-      doc.text(`Receipt: ${receiptFileName}`, 20, 60);
-      doc.save("payment_confirmation.pdf");
-    }
+    alert(successMessage);
+
+    // ✅ PDF generation
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Header
+    doc.setFontSize(16);
+    doc.text("Payment Confirmation Receipt", 20, 20);
+
+    // Table data
+    const tableColumn = ["Field", "Details"];
+    const tableRows = [
+      ["Paid from", selectAccountText],
+      ["Biller", billerText],
+      ["Amount", `${amount} ${currency}`],
+      ["Receipt", receiptFileName],
+    ];
+
+    doc.autoTable({
+      startY: 30,
+      head: [tableColumn],
+      body: tableRows,
+      styles: { fontSize: 12 },
+      theme: 'grid',
+      headStyles: { fillColor: [255, 165, 0] },
+    });
+
+    doc.save("payment_confirmation.pdf");
   }
-);
+});

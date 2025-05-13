@@ -77,7 +77,7 @@
                     <label for="upload-receipt">upload Receipt</label>
                     <input type="file" id="upload-receipt"
                         name="upload-receipt">
-                    <div id="uploadRreceiptError"
+                    <div id="uploadReceiptError"
                         class="error-message"></div>
                 </div>
                 <div class="form-group-terms">

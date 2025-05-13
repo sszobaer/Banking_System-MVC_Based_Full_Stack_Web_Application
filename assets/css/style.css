@@ -394,6 +394,9 @@ h1 {
   padding: 20px;
   margin-top: 20px;
 }
+.debit-card:hover{
+  transform: scale(1.05);
+}
 
 .card-top {
   display: flex;
@@ -501,7 +504,7 @@ h1 {
 .withdrawals:hover,
 .transfers:hover {
   background: var(--color-gradient);
-  transform: scale(1.05);
+  /* transform: scale(1.05); */
 }
 
 /* Style for the search bar container */
