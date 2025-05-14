@@ -1,8 +1,8 @@
 <?php
+require_once "../Model/registrationModel.php";
 function validateName()
 {
-    $firstName = trim($_POST['firstName']);
-    $lastName = trim($_POST['lastName']);
+    global $firstName, $lastName;
     if ($firstName === "" || $lastName === "") {
         echo "First and Last Name are required<br>";
         return false;
@@ -89,16 +89,6 @@ function validateInitialDeposit()
     }
     return true;
 }
-function validateDeposit()
-{
-    $deposit = trim($_POST['initialDeposit']);
-
-    if (empty($deposit) || !is_numeric($deposit) || floatval($deposit) <= 0) {
-        echo "Please enter a valid deposit amount.";
-        return false;
-    }
-    return true;
-}
 function validateNid()
 {
     $nid = trim($_POST['nidNumber']);
@@ -153,7 +143,7 @@ function validatePresentAddress()
 }
 function validatePermanentAddress()
 {
-    $permanentAddress = trim($_POST['permanentAdress']);
+    $permanentAddress = trim($_POST['permanentAddress']);
 
     if ($permanentAddress === "") {
         echo "Permanent address is required.";
@@ -213,21 +203,39 @@ function registrationController()
         validateGender() &&
         validateAccountType() &&
         validateInitialDeposit() &&
-        validateDeposit() &&
         validateNid() &&
-        validatePassword()&&
+        validatePassword() &&
         validateConfirmPassword() &&
-        validatePresentAddress()&&
+        validatePresentAddress() &&
         validatePermanentAddress() &&
         validateUploadPhoto()
     );
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (registrationController()) {
-        echo "<script>
-            alert('Registration Successfully done!');
-            window.location.href='../view/login.php';
-        </script>";
-        exit();
+        // Collecting form data from POST
+    $userData = [
+        'firstName' => $_POST['firstName'],
+        'lastName' => $_POST['lastName'],
+        'email' => $_POST['email'],
+        'phone' => $_POST['phone'],
+        'dob' => $_POST['dob'],
+        'gender' => $_POST['gender'],
+        'accountType' => $_POST['accountType'],
+        'initialDeposit' => $_POST['initialDeposit'],
+        'nidNumber' => $_POST['nidNumber'],
+        'password' => password_hash($_POST['password'], PASSWORD_DEFAULT), // hashing password
+        'presentAddress' => $_POST['presentAddress'],
+        'permanentAddress' => $_POST['permanentAddress'],
+        'profilePhoto' => $_FILES['profile-photo']['name'],
+    ];
+    $result = insertUser($userData);
+
+    if ($result['status']) {
+        echo $result['message'];
+    } else {
+        echo "Error: " . $result['message'];
+    }
     }
 }
+

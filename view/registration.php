@@ -138,7 +138,7 @@
                 </div>
                 <div class="form-group">
                     <label for="presentAdress">Present Address</label>
-                    <input type="presentAdress" id="presentAdress"
+                    <input type="text" id="presentAdress"
                         name="presentAddress"
                         placeholder="Enter your present adress">
                     <div id="presentAdressError"
@@ -146,9 +146,9 @@
                 </div>
                 <div class="form-group">
                     <label for="permanentAdress">Permanent Address</label>
-                    <input type="permanentAdress" id="permanentAdress"
-                        name="permanentAdress"
-                        placeholder="Enter your permanent adress">
+                    <input type="text" id="permanentAdress"
+                        name="permanentAddress"
+                        placeholder="Enter your permanent address">
                     <div id="permanentAdressError"
                         class="error-message"></div>
                 </div>

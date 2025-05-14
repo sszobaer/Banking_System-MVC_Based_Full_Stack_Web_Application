@@ -1,15 +1,15 @@
 <?php
-    $serverName = "localhost";
-    $username = "root";
-    $password = "";
+function getConnection() {
+    $host = "localhost";
+    $user = "root";
+    $pass = "";
     $dbName = "Banking System";
 
-    $conn = new mysqli($serverName, $username, $password, $dbName);
+    $conn = mysqli_connect($host, $user, $pass, $dbName);
 
-    if ($conn->connect_error) {
-        die("connection failed" . $conn->connect_error);
+    if (!$conn) {
+        die("Connection failed: " . mysqli_connect_error());
     }
-    // else{
-    //     echo "Database connected successfully";
-    // }
-?>
+
+    return $conn;
+}

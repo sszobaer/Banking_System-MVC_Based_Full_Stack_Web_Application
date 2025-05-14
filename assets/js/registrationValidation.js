@@ -210,9 +210,9 @@ let presentAddressValidation = () => {
 };
 let permanentAdressVAlidation = () => {
   const permanentAddress = document
-    .getElementById("permanentAdress")
+    .getElementById("permanentAddress")
     .value.trim();
-  const errorDiv = document.getElementById("permanentAdressError");
+  const errorDiv = document.getElementById("permanentAddressError");
 
   if (permanentAddress === "") {
     errorDiv.textContent = "Permanent address is required.";
