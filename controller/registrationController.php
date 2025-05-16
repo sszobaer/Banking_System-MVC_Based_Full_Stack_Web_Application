@@ -1,8 +1,10 @@
 <?php
-require_once "../Model/registrationModel.php";
+error_reporting(E_ALL);
+require_once "../Model/users.php";
 function validateName()
 {
-    global $firstName, $lastName;
+    $firstName = trim($_POST['firstName']);
+    $lastName = trim($_POST['lastName']);
     if ($firstName === "" || $lastName === "") {
         echo "First and Last Name are required<br>";
         return false;
@@ -151,47 +153,51 @@ function validatePermanentAddress()
     }
     return true;
 }
+
 function validateUploadPhoto()
 {
-    $profilePhoto = $_FILES["profile-photo"];
-    if (!$profilePhoto) {
+    if (!isset($_FILES["profile-photo"]) || $_FILES["profile-photo"]["error"] === UPLOAD_ERR_NO_FILE) {
         echo "Profile Photo is required.<br>";
         return false;
     }
 
+    $file = $_FILES["profile-photo"];
     $allowedTypes = ["image/jpg", "image/jpeg", "image/png"];
     $maxSize = 5 * 1024 * 1024;
 
-    if ($profilePhoto["error"] !== UPLOAD_ERR_OK) {
-        echo "Profile Picture is required.<br>";
+    if ($file["error"] !== UPLOAD_ERR_OK) {
+        echo "Error uploading file.<br>";
         return false;
     }
 
-    if (!in_array($profilePhoto["type"], $allowedTypes)) {
+    if (!in_array($file["type"], $allowedTypes)) {
         echo "Only JPG, JPEG, or PNG formats are allowed.<br>";
         return false;
     }
 
-    if ($profilePhoto["size"] > $maxSize) {
+    if ($file["size"] > $maxSize) {
         echo "File size must be less than 5MB.<br>";
         return false;
     }
 
-    $uploadPath = "../assets/uploads/profilePicture/";
-    if (!is_dir($uploadPath)) {
-        mkdir($uploadPath, 0777, true);
+    $tmp = explode('.', $file['name']);
+    $newFileName = round(microtime(true)) . '.' . end($tmp);
+
+    $uploadDir = "../assets/uploads/profilePicture/";
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0777, true);
     }
 
-    $src = $profilePhoto["tmp_name"];
-    $des = $uploadPath . basename($profilePhoto["name"]);
+    $uploadPath = $uploadDir . $newFileName;
 
-    if (move_uploaded_file($src, $des)) {
+    if (move_uploaded_file($file["tmp_name"], $uploadPath)) {
         return true;
     } else {
-        echo "Error uploading profile photo.<br>";
+        echo "Error saving uploaded photo.<br>";
         return false;
     }
 }
+
 
 function registrationController()
 {
@@ -211,31 +217,57 @@ function registrationController()
         validateUploadPhoto()
     );
 }
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (registrationController()) {
-        // Collecting form data from POST
-    $userData = [
-        'firstName' => $_POST['firstName'],
-        'lastName' => $_POST['lastName'],
-        'email' => $_POST['email'],
-        'phone' => $_POST['phone'],
-        'dob' => $_POST['dob'],
-        'gender' => $_POST['gender'],
-        'accountType' => $_POST['accountType'],
-        'initialDeposit' => $_POST['initialDeposit'],
-        'nidNumber' => $_POST['nidNumber'],
-        'password' => password_hash($_POST['password'], PASSWORD_DEFAULT), // hashing password
-        'presentAddress' => $_POST['presentAddress'],
-        'permanentAddress' => $_POST['permanentAddress'],
-        'profilePhoto' => $_FILES['profile-photo']['name'],
-    ];
-    $result = insertUser($userData);
 
-    if ($result['status']) {
-        echo $result['message'];
-    } else {
-        echo "Error: " . $result['message'];
+function putUser(){
+    $file = $_FILES["profile-photo"];
+    $tmp = explode('.', $file['name']);
+    $newFileName = round(microtime(true)) . '.' . end($tmp);
+    $firstName = trim($_POST['firstName']);
+    $lastName = trim($_POST['lastName']);
+    $email = trim($_POST['email']);
+    $phone = trim($_POST['phone']);
+    $dob = trim($_POST['dob']);
+    $gender = trim($_POST['gender']);
+    $accountType = trim($_POST['accountType']);
+    $initialDeposit = trim($_POST['initialDeposit']);
+    $nidNumber = trim($_POST['nidNumber']);
+    $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
+    $presentAddress = trim($_POST['presentAddress']);
+    $permanentAddress = trim($_POST['permanentAddress']);
+    $imageUrl = "../assets/uploads/profilePicture/" . $newFileName;
+    $createdAt = date("Y-m-d H:i:s");
+    $updatedAt = date("Y-m-d H:i:s");
+    
+    $user = [
+        'id'=> null,
+        'firstName' => $firstName,
+        'lastName' => $lastName,
+        'email' => $email,
+        'phoneNo' => $phone,
+        'dob' => $dob,
+        'gender' => $gender,
+        'accountType' => $accountType,
+        'depositAmount' => $initialDeposit,
+        'nid/passport' => $nidNumber,
+        'password' => $password,
+        'presentAddress' => $presentAddress,
+        'permanentAddress' => $permanentAddress,
+        'imageUrl' => $imageUrl,
+        'createdAt' => $createdAt,
+        'updatedAt' => $updatedAt
+    ];
+    $status = insertUser($user);
+    if($status){
+        return true;
+    }else{
+        return false;
     }
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (registrationController() && putUser()) {
+        echo "Registration successful<br>";
+        header('Location: ../view/login.php');
+        exit();
     }
 }
 

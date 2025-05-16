@@ -208,12 +208,11 @@ let presentAddressValidation = () => {
     return true;
   }
 };
-let permanentAdressVAlidation = () => {
+let permanentAddressValidation = () => {
   const permanentAddress = document
-    .getElementById("permanentAddress")
+    .getElementById("permanentAdress")
     .value.trim();
-  const errorDiv = document.getElementById("permanentAddressError");
-
+  const errorDiv = document.getElementById("permanentAdressError");
   if (permanentAddress === "") {
     errorDiv.textContent = "Permanent address is required.";
     errorDiv.style.color = "red";
@@ -222,6 +221,7 @@ let permanentAdressVAlidation = () => {
     errorDiv.textContent = "";
     return true;
   }
+  
 };
 
 let profilePhotoValidation = () => {
@@ -268,7 +268,7 @@ const registrationValidation = () => {
     passwordValidation() &&
     confirmPasswordValidation() &&
     presentAddressValidation() &&
-    permanentAdressVAlidation() &&
+    permanentAddressValidation() &&
     profilePhotoValidation() &&
     termsValidation()
   );
