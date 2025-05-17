@@ -111,8 +111,8 @@ let nameValidation = () => {
   };
 
   let presentAddressValidation = () => {
-    const presentAddress = document.getElementById("presentAdress").value.trim();
-    const errorDiv = document.getElementById("presentAdressError");
+    const presentAddress = document.getElementById("presentAddress").value.trim();
+    const errorDiv = document.getElementById("presentAddressError");
   
     if (presentAddress === "") {
       errorDiv.textContent = "Present address is required.";
@@ -123,12 +123,12 @@ let nameValidation = () => {
       return true;
     }
   };
-  let permanentAdressVAlidation = () => {
+  let permanentAddressValidation = () => {
     const permanentAddress = document
-      .getElementById("permanentAdress")
+      .getElementById("permanentAddress")
       .value.trim();
-    const errorDiv = document.getElementById("permanentAdressError");
-  
+    const errorDiv = document.getElementById("permanentAddressError");
+
     if (permanentAddress === "") {
       errorDiv.textContent = "Permanent address is required.";
       errorDiv.style.color = "red";
@@ -147,15 +147,14 @@ let nameValidation = () => {
       dobValidation() &&
       genderValidation() &&
       presentAddressValidation() &&
-      permanentAdressVAlidation() 
+      permanentAddressValidation()
     );
   };
   
-  const editButton = document.getElementById("updateProfile");
-  editButton.addEventListener("click", (event) => {
+ const editProfileForm = document.getElementById("editProfileForm");
+  editProfileForm.addEventListener("submit", (event) => {
     event.preventDefault();
     if (editProfileValidation()) {
-      alert("Your information is updated!");
+      editProfileForm.submit();
     }
   });
-  
