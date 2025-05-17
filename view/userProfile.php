@@ -1,4 +1,8 @@
 <!-- ZOBAER AHMED -->
+ <?php 
+    session_start(); 
+    if(isset($_SESSION['email'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -36,46 +40,54 @@
                             <td colspan="2">
                                 <div class="profile-container">
                                     <img
-                                        class="profile-img" src="../assets//img//avatar.jpg"
+                                        class="profile-img" height="250px" width="250px" src="<?php echo $_SESSION['imageUrl']; ?>"
                                         alt="avatar">
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td>Name</td>
-                            <td>Zobaer Ahmed</td>
+                            <td><?= $_SESSION['firstName'].' '.$_SESSION['lastName'] ?></td>
                         </tr>
                         <tr>
                             <td>Email</td>
-                            <td>ahmedzobaer@gmail.com</td>
+                            <td><?= $_SESSION['email'] ?></td>
                         </tr>
                         <tr>
                             <td>Phone</td>
-                            <td>+8801234567890</td>
+                            <td><?= $_SESSION['phoneNo'] ?></td>
                         </tr>
                         <tr>
-                            <td>Address</td>
-                            <td>Dhaka, Bangladesh</td>
+                            <td>Date of Birth</td>
+                            <td><?= date('Y-m-d', strtotime($_SESSION['dob'])) ?></td>
+                        </tr>
+                        <tr>
+                            <td>Gender</td>
+                            <td><?= $_SESSION['gender'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Present Address</td>
+                            <td><?= $_SESSION['presentAddress'] ?></td>
+                        </tr>
+                        <tr>
+                            <td>Permanent Address</td>
+                            <td><?= $_SESSION['permanentAddress'] ?></td>
                         </tr>
                         <tr>
                             <td>Account Type</td>
-                            <td>Admin</td>
+                            <td><?= $_SESSION['accountType'] ?></td>
                         </tr>
                         <tr>
                             <td>Account Balance</td>
-                            <td>$10,000.00</td>
+                            <td>$<?= $_SESSION['depositAmount'] ?></td>
                         </tr>
                         <tr>
                             <td>Account Status</td>
                             <td>Active</td>
                         </tr>
                         <tr>
-                            <td>Last Login</td>
-                            <td>2023-10-01 12:00:00</td>
-                        </tr>
-                        <tr>
                             <td>Account Created</td>
-                            <td>2023-01-01 12:00:00</td>
+                            <td><?= date('Y-m-d H:i:s', strtotime($_SESSION['createdAt'])) ?></td>
                         </tr>
                         <tr>
                             <td colspan="2">
@@ -91,9 +103,16 @@
                             </td>
                         </tr>
                     </table>
+                    <!-- <?=print_r($_SESSION, true)?> -->
                 </div>
             </div>
         </section>
         <!--------------------- Profile End ------------------------------->
     </body>
 </html>
+<?php
+    } else {
+        header("Location: ../view/login.php");
+        exit();
+    }
+?>
