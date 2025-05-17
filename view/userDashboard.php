@@ -1,4 +1,8 @@
 <!-- ZOBAER AHMED -->
+<?php 
+    session_start(); 
+    if(isset($_SESSION['email'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,7 +28,7 @@
     <?php
     include "./header.php";
     include "./userSidebar.php";
-    ?>
+    ?> 
     <!--------------------- Dashboard Start --------------------------->
     <section class="dashboard" id="dashboard">
         <div class="main-content">
@@ -32,10 +36,10 @@
                 <div class="balance-and-name">
                     <div class="balance">
                         <h2>Account Balance</h2>
-                        <p>$10,000.00</p>
+                        <p>$<?php echo $_SESSION['depositAmount']; ?></p>
                     </div>
                     <div class="name">
-                        <h2>Welcome, Zobaer Ahmed</h2>
+                        <h2>Welcome, <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?></h2>
                     </div>
                     <div class="role">
                         <h2>Role: <span class="role-type">User</span></h2>
@@ -53,7 +57,7 @@
                             <div class="expiry-date">MM/YY</div>
                         </div>
                         <div class="card-bottom">
-                            <div class="card-holder">ZOBAER AHMED</div>
+                            <div class="card-holder"><?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?></div>
                             <div class="bank-logo">AURA BANK PLC</div>
                         </div>
                     </div>
@@ -77,7 +81,7 @@
             <div class="deposits">
             <i class="fa-solid fa-upload"></i>
                 <h2>Deposits</h2>
-                <p>$3,000</p>
+                <p>$<?php echo $_SESSION['depositAmount']; ?></p>
             </div>
             <div class="withdrawals">
             <i class="fa-solid fa-download"></i>
@@ -163,3 +167,10 @@
 
 
 </body>
+</html>
+<?php
+    } else {
+        header("Location: ../view/login.php");
+        exit();
+    }
+?>
