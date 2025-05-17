@@ -1,14 +1,14 @@
 <?php
 require_once '../model/connection.php';
 
-function getAllUsers($user) {
+function fetchUser($user) {
     $conn = getConnection();
     $sql = "SELECT * FROM users WHERE email = '{$user['email']}' AND password = '{$user['password']}'";
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
 
     if($count == 1){
-        return true;
+        return mysqli_fetch_assoc($result);
     } else {
         return false;
     }
@@ -33,15 +33,35 @@ function insertUser($user){
     '{$user['createdAt']}',
     '{$user['updatedAt']}'
 )";
-$checkEmail = "SELECT * FROM users WHERE email = '{$user['email']}'";
-$result = mysqli_query($conn, $checkEmail);
-if(mysqli_num_rows($result) > 0){
-    return false;
-} elseif(mysqli_query($conn, $sql)){
-    return true;
-} else {
-    return false;
+    $checkEmail = "SELECT * FROM users WHERE email = '{$user['email']}'";
+    $result = mysqli_query($conn, $checkEmail);
+    if(mysqli_num_rows($result) > 0){
+        return false;
+    } elseif(mysqli_query($conn, $sql)){
+        return true;
+    } else {
+        return false;
+    }
 }
+function updateUser($user) {
+    $conn = getConnection();
+    $sql = "UPDATE users SET
+        `firstName` = '{$user['firstName']}',
+        `lastName` = '{$user['lastName']}',
+        `email` = '{$user['email']}',
+        `phoneNo` = '{$user['phoneNo']}',
+        `dob` = '{$user['dob']}',
+        `gender` = '{$user['gender']}',
+        `nid/passport` = '{$user['nid/passport']}',
+        `presentAddress` = '{$user['presentAddress']}',
+        `permanentAddress` = '{$user['permanentAddress']}',
+        `updatedAt` = '{$user['updatedAt']}'
+     WHERE email = '{$user['email']}'";
+    if(mysqli_query($conn, $sql)){
+        return true;
+    } else {
+        return false;
+    }
 }
 
 ?>
