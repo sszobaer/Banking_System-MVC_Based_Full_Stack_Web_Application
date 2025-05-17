@@ -1,4 +1,5 @@
 <?php
+require_once "../model/users.php";
 session_start();
 function validateEmail()
 {
@@ -30,19 +31,43 @@ function validatePassword()
     }
     return true;
 }
-$email = trim($_POST['email']);
-$password = trim($_POST['password']);
+function fetchUserControll(){
+    $email = trim($_POST['email']);
+    $password = trim($_POST['password']);
+    $user = [
+        'email' => $email,
+        'password' => $password
+    ];
+    $status = fetchUser($user);
+    if ($status) {
+        $_SESSION['email'] = $status['email'];
+        $_SESSION['firstName'] = $status['firstName'];
+        $_SESSION['lastName'] = $status['lastName'];
+        $_SESSION['phoneNo'] = $status['phoneNo'];
+        $_SESSION['dob'] = $status['dob'];
+        $_SESSION['gender'] = $status['gender'];
+        $_SESSION['accountType'] = $status['accountType'];
+        $_SESSION['depositAmount'] = $status['depositAmount'];
+        $_SESSION['nid/passport'] = $status['nid/passport'];
+        $_SESSION['password'] = $status['password'];
+        $_SESSION['presentAddress'] = $status['presentAddress'];
+        $_SESSION['permanentAddress'] = $status['permanentAddress'];
+        $_SESSION['imageUrl'] = $status['imageUrl'];
+        $_SESSION['createdAt'] = $status['createdAt'];
+        $_SESSION['updatedAt'] = $status['updatedAt'];
+        $_SESSION['logged_in'] = true;
+
+        // print_r($_SESSION);
+        header("Location:../view/userDashboard.php");
+        exit();
+    } else {
+        echo "Invalid credentials";
+    }
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (validateEmail() && validatePassword()) {
-        if ($email == "user@fake.com" && $password == "password123") {
-            $_SESSION['user_email'] = $email;
-            $_SESSION['logged_in'] = true;
-
-            //print_r($_SESSION);
-            header("Location:../view/userDashboard.php");
-            exit();
-        } else {
-            echo "Invalid credentials";
-        }
+        fetchUserControll();
+    } else {
+        echo "Invalid input";
     }
 }
