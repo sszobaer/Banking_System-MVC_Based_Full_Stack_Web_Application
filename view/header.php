@@ -1,9 +1,9 @@
-<!------------------- Header Start (Zobaer)------------------------------->
 <div class="contrainer">
     <header class="header">
         <nav>
             <ul>
-                <?php if (basename($_SERVER['PHP_SELF']) == "index.php") { ?>
+                <?php 
+                if (basename($_SERVER['PHP_SELF']) == "index.php") { ?>
                     <li><a href="/BankingSystem">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
@@ -26,7 +26,9 @@
                             </button>
                         </a>
                     </li>
-                <?php } else if (basename($_SERVER['PHP_SELF']) == "userDashboard.php") { ?>
+
+                <?php 
+                } else if (isset($_SESSION['logged_in'])) { ?>
                     <li><a href="/BankingSystem">Home</a></li>
                     <li><a href="/BankingSystem">About</a></li>
                     <li><a href="/BankingSystem">Services</a></li>
@@ -40,14 +42,17 @@
                             </button>
                         </a>
                     </li>
-                <?php } else { ?>
+
+                <?php 
+                } else { ?>
                     <li><a href="/BankingSystem">Home</a></li>
                     <li><a href="/BankingSystem">About</a></li>
                     <li><a href="/BankingSystem">Services</a></li>
                     <li><a href="/BankingSystem">Testimonials</a></li>
                     <li><a href="/BankingSystem">Contact</a></li>
+
                     <li>
-                        <a href="./registration.php">
+                        <a href="../view/registration.php">
                             <button class="btn">
                                 Open An Account
                                 <i class="fa-solid fa-arrow-right"></i>
@@ -55,7 +60,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="./login.php" id="login-btn">
+                        <a href="../view/login.php" id="login-btn">
                             <button class="btn2">
                                 Login
                                 <i class="fa-solid fa-arrow-right"></i>
@@ -67,4 +72,3 @@
         </nav>
     </header>
 </div>
-<!------------------- Header End --------------------------------->

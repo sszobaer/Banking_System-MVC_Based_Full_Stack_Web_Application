@@ -303,6 +303,7 @@ h1 {
 .sidebar .profile-logo {
   border-radius: 50%;
   width: 40px;
+  height: 40px;
 }
 .sidebar .profile-name {
   font-size: 18px;
