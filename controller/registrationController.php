@@ -231,7 +231,7 @@ function putUser(){
     $accountType = trim($_POST['accountType']);
     $initialDeposit = trim($_POST['initialDeposit']);
     $nidNumber = trim($_POST['nidNumber']);
-    $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
+    $password = trim($_POST['password']);
     $presentAddress = trim($_POST['presentAddress']);
     $permanentAddress = trim($_POST['permanentAddress']);
     $imageUrl = "../assets/uploads/profilePicture/" . $newFileName;
@@ -267,6 +267,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (registrationController() && putUser()) {
         echo "Registration successful<br>";
         header('Location: ../view/login.php');
+        echo "<pre>";
         exit();
     }
 }
