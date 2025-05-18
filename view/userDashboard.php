@@ -39,7 +39,7 @@
                         <p>$<?php echo $_SESSION['depositAmount']; ?></p>
                     </div>
                     <div class="name">
-                        <h2>Welcome, <?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?></h2>
+                        <h2>Welcome, <?php echo $_SESSION['firstName'];?></h2>
                     </div>
                     <div class="role">
                         <h2>Role: <span class="role-type">User</span></h2>
@@ -57,7 +57,7 @@
                             <div class="expiry-date">MM/YY</div>
                         </div>
                         <div class="card-bottom">
-                            <div class="card-holder"><?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?></div>
+                            <div class="card-holder"><?php echo $_SESSION['firstName']; ?></div>
                             <div class="bank-logo">AURA BANK PLC</div>
                         </div>
                     </div>

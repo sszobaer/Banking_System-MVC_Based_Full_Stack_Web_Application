@@ -1,4 +1,8 @@
 <!-- ZOBAER AHMED -->
+<?php 
+    session_start(); 
+    if(isset($_SESSION['email'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -27,8 +31,7 @@
         <section class="edit-profile" id="edit-profile">
             <div class="editProfileContainer">
                 <h1>Change your current Avatar</h1>
-                <form id="editProfileForm" method="post" action="">
-
+                <form id="editProfileForm" method="post" action="../controller/changeAvatarController.php" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="profile-photo">Profile</label>
                         <input type="file" id="profile-photo" name="profile-photo">
@@ -42,3 +45,9 @@
         <script src="../assets/js/fileValidation.js"></script>
     </body>
 </html>
+<?php
+    } else {
+        header("Location: login.php");
+        exit();
+    }
+?>

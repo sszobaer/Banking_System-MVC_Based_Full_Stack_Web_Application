@@ -231,7 +231,8 @@
 .card-management,
 .bill-pay-main,
 .loan,
-.cardApply {
+.cardApply,
+.changePassword {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -243,7 +244,8 @@
 .bill-pay-container,
 .card-management-container,
 .loanContainer,
-.cardApplyContainer {
+.cardApplyContainer,
+.changePasswordContainer {
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: #fff;
@@ -735,10 +737,12 @@ h1 {
 .profile-table-div .profile-table tr td button {
   padding: 10px 20px;
 }
+/* Margin Left for sidebar */
 .edit-profile,
 .deposits-main,
 .bill-pay-main,
-.loan{
+.loan,
+.changePassword{
   margin-left: 250px;
 }
 

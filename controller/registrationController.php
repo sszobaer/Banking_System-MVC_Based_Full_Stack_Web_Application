@@ -107,8 +107,7 @@ function validateNid()
     }
     return true;
 }
-function validatePassword()
-{
+function validatePassword(){
     $password = trim($_POST['password']);
 
     if ($password == "") {
@@ -120,8 +119,7 @@ function validatePassword()
     }
     return true;
 }
-function validateConfirmPassword()
-{
+function validateConfirmPassword(){
     $password = trim($_POST['password']);
     $confirmPassword = trim($_POST['confirmPassword']);
     if (empty($confirmPassword)) {
@@ -154,8 +152,7 @@ function validatePermanentAddress()
     return true;
 }
 
-function validateUploadPhoto()
-{
+function validateUploadPhoto(){
     if (!isset($_FILES["profile-photo"]) || $_FILES["profile-photo"]["error"] === UPLOAD_ERR_NO_FILE) {
         echo "Profile Photo is required.<br>";
         return false;
@@ -218,7 +215,7 @@ function registrationController()
     );
 }
 
-function putUser(){
+function pushUser(){
     $file = $_FILES["profile-photo"];
     $tmp = explode('.', $file['name']);
     $newFileName = round(microtime(true)) . '.' . end($tmp);
@@ -264,10 +261,8 @@ function putUser(){
     }
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (registrationController() && putUser()) {
-        echo "Registration successful<br>";
+    if (registrationController() && pushUser()) {
         header('Location: ../view/login.php');
-        echo "<pre>";
         exit();
     }
 }

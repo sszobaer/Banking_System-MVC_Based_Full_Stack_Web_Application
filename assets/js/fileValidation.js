@@ -20,11 +20,12 @@ let profilePhotoValidation = () => {
 };
 
 document
-  .getElementById("profile-change-btn")
-  .addEventListener("click", (event) => {
+  .getElementById("editProfileForm")
+  .addEventListener("submit", (event) => {
     event.preventDefault();
     if (profilePhotoValidation()) {
-      alert("Your profile has been changed");
-      window.location.href = "userProfile.html";
+      document.getElementById("editProfileForm").submit();
+    } else {
+      event.preventDefault();
     }
   });

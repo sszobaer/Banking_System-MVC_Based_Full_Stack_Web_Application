@@ -31,7 +31,7 @@ function validatePassword()
     }
     return true;
 }
-function fetchUserControll(){
+function fetchUserController(){
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
     $user = [
@@ -66,7 +66,7 @@ function fetchUserControll(){
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (validateEmail() && validatePassword()) {
-        fetchUserControll();
+        fetchUserController();
     } else {
         echo "Invalid input";
     }

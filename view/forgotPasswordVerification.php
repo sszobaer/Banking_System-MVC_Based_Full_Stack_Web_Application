@@ -1,4 +1,7 @@
 <!-- ZOBAER AHMED -->
+ <?php
+ session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -24,7 +27,7 @@
         <section class="reg" id="reg">
             <div class="regContainer">
                 <h1>Forgot your password</h1>
-                <form id="registrationForm" method="post" action>
+                <form id="passwordForm" method="post" action>
 
                     <div class="form-group">
                         <label for="verificationCode">verification Code</label>
