@@ -63,5 +63,25 @@ function updateUser($user) {
         return false;
     }
 }
+function updateAvatar($user) {
+    $conn = getConnection();
+    $sql = "UPDATE users SET imageUrl = '{$user['imageUrl']}', updatedAt = '{$user['updatedAt']}' WHERE email = '{$user['email']}'";
+    if(mysqli_query($conn, $sql)){
+        return true;
+    } else {
+        return false;
+    }
+}
+function updatePassword($user){
+    $conn = getConnection();
+    $sql = "UPDATE users SET password = '{$user['password']}', updatedAt = '{$user['updatedAt']}' WHERE email = '{$user['email']}'";
+    if(mysqli_query($conn, $sql)){
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
 
 ?>

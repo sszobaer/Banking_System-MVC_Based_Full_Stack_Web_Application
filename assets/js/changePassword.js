@@ -58,19 +58,21 @@ let confirmPasswordValidation = () => {
   errorDiv.textContent = "";
   return true;
 };
-let changePasswordBtn = document.getElementById("changePasswordBtn");
+let changePasswordValidation = () => {
+  return (
+    currentPasswordValidation() &&
+    newPasswordValidation() &&
+    confirmPasswordValidation()
+  );
+};
+let changePasswordForm = document.getElementById("changePasswordForm");
 let cancelBtn = document.getElementById("cancel-btn");
 
-if (changePasswordBtn) {
-  changePasswordBtn.addEventListener("click", (event) => {
+if (changePasswordForm) {
+  changePasswordForm.addEventListener("submit", (event) => {
     event.preventDefault();
-    let isValid =
-      currentPasswordValidation() &&
-      newPasswordValidation() &&
-      confirmPasswordValidation();
-    if (isValid) {
-        alert("Password has been changed");
-      window.location.href = "login.html";
+    if (changePasswordValidation()) {
+      changePasswordForm.submit();
     }
   });
 }

@@ -1,4 +1,8 @@
 <!-- ZOBAER AHMED -->
+ <?php 
+    session_start(); 
+    if(isset($_SESSION['email'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -24,10 +28,10 @@
         include "./userSidebar.php";
         ?>
         <!--------------------Forgot password form start-------------->
-        <section class="reg" id="reg">
-            <div class="regContainer">
+        <section class="changePassword" id="changePassword">
+            <div class="changePasswordContainer">
                 <h1>Login to your account</h1>
-                <form id="registrationForm" method="post" action>
+                <form id="changePasswordForm" method="post" action="../controller/changePasswordController.php">
 
                     <div class="form-group">
                         <label for="currentPassword">Current Password</label>
@@ -77,3 +81,9 @@
         <script src="../assets/js/changePassword.js"></script>
     </body>
 </html>
+<?php
+    } else {
+        header("Location: login.php");
+        exit();
+    }
+?>
