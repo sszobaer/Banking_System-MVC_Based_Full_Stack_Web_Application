@@ -1,7 +1,7 @@
 <!-- ZOBAER AHMED -->
 <?php 
     session_start(); 
-    if(isset($_SESSION['email'])) {
+    if(isset($_SESSION['email'])){
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -74,7 +74,7 @@
 
             <!-- Apply for Loan Tab -->
             <div id="apply-loan" class="tab-content">
-                <form id="loan-form" method="post">
+                <form id="loan-form" method="post" action="../controller/loanApplicationController.php">
                     <div class="form-group">
                         <div class="name-group">
                             <div class="name-field">

@@ -1,7 +1,7 @@
 <?php
 require_once '../model/connection.php';
 
-function fetchUser($user) {
+function fetchUser($user){
     $conn = getConnection();
     $sql = "SELECT * FROM users WHERE email = '{$user['email']}' AND password = '{$user['password']}'";
     $result = mysqli_query($conn, $sql);
@@ -31,7 +31,8 @@ function insertUser($user){
     '{$user['permanentAddress']}',
     '{$user['imageUrl']}',
     '{$user['createdAt']}',
-    '{$user['updatedAt']}'
+    '{$user['updatedAt']}',
+    '{$user['role_id']}'
 )";
     $checkEmail = "SELECT * FROM users WHERE email = '{$user['email']}'";
     $result = mysqli_query($conn, $checkEmail);
@@ -43,7 +44,7 @@ function insertUser($user){
         return false;
     }
 }
-function updateUser($user) {
+function updateUser($user){
     $conn = getConnection();
     $sql = "UPDATE users SET
         `firstName` = '{$user['firstName']}',
@@ -63,7 +64,7 @@ function updateUser($user) {
         return false;
     }
 }
-function updateAvatar($user) {
+function updateAvatar($user){
     $conn = getConnection();
     $sql = "UPDATE users SET imageUrl = '{$user['imageUrl']}', updatedAt = '{$user['updatedAt']}' WHERE email = '{$user['email']}'";
     if(mysqli_query($conn, $sql)){
@@ -80,8 +81,5 @@ function updatePassword($user){
     } else {
         return false;
     }
-
 }
-
-
 ?>

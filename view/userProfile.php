@@ -103,7 +103,6 @@
                             </td>
                         </tr>
                     </table>
-                    <!-- <?=print_r($_SESSION, true)?> -->
                 </div>
             </div>
         </section>

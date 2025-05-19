@@ -303,10 +303,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Submit loan application
-  loanApplicationButton.addEventListener("click", (event) => {
+  const loanForm = document.getElementById('loan-form');
+  loanForm.addEventListener("csubmit", (event) => {
     event.preventDefault();
     if (validateLoanApplication()) {
-      alert("Loan application successful!");
+      loanForm.submit();
     }
   });
 

@@ -251,7 +251,8 @@ function pushUser(){
         'permanentAddress' => $permanentAddress,
         'imageUrl' => $imageUrl,
         'createdAt' => $createdAt,
-        'updatedAt' => $updatedAt
+        'updatedAt' => $updatedAt,
+        'role_id' => null
     ];
     $status = insertUser($user);
     if($status){
@@ -264,6 +265,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (registrationController() && pushUser()) {
         header('Location: ../view/login.php');
         exit();
+    } else{
+        echo "The email have already used";
     }
 }
 

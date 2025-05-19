@@ -190,27 +190,26 @@ document.addEventListener("DOMContentLoaded", () => {
       "Can't added the report lost button functonality yet.";
   });
 
-  setLimitButton.addEventListener("click", () => {
+  const cardControlForm = document.getElementById('card-control-form');
+  cardControlForm.addEventListener("submit", (event) => {
+    event.preventDefault();
     if (spendingLimitValidation()) {
-      const errorDiv = document.getElementById("setLimitMessage");
-      errorDiv.style.color = "red";
-      errorDiv.textContent = "Limit addition successful";
+      cardControlForm.submit();
     }
   });
 
-  changePinButton.addEventListener("click", () => {
+  const pinChangerForm = document.getElementById('pin-changer-form');
+  pinChangerForm.addEventListener("submit", (event) => {
+    event.preventDefault();
     if (pinValidation()) {
-      const pinMessageError = document.getElementById("pin-message");
-      pinMessageError.style.color = "red";
-      pinMessageError.textContent = "Your pin has been changed";
+      pinChangerForm.submit();
     }
   });
 
-  reportFraudButton.addEventListener("click", () => {
-    const fraudMessage = document.getElementById("fraud-message");
+  const reportFraudAlertForm = document.getElementById('fraud-alert-form');
+  reportFraudAlertForm.addEventListener("submit", () => {
     if(fraudDetailsValidation()){
-        fraudMessage.style.color = "red";
-        fraudMessage.textContent = "Fraud details successful";
+        reportFraudAlertForm.submit();
     }
   });
 });

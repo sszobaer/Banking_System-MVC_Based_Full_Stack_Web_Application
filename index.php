@@ -32,9 +32,10 @@
                 </div>
                 <p>Bank smarter with secure, fast, and effortless digital
                     banking—anytime, anywhere.</p>
-                <div class="buttons">
-                    <a href="#" class="btn">Make an Appointment</a>
-                    <a href="view/cardApply.php" class="btn3">Apply for Card</a>
+                    
+                <div class="button">
+                    <a href="" class="btn">Make an Appointment</a>
+                    <a href="view/cardApply.php" class="btn2">Apply for Card</a>
                 </div>
             </div>
         </section>

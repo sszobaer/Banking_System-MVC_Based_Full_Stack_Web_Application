@@ -26,8 +26,8 @@
 
 <body>
     <?php
-    include "./header.php";
-    include "./userSidebar.php";
+        include "./header.php";
+        include "./userSidebar.php";
     ?> 
     <!--------------------- Dashboard Start --------------------------->
     <section class="dashboard" id="dashboard">
