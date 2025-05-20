@@ -1,3 +1,4 @@
+//ZOBAER AHMED
 let nameValidation = () => {
   const firstName = document.getElementById("firstName").value.trim();
   const lastName = document.getElementById("lastName").value.trim();
@@ -235,7 +236,6 @@ const loanData = {
 let selectedLoans = [];
 
 document.addEventListener("DOMContentLoaded", () => {
-  const loanApplicationButton = document.getElementById("loan-application-btn");
   const tabs = document.querySelectorAll(".tab");
   const compareButtons = document.querySelectorAll(".compare-btn");
   const compareSelectedButton = document.getElementById("compare-selected");

@@ -1,6 +1,5 @@
 <?php
 // ZOBAER AHMED
-
 function validateFirstName() {
     $firstName = trim($_POST['firstName']);
     if ($firstName === "") {

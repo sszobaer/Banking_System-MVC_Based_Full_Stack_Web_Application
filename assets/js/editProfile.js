@@ -110,6 +110,28 @@ let nameValidation = () => {
     return true;
   };
 
+  let nidValidation = () =>{
+  const nid = document.getElementById("nidNumber").value.trim();
+  const errorDiv = document.getElementById("nidNumberError");
+
+  if (nid === "") {
+    errorDiv.textContent = "Please enter your nid/passport number.";
+    return false;
+  } else if (nid.length !== 10) {
+    errorDiv.textContent = "NID / Passport number must be 10 digits.";
+    return false;
+  }
+
+  for (let i = 0; i < nid.length; i++) {
+    if (nid[i] < "0" || nid[i] > "9") {
+      errorDiv.textContent = "NID / Passport number must contain only digits.";
+      return false;
+    }
+  }
+  errorDiv.textContent = "";
+  return true;
+};
+
   let presentAddressValidation = () => {
     const presentAddress = document.getElementById("presentAddress").value.trim();
     const errorDiv = document.getElementById("presentAddressError");
@@ -146,6 +168,7 @@ let nameValidation = () => {
       phoneValidation() &&
       dobValidation() &&
       genderValidation() &&
+      nidValidation() &&
       presentAddressValidation() &&
       permanentAddressValidation()
     );

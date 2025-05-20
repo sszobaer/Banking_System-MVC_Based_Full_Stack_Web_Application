@@ -1,4 +1,5 @@
 <?php
+//ZOBAER AHMED
 function validateName(){
     $firstName = trim($_POST['firstName']);
     $lastName = trim($_POST['lastName']);

@@ -1,4 +1,4 @@
-//Zobaer
+//Zobaer Ahmed
 let currentPasswordValidation = () => {
   const password = document.getElementById("currentPassword").value.trim();
   const errorDiv = document.getElementById("currentPasswordError");
