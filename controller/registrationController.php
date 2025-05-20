@@ -1,4 +1,5 @@
 <?php
+//ZOBAER AHMED
 error_reporting(E_ALL);
 require_once "../Model/users.php";
 function validateName()
