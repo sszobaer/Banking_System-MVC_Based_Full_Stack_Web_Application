@@ -1,3 +1,4 @@
+    <!-- ZOBAER AHMED -->
     <!--------------------- Sidebar Start ----------------------------->
     <aside class="sidebar">
         <ul>
@@ -12,9 +13,13 @@
                         placeholder="Search...">
                 </div>
             </li>
-            <li class="notification">
-                <a href="#"><i
-                        class="fa-solid fa-bell"></i>Notification</a>
+            <li>
+                <a href="./adminDashboard.php">
+                    <i class="fa-solid fa-house"></i> Dashboard
+                </a>
+            </li>
+            <li class="notification-sidebar">
+                <a href="./notification.php"><i class="fa-solid fa-bell"></i>Notification</a>
                 <span class="notification-count">3</span>
             </li>
             <li><a href="#"><i class="fa-solid fa-money-bill"></i>
@@ -23,7 +28,7 @@
                     Reports</a></li>
             <li><a href="#"><i class="fa-solid fa-cog"></i>
                     Settings</a></li>
-            <li><a href="#"><i class="fa-solid fa-users"></i>
+            <li><a href="../view/userManagement.php"><i class="fa-solid fa-users"></i>
                     Manage Users</a></li>
 
         </ul>
