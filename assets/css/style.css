@@ -455,7 +455,8 @@ h1 {
   color: var(--color-primary);
 }
 
-.transactions-main {
+.transactions-main,
+.all-users {
   background: #f9f9f9;
   border-radius: 12px;
   padding: 20px;
@@ -464,7 +465,8 @@ h1 {
   width: 160%;
   height: 500px;
 }
-.transactions-title {
+.transactions-title,
+.all-users-title {
   font-size: 24px;
   font-weight: bold;
   color: #333;
@@ -559,8 +561,10 @@ h1 {
   align-items: center;
   margin: 20px 20px 20px 240px;
 }
-.transactions {
+.transactions,
+.all-users {
   width: 1000px;
+  height: 100%;
   background: #ffffff;
   border-radius: 16px;
   padding: 20px;
@@ -585,7 +589,8 @@ h1 {
   padding-left: 10px;
 }
 
-.transactions-controls {
+.transactions-controls,
+.all-users-control {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -595,7 +600,8 @@ h1 {
 }
 
 .transactions-controls input,
-.transactions-controls select {
+.transactions-controls select,
+.all-users-control input {
   padding: 10px 12px;
   font-size: 14px;
   border-radius: 6px;
@@ -605,7 +611,8 @@ h1 {
 }
 
 .transactions-controls input:focus,
-.transactions-controls select:focus {
+.transactions-controls select:focus,
+.all-users-control input:focus {
   outline: none;
   border-color: var(--color-primary);
   box-shadow: 0 0 5px rgba(0, 119, 204, 0.3);
@@ -614,19 +621,21 @@ h1 {
 /* --- Table Styling --- */
 
 .transactions-table-div,
-.profile-table-div {
+.profile-table-div,
+.all-users-table-div {
   overflow-x: auto;
+  height: 100%;
 }
 
 .transactions-table,
 .profile-table,
-.comparison-table {
+.comparison-table,
+.all-users-table {
   width: 100%;
   border-collapse: collapse;
   background-color: #fdfdfd;
   border-radius: 12px;
   overflow: hidden;
-  min-width: 600px;
 }
 
 .transactions-table th,
@@ -634,27 +643,33 @@ h1 {
 .profile-table th,
 .profile-table td,
 .comparison-table th,
-.comparison-table td {
+.comparison-table td,
+.all-users-table th,
+.all-users-table td {
   padding: 14px 16px;
   text-align: left;
   font-size: 15px;
   border-bottom: 1px solid #e0e0e0;
 }
 
-.transactions-table th {
+.transactions-table th,
+.all-users-table th {
   background-color: var(--color-primary);
   color: white;
 }
 
-.transactions-table tr:nth-child(even) {
+.transactions-table tr:nth-child(even),
+.all-users-table tr:nth-child(even) {
   background-color: #fff4e4;
 }
 
-.transactions-table tr:hover {
+.transactions-table tr:hover,
+.all-users-table tr:hover {
   background-color: #ffcc88;
 }
 
-.transactions-table td {
+.transactions-table td,
+.all-users-table td {
   color: #000000;
 }
 
@@ -931,14 +946,6 @@ textarea {
   font-size: 1.5em;
 }
 
-.notification {
-  border-left: 4px solid;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 0 4px 4px 0;
-  position: relative;
-}
-
 .notification.transaction {
   border-color: #007bff;
   background-color: #e7f3ff;
@@ -1138,4 +1145,70 @@ textarea {
 
 .e-sign-section {
   margin-top: 30px;
+}
+
+/* -------------------User Management Start-------------------- */
+.all-users-table{
+  margin-top: 10px;
+}
+.all-users .all-users-table-div .all-users-table .active {
+  color: green;
+  font-weight: 600;
+}
+
+.all-users .all-users-table-div .all-users-table .inactive {
+  color: red;
+  font-weight: 600;
+}
+.all-users .all-users-table-div .all-users-table a.edit {
+      color: #2563eb;
+      margin-right: 5px;
+    }
+.all-users .all-users-table-div .all-users-table a.edit:hover {
+      color: #1d4ed8;
+      text-decoration: underline;
+    }
+.all-users .all-users-table-div .all-users-table a.delete {
+      color: #b91c1c;
+      margin-left: 5px;
+    }
+.all-users .all-users-table-div .all-users-table a.delete:hover {
+      color: #991b1b;
+      text-decoration: underline;
+    }
+.all-users{
+  margin-top: 120px;
+  margin-left: 250px;
+}
+.btn-add-user{
+  display: inline-block;
+  text-align: center;
+  margin-top: 10px;
+  width: 960px;
+}
+.approve {
+    background-color: #10b981; 
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.approve:hover {
+    background-color: #059669;
+}
+
+.reject {
+    background-color: #ef4444; 
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.reject:hover {
+    background-color: #dc2626;
 }
