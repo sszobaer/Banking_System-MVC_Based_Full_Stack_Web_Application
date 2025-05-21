@@ -484,6 +484,11 @@ h1 {
 }
 .chart-section canvas {
   max-width: 400px;
+  max-height: 350px;
+  min-width: 300px;
+  min-height: 300px;
+  width: 100% !important;
+  height: 100% !important;
   margin: auto;
   display: block;
 }
@@ -758,6 +763,100 @@ h1 {
 .changePassword{
   margin-left: 250px;
 }
+
+/* interest Calculator */
+/* Interest Calculator Section */
+.calculator {
+  background-color: #ffffff;
+  padding: 80px 20px;
+  text-align: center;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
+.calculator h2 {
+  font-size: 36px;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+/* Tabs */
+.calculator-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tab-button {
+  background-color: #f1f1f1;
+  color: #333;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.tab-button:hover,
+.tab-button.active {
+  background-color: orangered;
+  color: white;
+}
+
+/* Tab Content */
+.calculator-content {
+  max-width: 800px;
+  margin: auto;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Forms */
+.calculator form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.calculator input {
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  width: 100%;
+}
+
+.calculator button {
+  background-color: orangered;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.calculator button:hover {
+  background-color: black;
+}
+
+.calculator p {
+  margin-top: 15px;
+  font-size: 16px;
+  color: #333;
+}
+
 
 /* Features Section */
 .features {
@@ -1212,3 +1311,69 @@ textarea {
 .reject:hover {
     background-color: #dc2626;
 }
+
+/* -------------------Admin dashboard-------------------- */
+
+.admin-card {
+  background: #fcd49b; /* faded orange */
+  border-radius: 15px;
+  padding: 25px;
+  color: #2d2d2d;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+  width: 280px;
+  transition: transform 0.3s ease, background 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+  text-align: left;
+}
+
+.admin-card:hover {
+  background: linear-gradient(45deg, #ff9100, #ff4500);
+  color: white;
+  transform: translateY(-5px);
+}
+
+.admin-card i {
+  font-size: 24px;
+  color: inherit;
+}
+
+.admin-card h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.admin-card p {
+  font-size: 18px;
+  margin: 0;
+}
+.dashboard-cards-container {
+  display: flex;
+  flex-wrap: wrap;         
+  gap: 20px;              
+  justify-content: center; 
+  padding: 20px;
+}
+
+.atm {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+        }
+ 
+        .atm h3 {
+            margin: 0 0 5px;
+            color: #0066cc;
+        }
+ 
+        .atm p {
+            margin: 4px 0;
+            font-size: 14px;
+            color: #555;
+        }

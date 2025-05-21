@@ -126,7 +126,56 @@
         </section>
         <!---------------------About End----------------------------------->
 
-        <!---------------------Features Start---------------------------->
+        <!---------------------Interest Calculator Start----------------------------->
+<section class="calculator" id="calculator">
+    <div class="container">
+        <h2>Interest Calculator</h2>
+        <div class="calculator-tabs">
+            <button class="tab-button active" onclick="showTab('savings')">Savings Projector</button>
+            <button class="tab-button" onclick="showTab('cd')">CD Compare</button>
+            <button class="tab-button" onclick="showTab('loan')">Loan Savings</button>
+        </div>
+
+        <div class="calculator-content">
+            <div class="tab-content active" id="savings">
+                <form id="savings-form">
+                    <input type="number" placeholder="Initial Amount" id="initialAmount" required>
+                    <input type="number" placeholder="Monthly Deposit" id="monthlyDeposit" required>
+                    <input type="number" placeholder="Annual Interest Rate (%)" id="interestRate" required>
+                    <input type="number" placeholder="Years" id="years" required>
+                    <button type="button" onclick="calculateSavings()">Calculate</button>
+                    <p id="savingsResult"></p>
+                </form>
+            </div>
+
+            <div class="tab-content" id="cd">
+                <form id="cd-form">
+                    <input type="number" placeholder="Amount" id="cdAmount" required>
+                    <input type="number" placeholder="Term 1 Rate (%)" id="term1Rate" required>
+                    <input type="number" placeholder="Term 2 Rate (%)" id="term2Rate" required>
+                    <input type="number" placeholder="Years" id="cdYears" required>
+                    <button type="button" onclick="compareCD()">Compare</button>
+                    <p id="cdResult"></p>
+                </form>
+            </div>
+
+            <div class="tab-content" id="loan">
+                <form id="loan-form">
+                    <input type="number" placeholder="Loan Amount" id="loanAmount" required>
+                    <input type="number" placeholder="Interest Rate (%)" id="loanRate" required>
+                    <input type="number" placeholder="Current Term (months)" id="loanTerm" required>
+                    <input type="number" placeholder="Early Payoff (months)" id="earlyPayoff" required>
+                    <button type="button" onclick="calculateLoanSavings()">Calculate</button>
+                    <p id="loanResult"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="assets/js/interestCalculator.js"></script>
+<!---------------------Interest Calculator End----------------------------->
+
+        <!---------------------Features Start(Shuvra)---------------------------->
         <section class="features" id="features">
             <div class="container">
                 <h2>Our Core Features</h2>
@@ -154,7 +203,7 @@
         </section>
         <!---------------------Features End------------------------------->
 
-        <!---------------------Testimonials Start----------------------------->
+        <!---------------------Testimonials Start(Shuvra)----------------------------->
         <section class="testimonials" id="testimonials">
             <div class="container">
                 <h2>What Our Clients Say</h2>
@@ -176,7 +225,7 @@
         </section>
         <!---------------------Testimonials End------------------------------->
 
-        <!---------------------Contact Start------------------------------------->
+        <!---------------------Contact Start(Shuvra)------------------------------------->
         <section class="contact" id="contact">
             <div class="contact-container">
                 <div class="contact-info">

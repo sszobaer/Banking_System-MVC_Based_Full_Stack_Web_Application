@@ -9,6 +9,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#calculator">Calculator</a></li>
                     <li><a href="#contact">Contact</a></li>
 
                     <li>
@@ -34,6 +35,7 @@
                     <li><a href="/BankingSystem">About</a></li>
                     <li><a href="/BankingSystem">Services</a></li>
                     <li><a href="/BankingSystem">Testimonials</a></li>
+                    <li><a href="/BankingSystem">Calculator</a></li>
                     <li><a href="/BankingSystem">Contact</a></li>
                     <li>
                         <a href="../controller/logoutController.php" id="logout-btn">
@@ -50,6 +52,7 @@
                     <li><a href="/BankingSystem">About</a></li>
                     <li><a href="/BankingSystem">Services</a></li>
                     <li><a href="/BankingSystem">Testimonials</a></li>
+                    <li><a href="/BankingSystem">Calculator</a></li>
                     <li><a href="/BankingSystem">Contact</a></li>
 
                     <li>
