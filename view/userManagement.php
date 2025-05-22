@@ -22,14 +22,15 @@
 
 <body>
     <?php
-        include_once "../view/header.php";
-        include_once "../view/adminSidebar.php";
+    include_once "../view/header.php";
+    include_once "../view/adminSidebar.php";
+    include_once "../model/users.php";
+    $users = fetchAllUser();
     ?>
     <div class="all-users">
         <div class="all-users-title">
             <h1>ALL USERS</h1>
         </div>
-
         <div class="all-users-controls">
             <input type="text" id="search-reference"
                 placeholder="Search Users">
@@ -47,78 +48,33 @@
                         <th>Status Control</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>S. S. Zobaer Ahmed</td>
-                        <td>zobaer@fake.com</td>
-                        <td>Admin</td>
-                        <td class="active">Active</td>
-                        <td>
-                            <a href="./editUser.php" class="edit">Edit</a>
-                            <a href="#" class="delete">Delete</a>
-                        </td>
-                        <td>
-                            <button class="approve">Approve</button>
-                            <button class="reject">Reject</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                        <td class="active">Active</td>
-                        <td>
-                            <a href="./editUser.php" class="edit">Edit</a>
-                            <a href="#" class="delete">Delete</a>
-                        </td>
-                        <td>
-                            <button class="approve">Approve</button>
-                            <button class="reject">Reject</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                        <td class="inactive">Inactive</td>
-                        <td>
-                            <a href="./editUser.php" class="edit">Edit</a>
-                            <a href="#" class="delete">Delete</a>
-                        </td>
-                        <td>
-                            <button class="approve">Approve</button>
-                            <button class="reject">Reject</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                        <td class="active">Active</td>
-                        <td>
-                            <a href="./editUser.php" class="edit">Edit</a>
-                            <a href="#" class="delete">Delete</a>
-                        </td>
-                        <td>
-                            <button class="approve">Approve</button>
-                            <button class="reject">Reject</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>--</td>
-                        <td>--</td>
-                        <td>--</td>
-                        <td class="active">Active</td>
-                        <td>
-                            <a href="./editUser.php" class="edit">Edit</a>
-                            <a href="#" class="delete">Delete</a>
-                        </td>
-                        <td>
-                            <button class="approve">Approve</button>
-                            <button class="reject">Reject</button>
-                        </td>
-                    </tr>
-                </tbody>
+                <?php if (!empty($users)) { ?>
+                    <tbody>
+                        <?php foreach ($users as $user) { ?>
+                            <tr>
+                                <td><?= $user['firstName'] . ' ' . $user['lastName'] ?></td>
+                                <td><?= $user['email'] ?></td>
+                                <td><?= $user['gender'] ?></td>
+                                <td class="active">Active</td>
+                                <td>
+                                    <a href="../controller/userManagementController.php?editUser=<?= $user['user_id']; ?>" class="edit">Edit</a>
+                                    <a href="../controller/userManagementController.php?deleteUser=<?= $user['user_id'];?>" class="delete">Delete</a>
+                                </td>
+                                <td>
+                                    <button class="approve">Approve</button>
+                                    <button class="reject">Reject</button>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                <?php } else { ?>
+                    <tbody>
+                        <tr>
+                            <td colspan="6">No users found.</td>
+                        </tr>
+                    </tbody>
+                <?php } ?>
+
             </table>
         </div>
     </div>

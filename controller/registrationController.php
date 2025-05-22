@@ -237,7 +237,7 @@ function pushUser(){
     $updatedAt = date("Y-m-d H:i:s");
     
     $user = [
-        'id'=> null,
+        'user_id'=> null,
         'firstName' => $firstName,
         'lastName' => $lastName,
         'email' => $email,

@@ -90,11 +90,11 @@ if (isset($_SESSION['email'])) {
                         <div id="genderError" class="error-message"></div>
                     </div>
                     <div class="form-group">
-                    <label for="nidNumber">NID / Passport Number</label>
-                    <input type="text" id="nidNumber" name="nidNumber"
-                    value="<?= $_SESSION['nid/passport'] ?>">
-                    <div id="nidNumberError" class="error-message"></div>
-                </div>
+                        <label for="nidNumber">NID / Passport Number</label>
+                        <input type="text" id="nidNumber" name="nidNumber"
+                            value="<?= $_SESSION['nid/passport'] ?>">
+                        <div id="nidNumberError" class="error-message"></div>
+                    </div>
 
                     <div class="form-group">
                         <label for="presentAddress">Present Address</label>

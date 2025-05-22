@@ -16,7 +16,7 @@ function fetchUser($user){
 function insertUser($user){
     $conn = getConnection();
     $sql = "INSERT INTO users VALUES(
-    '{$user['id']}',
+    '{$user['user_id']}',
     '{$user['firstName']}',
     '{$user['lastName']}',
     '{$user['email']}',
@@ -78,8 +78,36 @@ function updatePassword($user){
     $sql = "UPDATE users SET password = '{$user['password']}', updatedAt = '{$user['updatedAt']}' WHERE email = '{$user['email']}'";
     if(mysqli_query($conn, $sql)){
         return true;
+    } else{
+        return false;
+    }
+}
+function fetchAllUser(){
+    $conn = getConnection();
+    $sql = "SELECT * FROM users";
+    $result = mysqli_query($conn, $sql);
+
+    $users = [];
+
+    if ($result && mysqli_num_rows($result) > 0) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $users[] = $row;
+        }
+    }
+    return $users;
+}
+
+function fetchIndivisualUserById($user_id){
+    $conn = getConnection();
+    $user_id = mysqli_real_escape_string($conn, $user_id); // Security
+    $sql = "SELECT * FROM users WHERE user_id = '$user_id'";
+    $result = mysqli_query($conn, $sql);
+
+    if(mysqli_num_rows($result) == 1){
+        return mysqli_fetch_assoc($result);
     } else {
         return false;
     }
 }
+
 ?>
