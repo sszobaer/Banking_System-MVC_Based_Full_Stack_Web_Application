@@ -1,4 +1,5 @@
 <?php
+require_once "../Model/users.php";
  function validateName(){
     $firstName = trim($_POST['firstName']);
     $lastName = trim($_POST['lastName']);
@@ -66,7 +67,7 @@ function validateRole(){
         echo "Role is required<br>";
         return false;
     }
-    if ($role !== 'admin' && $role !== 'user') {
+    if ($role !== '1' && $role !== '2' && $role !== '3') {
         echo "Invalid role selected<br>";
         return false;
     }
@@ -105,46 +106,48 @@ function editUserController()
     );
 }
 
-// function updateUserController() {
-//     $firstName = trim($_POST['firstName']);
-//     $lastName = trim($_POST['lastName']);
-//     $email = trim($_POST['email']);
-//     $phone = trim($_POST['phone']);
-//     $dob = trim($_POST['dob']);
-//     $gender = trim($_POST['gender']);
-//     $nidNumber = trim($_POST['nidNumber']);
-//     $presentAddress = trim($_POST['presentAddress']);
-//     $permanentAddress = trim($_POST['permanentAddress']);
-//     $updatedAt = date("Y-m-d H:i:s");
+function updateUserController() {
+    $userId = trim($_POST['user_id']);
+    $firstName = trim($_POST['firstName']);
+    $lastName = trim($_POST['lastName']);
+    $email = trim($_POST['email']);
+    $phone = trim($_POST['phone']);
+    $nidNumber = trim($_POST['nidNumber']);
+    $role = trim($_POST['role']);
+    $presentAddress = trim($_POST['presentAddress']);
+    $permanentAddress = trim($_POST['permanentAddress']);
+    $updatedAt = date("Y-m-d H:i:s");
 
-//     $user = [
-//         'firstName' => $firstName,
-//         'lastName' => $lastName,
-//         'email' => $email,
-//         'phoneNo' => $phone,
-//         'dob' => $dob,
-//         'gender' => $gender,
-//         'nid/passport' => $nidNumber,
-//         'presentAddress' => $presentAddress,
-//         'permanentAddress' => $permanentAddress,
-//         'updatedAt' => $updatedAt
-//     ];
-
-//     $status = updateUser($user); 
-//     if($status) {
-//         return true;
-//     } else {
-//         echo "Failed to update user information<br>";
-//         return false;
-//     }
-// }
+    $user = [
+        'user_id' => $userId,
+        'firstName' => $firstName,
+        'lastName' => $lastName,
+        'email' => $email,
+        'phoneNo' => $phone,
+        'nid_passport' => $nidNumber,
+        'role_id' => intval($role),
+        'presentAddress' => $presentAddress,
+        'permanentAddress' => $permanentAddress,
+        'updatedAt' => $updatedAt
+    ];
+    // print_r($user);
+    $status = updateUserByAdmin($user); 
+    // print_r($status);
+    if($status) {
+        return true;
+    } else {
+        echo "Failed to update user information<br>";
+        return false;
+    }
+}
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (editUserController()) {
-        header('Location: ../view/login.php');
+    if (editUserController() && updateUserController()) {
+        header('Location: ../view/userManagement.php');
         exit();
     } else {
         echo "Invalid input<br>";
     }
+
 }
 ?>

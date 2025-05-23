@@ -54,11 +54,14 @@
                             <tr>
                                 <td><?= $user['firstName'] . ' ' . $user['lastName'] ?></td>
                                 <td><?= $user['email'] ?></td>
-                                <td><?= $user['gender'] ?></td>
+                                <td><?= $user['role'] ?></td>
                                 <td class="active">Active</td>
                                 <td>
                                     <a href="../controller/userManagementController.php?editUser=<?= $user['user_id']; ?>" class="edit">Edit</a>
-                                    <a href="../controller/userManagementController.php?deleteUser=<?= $user['user_id'];?>" class="delete">Delete</a>
+                                    <a href="../controller/userManagementController.php?deleteUser=<?= $user['user_id']; ?>"
+                                        class="delete"
+                                        onclick="return confirm('Are you sure you want to delete this user?');">Delete</a>
+
                                 </td>
                                 <td>
                                     <button class="approve">Approve</button>
