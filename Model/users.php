@@ -7,7 +7,7 @@ function fetchUser($user){
     $result = mysqli_query($conn, $sql);
     $count = mysqli_num_rows($result);
 
-    if($count == 1){
+    if ($count == 1) {
         return mysqli_fetch_assoc($result);
     } else {
         return false;
@@ -36,9 +36,9 @@ function insertUser($user){
 )";
     $checkEmail = "SELECT * FROM users WHERE email = '{$user['email']}'";
     $result = mysqli_query($conn, $checkEmail);
-    if(mysqli_num_rows($result) > 0){
+    if (mysqli_num_rows($result) > 0) {
         return false;
-    } elseif(mysqli_query($conn, $sql)){
+    } elseif (mysqli_query($conn, $sql)) {
         return true;
     } else {
         return false;
@@ -56,18 +56,40 @@ function updateUser($user){
         `nid/passport` = '{$user['nid/passport']}',
         `presentAddress` = '{$user['presentAddress']}',
         `permanentAddress` = '{$user['permanentAddress']}',
-        `updatedAt` = '{$user['updatedAt']}'
+        `updatedAt` = '{$user['updatedAt']}',
+        `role_id` = '{$user['role_id']}'
      WHERE email = '{$user['email']}'";
-    if(mysqli_query($conn, $sql)){
+    if (mysqli_query($conn, $sql)) {
         return true;
     } else {
+        return false;
+    }
+}
+function updateUserByAdmin($user){
+    $conn = getConnection();
+    $sql = "UPDATE users SET
+        `user_id` = '{$user['user_id']}',
+        `firstName` = '{$user['firstName']}',
+        `lastName` = '{$user['lastName']}',
+        `email` = '{$user['email']}',
+        `phoneNo` = '{$user['phoneNo']}',
+        `nid/passport` = '{$user['nid_passport']}',
+        `presentAddress` = '{$user['presentAddress']}',
+        `permanentAddress` = '{$user['permanentAddress']}',
+        `updatedAt` = '{$user['updatedAt']}',
+        `role_id` = '{$user['role_id']}'
+     WHERE user_id = '{$user['user_id']}'";
+    if (mysqli_query($conn, $sql)) {
+        return true;
+    } else {
+        echo "SQL Error: " . mysqli_error($conn);
         return false;
     }
 }
 function updateAvatar($user){
     $conn = getConnection();
     $sql = "UPDATE users SET imageUrl = '{$user['imageUrl']}', updatedAt = '{$user['updatedAt']}' WHERE email = '{$user['email']}'";
-    if(mysqli_query($conn, $sql)){
+    if (mysqli_query($conn, $sql)) {
         return true;
     } else {
         return false;
@@ -76,15 +98,17 @@ function updateAvatar($user){
 function updatePassword($user){
     $conn = getConnection();
     $sql = "UPDATE users SET password = '{$user['password']}', updatedAt = '{$user['updatedAt']}' WHERE email = '{$user['email']}'";
-    if(mysqli_query($conn, $sql)){
+    if (mysqli_query($conn, $sql)) {
         return true;
-    } else{
+    } else {
         return false;
     }
 }
 function fetchAllUser(){
     $conn = getConnection();
-    $sql = "SELECT * FROM users";
+    $sql = "SELECT u.*, r.role AS role
+            FROM users u 
+            JOIN roles r ON u.role_id = r.role_id";
     $result = mysqli_query($conn, $sql);
 
     $users = [];
@@ -97,17 +121,26 @@ function fetchAllUser(){
     return $users;
 }
 
-function fetchIndivisualUserById($user_id){
+function deleteUserFromAdmin($user){
     $conn = getConnection();
-    $user_id = mysqli_real_escape_string($conn, $user_id); // Security
-    $sql = "SELECT * FROM users WHERE user_id = '$user_id'";
-    $result = mysqli_query($conn, $sql);
+    $query = "DELETE FROM users WHERE user_id = '{$user['user_id']}'";
+    $result = mysqli_query($conn, $query);
 
-    if(mysqli_num_rows($result) == 1){
-        return mysqli_fetch_assoc($result);
+    if ($result) {
+        echo "Deleted Successfully";
     } else {
+        echo "Invalid";
+    }
+}
+function editUserFromAdmin($user){
+    $conn = getConnection();
+    $query = "SELECT * FROM users WHERE user_id = '{$user['user_id']}'";
+    $result = mysqli_query($conn, $query);
+    $info = mysqli_fetch_assoc($result);
+    if ($result) {
+        return $info;
+    } else {
+        echo "User not found";
         return false;
     }
 }
-
-?>
