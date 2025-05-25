@@ -5,7 +5,7 @@
         $user = [
             'user_id' => $userId
         ];
-        deleteUserFromAdmin($user);
+        deleteUserByAdmin($user);
         header("Location: ../view/userManagement.php");
         exit();
     }
@@ -15,7 +15,7 @@
         $user = [
             'user_id' => $userId
         ];
-        $data=editUserFromAdmin($user);
+        $data=editUserByAdmin($user);
         session_start();
         $_SESSION['user_id'] = $data['user_id'];    
         $_SESSION['firstName'] = $data['firstName'];
@@ -30,6 +30,26 @@
         exit();
         // print_r($_SESSION);
     }
+    function approveUserController(){
+        $userId = $_GET['approveUser'];
+        $user = [
+            'user_id' => $userId
+        ];
+
+        approveUserByAdmin($user);
+        header("Location: ../view/userManagement.php");
+        exit();
+    }
+    function rejectUserController(){
+        $userId = $_GET['rejectUser'];
+        $user = [
+            'user_id' => $userId
+        ];
+
+        rejectUserByAdmin($user);
+        header("Location: ../view/userManagement.php");
+        exit();
+    }
 
 
     if($_SERVER["REQUEST_METHOD"] == "GET"){
@@ -38,6 +58,12 @@
         }
         if(isset($_GET['editUser'])){
             editUserController();
+        }
+        if(isset($_GET['approveUser'])){
+            approveUserController();
+        }
+        if(isset($_GET['rejectUser'])){
+            rejectUserController();
         }
     }
 ?>
