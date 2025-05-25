@@ -32,7 +32,7 @@ function validatePassword()
     }
     return true;
 }
-function fetchUserController(){
+function loginUserController(){
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);
     $user = [
@@ -56,18 +56,28 @@ function fetchUserController(){
         $_SESSION['imageUrl'] = $status['imageUrl'];
         $_SESSION['createdAt'] = $status['createdAt'];
         $_SESSION['updatedAt'] = $status['updatedAt'];
+        $_SESSION['role_id'] = $status['role_id'];
         $_SESSION['logged_in'] = true;
 
         // print_r($_SESSION);
-        header("Location:../view/userDashboard.php");
-        exit();
+        if($_SESSION['role_id']==='1'){
+            header("Location: ../view/adminDashboard.php");
+            exit();
+        } else if($_SESSION['role_id']==='2'){
+            header("Location: ../view/userDashboard.php");
+            exit();
+        } else {
+            session_destroy();
+            header("Location: ../view/guestDashboard.php");
+            exit();
+        }
     } else {
         echo "Invalid credentials";
     }
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (validateEmail() && validatePassword()) {
-        fetchUserController();
+        loginUserController();
     } else {
         echo "Invalid input";
     }
