@@ -1,4 +1,8 @@
 <!-- ZOBAER AHMED -->
+ <?php 
+    session_start(); 
+    if(isset($_SESSION['email'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -34,7 +38,7 @@
         <div class="all-users-controls">
             <input type="text" id="search-reference"
                 placeholder="Search Users">
-            <a href="#" class="btn btn-add-user">Add New Users</a>
+            <a href="./addUsers.php" class="btn btn-add-user">Add New Users</a>
         </div>
         <div class="all-users-table-div">
             <table class="all-users-table">
@@ -54,7 +58,12 @@
                             <tr>
                                 <td><?= $user['firstName'] . ' ' . $user['lastName'] ?></td>
                                 <td><?= $user['email'] ?></td>
-                                <td><?= $user['role'] ?></td>
+                                <td><?php if ($user['role'] !== NULL) {
+                                        echo $user['role'];
+                                    } else {
+                                        echo "No Role Assigned";
+                                    } ?>
+                                </td>
                                 <td class="active">Active</td>
                                 <td>
                                     <a href="../controller/userManagementController.php?editUser=<?= $user['user_id']; ?>" class="edit">Edit</a>
@@ -64,8 +73,10 @@
 
                                 </td>
                                 <td>
-                                    <button class="approve">Approve</button>
-                                    <button class="reject">Reject</button>
+                                    <a href="../controller/userManagementController.php?approveUser=<?= $user['user_id']; ?>" class="approve" 
+                                    onclick="return confirm('Are you sure you want to approve this user?');">Approve</a>
+                                    <a href="../controller/userManagementController.php?rejectUser=<?= $user['user_id']; ?>" class="reject"
+                                    onclick="return confirm('Are you sure you want to reject this user?');">Reject</a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -84,3 +95,10 @@
 </body>
 
 </html>
+
+<?php
+    } else {
+        header("Location: ../view/login.php");
+        exit();
+    }
+?>
