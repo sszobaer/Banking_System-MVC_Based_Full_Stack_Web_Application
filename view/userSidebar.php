@@ -18,7 +18,7 @@
                     </a>
                 </li>
                 <li class="notification-sidebar">
-                    <a href="./notification.php"><i class="fa-solid fa-bell"></i>Notification</a>
+                    <a href="./userNotification.php"><i class="fa-solid fa-bell"></i>Notification</a>
                     <span class="notification-count">3</span>
                 </li>
                 <li><a href="./billPay.php"><i class="fa-solid fa-cash-register"></i>
