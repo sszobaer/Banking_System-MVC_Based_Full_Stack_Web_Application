@@ -13,8 +13,7 @@ function validateName()
     return true;
 }
 
-function validateEmail()
-{
+function validateEmail(){
     $email = trim($_POST['email']);
     $atPosition = strpos($email, '@');
     $dotPosition = strrpos($email, '.');
@@ -24,7 +23,8 @@ function validateEmail()
     } else if (strpos($email, '@') === false || strpos($email, '.') === false) {
         echo "Email must contain @ and .<br>";
         return false;
-    } else if ($atPosition < 1 || $dotPosition < $atPosition + 2 || $dotPosition + 1 >= strlen($email)) {
+    } else if ($atPosition < 1 || $dotPosition < $atPosition + 2 || 
+                $dotPosition + 1 >= strlen($email)) {
         echo "Invalid email format<br>";
         return false;
     }
@@ -252,8 +252,7 @@ function pushUser(){
         'permanentAddress' => $permanentAddress,
         'imageUrl' => $imageUrl,
         'createdAt' => $createdAt,
-        'updatedAt' => $updatedAt,
-        'role_id' => null
+        'updatedAt' => $updatedAt
     ];
     $status = insertUser($user);
     if($status){
