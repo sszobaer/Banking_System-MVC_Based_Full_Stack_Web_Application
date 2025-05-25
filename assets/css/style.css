@@ -230,7 +230,8 @@
 .bill-pay-main,
 .loan,
 .cardApply,
-.changePassword {
+.changePassword,
+.addUsers {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -243,7 +244,8 @@
 .card-management-container,
 .loanContainer,
 .cardApplyContainer,
-.changePasswordContainer {
+.changePasswordContainer,
+.addUsersContainer {
   margin-top: 20px;
   margin-bottom: 20px;
   background-color: #fff;
@@ -397,7 +399,7 @@ h1 {
   padding: 20px;
   margin-top: 20px;
 }
-.debit-card:hover{
+.debit-card:hover {
   transform: scale(1.05);
 }
 
@@ -760,7 +762,7 @@ h1 {
 .deposits-main,
 .bill-pay-main,
 .loan,
-.changePassword{
+.changePassword {
   margin-left: 250px;
 }
 
@@ -856,7 +858,6 @@ h1 {
   font-size: 16px;
   color: #333;
 }
-
 
 /* Features Section */
 .features {
@@ -1247,7 +1248,7 @@ textarea {
 }
 
 /* -------------------User Management Start-------------------- */
-.all-users-table{
+.all-users-table {
   margin-top: 10px;
 }
 .all-users .all-users-table-div .all-users-table .active {
@@ -1260,56 +1261,56 @@ textarea {
   font-weight: 600;
 }
 .all-users .all-users-table-div .all-users-table a.edit {
-      color: #2563eb;
-      margin-right: 5px;
-    }
+  color: #2563eb;
+  margin-right: 5px;
+}
 .all-users .all-users-table-div .all-users-table a.edit:hover {
-      color: #1d4ed8;
-      text-decoration: underline;
-    }
+  color: #1d4ed8;
+  text-decoration: underline;
+}
 .all-users .all-users-table-div .all-users-table a.delete {
-      color: #b91c1c;
-      margin-left: 5px;
-    }
+  color: #b91c1c;
+  margin-left: 5px;
+}
 .all-users .all-users-table-div .all-users-table a.delete:hover {
-      color: #991b1b;
-      text-decoration: underline;
-    }
-.all-users{
+  color: #991b1b;
+  text-decoration: underline;
+}
+.all-users {
   margin-top: 120px;
   margin-left: 250px;
 }
-.btn-add-user{
+.btn-add-user {
   display: inline-block;
   text-align: center;
   margin-top: 10px;
   width: 960px;
 }
 .approve {
-    background-color: #10b981; 
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    margin-right: 5px;
-    cursor: pointer;
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  margin-right: 5px;
+  cursor: pointer;
 }
 
 .approve:hover {
-    background-color: #059669;
+  background-color: #059669;
 }
 
 .reject {
-    background-color: #ef4444; 
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .reject:hover {
-    background-color: #dc2626;
+  background-color: #dc2626;
 }
 
 /* -------------------Admin dashboard-------------------- */
@@ -1352,28 +1353,31 @@ textarea {
 }
 .dashboard-cards-container {
   display: flex;
-  flex-wrap: wrap;         
-  gap: 20px;              
-  justify-content: center; 
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
   padding: 20px;
 }
 
 .atm {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 6px;
-            padding: 15px;
-            margin-bottom: 20px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-        }
- 
-        .atm h3 {
-            margin: 0 0 5px;
-            color: #0066cc;
-        }
- 
-        .atm p {
-            margin: 4px 0;
-            font-size: 14px;
-            color: #555;
-        }
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.atm h3 {
+  margin: 0 0 5px;
+  color: #0066cc;
+}
+
+.atm p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #555;
+}
+.addUsers{
+  margin-left: 200px;
+}
