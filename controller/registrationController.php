@@ -217,22 +217,23 @@ function registrationController()
 }
 
 function pushUser(){
+    $conn = getConnection();
     $file = $_FILES["profile-photo"];
     $tmp = explode('.', $file['name']);
     $newFileName = round(microtime(true)) . '.' . end($tmp);
-    $firstName = trim($_POST['firstName']);
-    $lastName = trim($_POST['lastName']);
-    $email = trim($_POST['email']);
-    $phone = trim($_POST['phone']);
-    $dob = trim($_POST['dob']);
-    $gender = trim($_POST['gender']);
-    $accountType = trim($_POST['accountType']);
-    $initialDeposit = trim($_POST['initialDeposit']);
-    $nidNumber = trim($_POST['nidNumber']);
-    $password = trim($_POST['password']);
-    $presentAddress = trim($_POST['presentAddress']);
-    $permanentAddress = trim($_POST['permanentAddress']);
-    $imageUrl = "../assets/uploads/profilePicture/" . $newFileName;
+    $firstName = mysqli_real_escape_string($conn, trim($_POST['firstName']));
+    $lastName = mysqli_real_escape_string($conn, trim($_POST['lastName']));
+    $email = mysqli_real_escape_string($conn, trim($_POST['email']));
+    $phone = mysqli_real_escape_string($conn, trim($_POST['phone']));
+    $dob = mysqli_real_escape_string($conn, trim($_POST['dob']));
+    $gender = mysqli_real_escape_string($conn, trim($_POST['gender']));
+    $accountType = mysqli_real_escape_string($conn, trim($_POST['accountType']));
+    $initialDeposit = mysqli_real_escape_string($conn, trim($_POST['initialDeposit']));
+    $nidNumber = mysqli_real_escape_string($conn, trim($_POST['nidNumber']));
+    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $presentAddress = mysqli_real_escape_string($conn, trim($_POST['presentAddress']));
+    $permanentAddress = mysqli_real_escape_string($conn, trim($_POST['permanentAddress']));
+    $imageUrl = mysqli_real_escape_string($conn, "../assets/uploads/profilePicture/" . $newFileName);
     $createdAt = date("Y-m-d H:i:s");
     $updatedAt = date("Y-m-d H:i:s");
     
