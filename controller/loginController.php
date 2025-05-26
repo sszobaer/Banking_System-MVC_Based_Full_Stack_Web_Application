@@ -68,7 +68,7 @@ function loginUserController(){
             exit();
         } else {
             session_destroy();
-            header("Location: ../view/guestDashboard.php");
+            echo "You are not authorized to access this page right now. Wait for admin approval.";
             exit();
         }
     } else {
