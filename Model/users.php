@@ -124,7 +124,7 @@ function fetchAllUser(){
     $conn = getConnection();
     $sql = "SELECT u.*, r.role AS role
             FROM users u 
-            LEFT JOIN roles r ON u.role_id = r.role_id";
+            LEFT JOIN roles r ON u.role_id = r.role_id ORDER BY u.user_id DESC";
     $result = mysqli_query($conn, $sql);
 
     $users = [];
@@ -135,6 +135,18 @@ function fetchAllUser(){
         }
     }
     return $users;
+}
+function fetchIndivisualUserbyID($user){
+    $conn = getConnection();
+    $sql = "SELECT u.*, r.role AS role
+            FROM users u 
+            LEFT JOIN roles r ON u.role_id = r.role_id WHERE u.user_id = {$user['user_id']}";
+    $result = mysqli_query($conn, $sql);
+    if ($result && mysqli_num_rows($result) == 1) {
+        return mysqli_fetch_assoc($result);
+    } else {
+        return false;
+    }
 }
 
 function deleteUserByAdmin($user){
