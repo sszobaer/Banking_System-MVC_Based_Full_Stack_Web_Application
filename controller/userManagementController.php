@@ -1,5 +1,6 @@
 <?php
     require_once "../model/users.php";
+    require_once "./accountsController.php";
     function deleteUserController(){
         $userId = $_GET['deleteUser'];
         $user = [
@@ -60,7 +61,8 @@
             editUserController();
         }
         if(isset($_GET['approveUser'])){
-            approveUserController();
+            // approveUserController();
+            accountController();
         }
         if(isset($_GET['rejectUser'])){
             rejectUserController();
