@@ -44,8 +44,7 @@ const transactionsLink = document.getElementById("transactionsLink");
                 }, 100);
             }
         });
-    }
-});
+    };
 
 
 
