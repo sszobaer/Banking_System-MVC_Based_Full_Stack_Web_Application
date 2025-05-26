@@ -28,7 +28,6 @@
                             </button>
                         </a>
                     </li>
-
                 <?php 
                 } else if (isset($_SESSION['logged_in'])) { ?>
                     <li><a href="/BankingSystem">Home</a></li>

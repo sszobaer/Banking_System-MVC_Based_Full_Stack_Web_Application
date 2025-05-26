@@ -45,7 +45,7 @@
                         <h2>Role: <span class="role-type">User</span></h2>
                     </div>
                 </div>
-                <a href="./cardManagement.php">
+                <a href="./card.php">
                     <div class="debit-card">
                         <div class="card-top">
                             <div class="chip"></div>

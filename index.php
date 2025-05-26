@@ -35,8 +35,8 @@
                     banking—anytime, anywhere.</p>
                     
                 <div class="button">
-                    <a href="" class="btn">Make an Appointment</a>
-                    <a href="view/cardApply.php" class="btn2">Apply for Card</a>
+                    <a href="#calculator" class="btn">Interest Calculator</a>
+                    <a href="#contact" class="btn2">Contact US</a>
                 </div>
             </div>
         </section>
