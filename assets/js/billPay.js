@@ -1,18 +1,4 @@
 //ZOBAER AHMED
-let selectAccountValidation = () => {
-  const selectAccount = document.getElementById("selectAccount").value;
-  const selectAccountError = document.getElementById("selectAccountError");
-
-  if (selectAccount === "") {
-    selectAccountError.textContent = "Please select an account.";
-    selectAccountError.style.color = "red";
-    return false;
-  } else {
-    selectAccountError.textContent = "";
-    return true;
-  }
-};
-
 let paymentAccountNumberValidation = () => {
   const paymentAccountNumber = document
     .getElementById("PaymentAccountNumber")
@@ -135,7 +121,6 @@ let termsValidation = () => {
 
 let billPayValidation = () => {
   return (
-    selectAccountValidation() &&
     paymentAccountNumberValidation() &&
     billerValidation() &&
     currencyValidation() &&
@@ -151,25 +136,15 @@ billPayForm.addEventListener("submit", (event) => {
   event.preventDefault();
 
   if (billPayValidation()) {
-    const selectAccountText =
-      document.getElementById("selectAccount").options[
-        document.getElementById("selectAccount").selectedIndex
-      ].text;
     const billerText =
       document.getElementById("biller").options[
         document.getElementById("biller").selectedIndex
       ].text;
-    const amount = parseFloat(document.getElementById("amount").value).toFixed(
-      2
-    );
+    const amount = parseFloat(document.getElementById("amount").value).toFixed(2);
     const currency = document.getElementById("currency").value;
     const receiptFile = document.getElementById("upload-receipt").files[0];
     const receiptFileName = receiptFile ? receiptFile.name : "No file uploaded";
 
-    const successMessage =
-    `Payment successfully processed!\nPaid from: ${selectAccountText}\nBiller: ${billerText}\nAmount: ${amount} ${currency}\nReceipt: ${receiptFileName}`;
-
-    alert(successMessage);
     billPayForm.submit();
 
     // ✅ PDF generation
@@ -183,7 +158,6 @@ billPayForm.addEventListener("submit", (event) => {
     // Table data
     const tableColumn = ["Field", "Details"];
     const tableRows = [
-      ["Paid from", selectAccountText],
       ["Biller", billerText],
       ["Amount", `${amount} ${currency}`],
       ["Receipt", receiptFileName],

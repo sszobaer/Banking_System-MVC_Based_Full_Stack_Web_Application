@@ -36,7 +36,7 @@
                 <div class="balance-and-name">
                     <div class="balance">
                         <h2>Account Balance</h2>
-                        <p>$<?php echo $_SESSION['depositAmount']; ?></p>
+                        <p>৳ <?php echo $_SESSION['depositAmount']; ?></p>
                     </div>
                     <div class="name">
                         <h2>Welcome, <?php echo $_SESSION['firstName'];?></h2>

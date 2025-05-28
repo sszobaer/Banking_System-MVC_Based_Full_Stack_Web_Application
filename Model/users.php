@@ -194,3 +194,14 @@ function rejectUserByAdmin($user){
         return false;
     }
 }
+
+function subtractFromAccountBalanceInUsers($user) {
+    $conn = getConnection();
+    $sql = "UPDATE users SET depositAmount = depositAmount - '{$user['payment_amount']}' WHERE user_id = '{$user['user_id']}'";
+    if (mysqli_query($conn, $sql)) {
+        return true;
+    } else {
+        echo "SQL Error: " . mysqli_error($conn);
+        return false;
+    }
+}

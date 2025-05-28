@@ -1,15 +1,13 @@
 <?php
 //ZOBAER AHMED
-function selectAccountValidation() {
-    $selectAccount = trim($_POST["selectAccount"]);
-    if (empty($selectAccount)) {
-        echo "Please select an account.<br>";
-        return false;
-    }
-    return true;
-}
+session_start();
+error_reporting(E_ALL);
+require_once '../model/pay_bills.php';
+require_once '../model/users.php';
+require_once '../model/accounts.php';
 
-function paymentAccountNumberValidation() {
+function paymentAccountNumberValidation()
+{
     $accountNumber = trim($_POST["paymentAccountNumber"]);
     if (empty($accountNumber)) {
         echo "Please enter your account number.<br>";
@@ -32,7 +30,8 @@ function paymentAccountNumberValidation() {
     return true;
 }
 
-function billerValidation() {
+function billerValidation()
+{
     $biller = trim($_POST["biller"]);
     if (empty($biller)) {
         echo "Please select a biller.<br>";
@@ -41,7 +40,8 @@ function billerValidation() {
     return true;
 }
 
-function amountValidation() {
+function amountValidation()
+{
     if (!isset($_POST["amount"])) {
         echo "Amount field is missing.<br>";
         return false;
@@ -61,7 +61,8 @@ function amountValidation() {
     return true;
 }
 
-function currencyValidation() {
+function currencyValidation()
+{
     $currency = trim($_POST["currency"]);
     if (empty($currency)) {
         echo "Please select a currency.<br>";
@@ -70,7 +71,8 @@ function currencyValidation() {
     return true;
 }
 
-function receiptValidation() {
+function receiptValidation()
+{
     if (!isset($_FILES["upload-receipt"])) {
         echo "Receipt file is required.<br>";
         return false;
@@ -106,7 +108,8 @@ function receiptValidation() {
     return true;
 }
 
-function termsValidation() {
+function termsValidation()
+{
     if (!isset($_POST["terms"])) {
         echo "You must agree to the terms and conditions.<br>";
         return false;
@@ -114,9 +117,9 @@ function termsValidation() {
     return true;
 }
 
-function billPayController() {
+function billPayController()
+{
     return (
-        selectAccountValidation() &&
         paymentAccountNumberValidation() &&
         billerValidation() &&
         amountValidation() &&
@@ -125,11 +128,114 @@ function billPayController() {
         termsValidation()
     );
 }
+function handleBillPayement()
+{
+    $email = $_SESSION['email'];
+    $password = $_SESSION['password'];
+    $user = [
+        'email' => $email,
+        'password' => $password
+    ];
+    $userInfo = fetchUser($user);
+
+    // print_r($userInfo);
+    // echo "<br>";
+
+    $account = [
+        'user_id' => $userInfo['user_id']
+    ];
+    $accountInfo = fetchAccountsByUserId($account);
+    $paymentAmount = trim($_POST['amount']);
+
+    if ($accountInfo['balance'] < $paymentAmount && $userInfo['depositAmount'] < $paymentAmount) {
+        echo "Insufficient balance in your account.";
+        return false;
+    }
+    $accountId = $accountInfo['account_id'];
+
+    $account = [
+        'account_id' => $accountId,
+        'payment_amount' => $paymentAmount
+    ];
+    $user = [
+        'user_id' => $userInfo['user_id'],
+        'payment_amount' => $paymentAmount
+    ];
+    $status_for_users = subtractFromAccountBalanceInUsers($user);
+    $status_for_accounts = subtractFromAccountBalanceInAccount($account);
+    if ($status_for_users && $status_for_accounts) {
+        return true;
+    } else {
+        echo "Error updating account balance.";
+        return false;
+    }
+}
+
+function pushBillPayData()
+{
+    $email = $_SESSION['email'];
+    $password = $_SESSION['password'];
+    $user = [
+        'email' => $email,
+        'password' => $password
+    ];
+    $userInfo = fetchUser($user);
+
+    // print_r($userInfo);
+    // echo "<br>";
+
+    $account = [
+        'user_id' => $userInfo['user_id']
+    ];
+    $accountInfo = fetchAccountsByUserId($account);
+
+    // print_r($accountInfo);
+    // echo "<br>";
+
+    $file = $_FILES["upload-receipt"];
+    $tmp = explode('.', $file['name']);
+    $newFileName = round(microtime(true)) . '.' . end($tmp);
+
+    $paymentAccountNo = trim($_POST['paymentAccountNumber']);
+    $biller = trim($_POST['biller']);
+    $currency = trim($_POST['currency']);
+    $amount = trim($_POST['amount']);
+    $memo = isset($_POST['memo']) ? trim($_POST['memo']) : '';
+    $user_id = $userInfo['user_id'];
+    $account_id = $accountInfo['account_id'];
+    $account_no = $accountInfo['account_number'];
+    $receipt = "../assets/uploads/payBill/" . $newFileName;
+
+    $bill = [
+        'dest_account_no' => $paymentAccountNo,
+        'biller' => $biller,
+        'currency' => $currency,
+        'payment_amount' => $amount,
+        'memo' => $memo,
+        'user_id' => $user_id,
+        'account_id' => $account_id,
+        'account_no' => $account_no,
+        'receipt' => $receipt
+    ];
+    if(!handleBillPayement()) {
+        return false;
+    }
+
+    $status = insertBillPayment($bill);
+
+    // print_r($status);
+
+    if ($status) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (billPayController()) {
+    if (billPayController() && pushBillPayData()) {
         header("Location: ../view/userDashboard.php");
         exit();
     }
+    // pushBillPayData();
 }
-?>

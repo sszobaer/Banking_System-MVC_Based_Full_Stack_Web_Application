@@ -27,7 +27,11 @@ if (isset($_SESSION['email'])) {
     <body>
         <?php
         include "./header.php";
-        include "./userSidebar.php";
+        if ($_SESSION['role_id'] == '1') {
+            include_once "./adminSidebar.php";
+        } else if ($_SESSION['role_id'] == '2') {
+            include_once "./userSidebar.php";
+        }
         ?>
         <!--------------------- Profile Start ----------------------------->
         <section class="edit-profile" id="edit-profile">

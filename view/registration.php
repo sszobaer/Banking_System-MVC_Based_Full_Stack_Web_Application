@@ -99,8 +99,7 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="initialDeposit">Initial Deposit
-                        (USD)</label>
+                    <label for="initialDeposit">Initial Deposit</label>
                     <input type="number" id="initialDeposit"
                         name="initialDeposit" placeholder="Enter amount">
                     <div id="initialDepositError"

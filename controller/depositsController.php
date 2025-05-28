@@ -1,40 +1,25 @@
 <?php
+session_start();
 //ZOBAER AHMED
-function accountNumberValidation(){
-    $accountNumber = trim($_POST["accountNumber"]);
-    if (empty($accountNumber)) {
-        echo "Please enter your account number.<br>";
-        return false;
-    } else {
-        $length = strlen($accountNumber);
-        if ($length < 8 || $length > 12) {
-            echo "Account number must be 8-12 digits.<br>";
-            return false;
-        }
+require_once "../model/deposits.php";
+require_once "../model/users.php";
+require_once "../model/accounts.php";
 
-        for ($i = 0; $i < $length; $i++) {
-            if ($accountNumber[$i] < "0" || $accountNumber[$i] > "9") {
-                echo "Account number must contain only digits.<br>";
-                return false;
-                break;
-            }
-        }
-    }
-    return true;
-}
-function depositTypeValidation(){
-    $depositeType=trim($_POST["depositType"]);
+function depositTypeValidation()
+{
+    $depositeType = trim($_POST["depositType"]);
     if (empty($depositeType)) {
         echo "Please select a deposit type.<br>";
         return false;
     }
     return true;
 }
-function tenureValidation(){
+function tenureValidation()
+{
     $depositType = isset($_POST["tenure"]);
     $fixedDeposit = $_POST["depositType"];
     $tenure = trim($_POST["tenure"]);
-    if ( $depositType && $fixedDeposit === "fixed") {
+    if ($depositType && $fixedDeposit === "fixed") {
         if (empty($tenure)) {
             echo "Please select a tenure for fixed deposit.<br>";
             return false;
@@ -42,7 +27,8 @@ function tenureValidation(){
     }
     return true;
 }
-function frequencyValidation(){
+function frequencyValidation()
+{
     if (isset($_POST["depositType"]) && $_POST["depositType"] === "recurring") {
         if (empty($_POST["frequency"])) {
             echo "Please select a deposit frequency.<br>";
@@ -51,21 +37,24 @@ function frequencyValidation(){
     }
     return true;
 }
-function depositMethodValidation(){
+function depositMethodValidation()
+{
     if (empty($_POST["depositMethod"])) {
         echo "Please select a deposit method.<br>";
         return false;
     }
     return true;
 }
-function currencyValidation(){
+function currencyValidation()
+{
     if (empty($_POST["currency"])) {
         echo "Please select a currency.<br>";
         return false;
     }
     return true;
 }
-function amountvalidation() {
+function amountvalidation()
+{
     if (empty(isset($_POST["amount"]))) {
         echo "Amount field is missing.<br>";
         return false;
@@ -121,7 +110,8 @@ function amountvalidation() {
 
     return true;
 }
-function memoValidation(){
+function memoValidation()
+{
     if (!empty($_POST["memo"])) {
         $memo = trim($_POST["memo"]);
         if (strlen($memo) > 50) {
@@ -131,7 +121,8 @@ function memoValidation(){
     }
     return true;
 }
-function termsValidation(){
+function termsValidation()
+{
     if (!isset($_POST["terms"])) {
         echo "You must agree to the terms and conditions.<br>";
         return false;
@@ -139,23 +130,118 @@ function termsValidation(){
     return true;
 }
 
-function depositController(){
-    return(
-        accountNumberValidation() &&
-        depositTypeValidation()&&
-        tenureValidation() &&
-        frequencyValidation()&&
-        depositMethodValidation() &&
-        currencyValidation() &&
-        amountvalidation() &&
-        memoValidation() &&
-        termsValidation()
+function depositController()
+{
+    return (
+        (
+            depositTypeValidation() &&
+            tenureValidation() &&
+            currencyValidation() &&
+            amountValidation() &&
+            memoValidation() &&
+            termsValidation()
+        ) ||
+        (
+            depositTypeValidation() &&
+            frequencyValidation() &&
+            currencyValidation() &&
+            amountValidation() &&
+            memoValidation() &&
+            termsValidation()
+        ) ||
+        (
+            depositTypeValidation() &&
+            depositMethodValidation() &&
+            currencyValidation() &&
+            amountValidation() &&
+            memoValidation() &&
+            termsValidation()
+        )
+
     );
 }
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if(depositController()){
-        header("location:../view/userDashboard.php");
+function pushDepositData()
+{
+    $depositType = trim($_POST["depositType"]);
+    $depositMethod = trim($_POST["depositMethod"]);
+    $currency = trim($_POST["currency"]);
+    $amount = floatval(trim($_POST["amount"]));
+    $memo = isset($_POST["memo"]) ? trim($_POST["memo"]) : null;
+
+    $email = $_SESSION['email'];
+    $password = $_SESSION['password'];
+    $user = [
+        'email' => $email,
+        'password' => $password
+    ];
+    $userInfo = fetchUser($user);
+
+    $account = [
+        'user_id' => $userInfo['user_id']
+    ];
+    $accountInfo = fetchAccountsByUserId($account);
+
+    $deposit = [
+        'account_no' => $accountInfo['account_number'],
+        'deposit_type' => $depositType,
+        'deposit_method' => $depositMethod,
+        'currency' => $currency,
+        'amount_per_deposit' => $amount,
+        'deposit_amount' => $amount,
+        'memo' => $memo,
+        'user_id' => $userInfo['user_id'],
+        'account_id' => $accountInfo['account_id'],
+        'tenure' => isset($_POST["tenure"]) ? trim($_POST["tenure"]) : null,
+        'frequency' => isset($_POST["frequency"]) ? trim($_POST["frequency"]) : null
+    ];
+
+    $status = insertDeposit($deposit);
+
+    if ($status) {
+        return true;
+    } else {
+        echo "Error inserting deposit: " . mysqli_error(getConnection());
+        return false;
     }
 }
-?>
+
+function getDepositById() {
+    $email = $_SESSION['email'];
+    $password = $_SESSION['password'];
+
+    $user = [
+        'email' => $email,
+        'password' => $password
+    ];
+
+    $userInfo = fetchUser($user);
+
+    if (!$userInfo || !isset($userInfo['user_id'])) {
+        echo "User not found.";
+        return;
+    }
+
+    $deposit = [
+        'user_id' => $userInfo['user_id']
+    ];
+
+    $status = fetchDepositById($deposit);
+
+    if ($status) {
+        // print_r($status['total_deposit']);
+        return json_encode($status);
+    } else {
+        echo "No deposit found.";
+    }
+}
+if($_SERVER["REQUEST_METHOD"] === "GET"){
+    echo getDepositById();
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (depositController() && pushDepositData()) {
+        header("location:../view/userDashboard.php");
+    }
+    
+}

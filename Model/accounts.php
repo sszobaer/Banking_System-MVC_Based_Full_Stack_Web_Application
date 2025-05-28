@@ -27,4 +27,25 @@ function insertAccounts($user) {
         return false;
     }
 }
+function fetchAccountsByUserId($user) {
+    $conn = getConnection();
+    $sql = "SELECT * FROM accounts WHERE user_id = '{$user['user_id']}'";
+    $result = mysqli_query($conn, $sql);
+    
+    if ($result && mysqli_num_rows($result) > 0) {
+        return mysqli_fetch_assoc($result);
+    } else {
+        return false;
+    }
+}
+function subtractFromAccountBalanceInAccount($account) {
+    $conn = getConnection();
+    $sql = "UPDATE accounts SET balance = balance - '{$account['payment_amount']}' WHERE account_id = '{$account['account_id']}'";
+    if (mysqli_query($conn, $sql)) {
+        return true;
+    } else {
+        echo "SQL Error: " . mysqli_error($conn);
+        return false;
+    }
+}
 ?>

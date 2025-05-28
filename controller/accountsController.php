@@ -4,8 +4,6 @@ require_once '../model/users.php';
 require_once '../model/connection.php';
 //account_id	user_id	account_number	account_type	balance	currency	account_status	created_at	updated_at
 function accountController(){
-    $conn = getConnection();
-
     $userId = $_GET['approveUser'];
     $user = [
         'user_id' => $userId
@@ -25,9 +23,8 @@ function accountController(){
 
     $status = insertAccounts($account);
     if($status){
+        $_SESSION['account_number'] = $account['account_number'];
         approveUserByAdmin($user);
-        header("Location: ../view/userManagement.php");
-        exit();
     } else{
         echo "Account creation failed.";
     } 

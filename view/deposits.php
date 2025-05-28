@@ -26,18 +26,14 @@
 
 <body>
     <?php 
+    require_once "../model/accounts.php";
     include "./header.php";
-    include "./userSidebar.php";
+    include_once "./userSidebar.php";
     ?>
     <section class="deposits-main" id="deposits-main">
         <div class="deposit-container">
             <h1>Make a Deposit</h1>
-            <form id="depositForm" method="post" action="../controller/depositsController.php">
-                <div class="form-group">
-                    <label for="accountNumber">Account Number</label>
-                    <input type="text" id="accountNumber" name = "accountNumber" placeholder="Enter account number" >
-                    <div id="accountNumberError" class="error"></div>
-                </div>
+            <form action="../controller/depositsController.php" method="POST" id="depositForm">
                 <div class="form-group">
                     <label for="depositType">Deposit Type</label>
                     <select id="depositType" name="depositType">

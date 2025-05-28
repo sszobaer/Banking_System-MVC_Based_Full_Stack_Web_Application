@@ -1,6 +1,6 @@
 
 <?php
-
+session_start();
 $clients = 150;
 $staffs = 12;
 $accounts = 110;

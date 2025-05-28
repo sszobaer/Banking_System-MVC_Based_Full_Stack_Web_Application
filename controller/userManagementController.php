@@ -38,8 +38,6 @@
         ];
 
         approveUserByAdmin($user);
-        header("Location: ../view/userManagement.php");
-        exit();
     }
     function rejectUserController(){
         $userId = $_GET['rejectUser'];
@@ -61,8 +59,10 @@
             editUserController();
         }
         if(isset($_GET['approveUser'])){
-            // approveUserController();
+            approveUserController();
             accountController();
+            header("Location: ../view/userManagement.php");
+            exit();
         }
         if(isset($_GET['rejectUser'])){
             rejectUserController();

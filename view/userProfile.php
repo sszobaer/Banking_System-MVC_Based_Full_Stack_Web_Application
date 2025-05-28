@@ -25,7 +25,12 @@
     <body>
     <?php
     include "./header.php";
-    include "./userSidebar.php";
+    if ($_SESSION['role_id'] == '1') {
+        include_once "./adminSidebar.php";
+    } else if ($_SESSION['role_id'] == '2') {
+        include_once "./userSidebar.php";
+    }
+    // print_r($_SESSION);
     ?>
         <!--------------------- Profile Start ----------------------------->
         <section class="profile" id="profile">

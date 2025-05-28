@@ -2,9 +2,8 @@
     <!--------------------- Sidebar Start ----------------------------->
     <aside class="sidebar">
         <ul>
-            <li><a href="adminProfile.html"><img class="profile-logo"
-                        src="../assets/img/avatar.jpg" alt="avatar">
-                    <span class="profile-name">Zobaer Ahmed</span>
+            <li><a href="./userProfile.php"><img class="profile-logo" height="40px" width="40px" src="<?php echo $_SESSION['imageUrl']; ?>" alt="avatar">
+                    <span class="profile-name"><?php echo $_SESSION['firstName'] . ' ' . $_SESSION['lastName']; ?></span>
                 </a></li>
             <li>
                 <div class="search-container">
