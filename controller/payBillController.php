@@ -232,6 +232,39 @@ function pushBillPayData()
     }
 }
 
+function getBillPayment(){
+    $email = $_SESSION['email'];
+    $password = $_SESSION['password'];
+
+    $user = [
+        'email' => $email,
+        'password' => $password
+    ];
+
+    $userInfo = fetchUser($user);
+
+    if (!$userInfo || !isset($userInfo['user_id'])) {
+        echo "User not found.";
+        return;
+    }
+
+    $payBill = [
+        'user_id' => $userInfo['user_id']
+    ];
+
+    $status = fetchAllBillPaymentsById($payBill);
+
+    if ($status) {
+        // print_r($status['total_deposit']);
+        return json_encode($status);
+    } else {
+        echo "No deposit found.";
+    }
+}
+if($_SERVER["REQUEST_METHOD"] === "GET"){
+    echo getBillPayment();
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (billPayController() && pushBillPayData()) {
         header("Location: ../view/userDashboard.php");
