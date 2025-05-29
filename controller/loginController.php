@@ -68,8 +68,7 @@ function loginUserController(){
             exit();
         } else {
             session_destroy();
-            echo "You are not authorized to access this page right now. Wait for admin approval.";
-            exit();
+            header("location: ../view/unauthorizedUser.php");
         }
     } else {
         echo "Invalid credentials";
