@@ -2,6 +2,7 @@
 require_once '../model/accounts.php';
 require_once '../model/users.php';
 require_once '../model/connection.php';
+require_once '../model/deposits.php';
 //account_id	user_id	account_number	account_type	balance	currency	account_status	created_at	updated_at
 function accountController(){
     $userId = $_GET['approveUser'];
@@ -29,4 +30,5 @@ function accountController(){
         echo "Account creation failed.";
     } 
 }
+
 ?>

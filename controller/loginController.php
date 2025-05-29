@@ -2,8 +2,7 @@
 //ZOBAER AHMED
 require_once "../model/users.php";
 session_start();
-function validateEmail()
-{
+function validateEmail(){
     $email = trim($_POST['email']);
     $atPosition = strpos($email, '@');
     $dotPosition = strrpos($email, '.');
@@ -26,7 +25,7 @@ function validatePassword()
     if ($password == "") {
         echo "Password is required<br>";
         return false;
-    } else if (strlen($password) < 6) {
+    } else if (strlen($password) <6) {
         echo "Password must be at least 6 characters<br>";
         return false;
     }
@@ -40,7 +39,9 @@ function loginUserController(){
         'password' => $password
     ];
     $status = fetchUser($user);
+    
     if ($status) {
+        $_SESSION['user_id'] = $status['user_id'];
         $_SESSION['email'] = $status['email'];
         $_SESSION['firstName'] = $status['firstName'];
         $_SESSION['lastName'] = $status['lastName'];
@@ -59,11 +60,14 @@ function loginUserController(){
         $_SESSION['role_id'] = $status['role_id'];
         $_SESSION['logged_in'] = true;
 
-        // print_r($_SESSION);
+        
         if($_SESSION['role_id']==='1'){
             header("Location: ../view/adminDashboard.php");
             exit();
         } else if($_SESSION['role_id']==='2'){
+            // print_r($status);
+            // echo "<br><br>";
+            // print_r($_SESSION);
             header("Location: ../view/userDashboard.php");
             exit();
         } else {

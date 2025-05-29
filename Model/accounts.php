@@ -48,4 +48,14 @@ function subtractFromAccountBalanceInAccount($account) {
         return false;
     }
 }
+function additionFromAccountBalanceInAccount($account){
+    $conn = getConnection();
+    $sql = "UPDATE accounts SET balance = balance + '{$account['deposit_amount']}' WHERE account_id = '{$account['account_id']}'";
+    if (mysqli_query($conn, $sql)) {
+        return true;
+    } else {
+        echo "SQL Error: " . mysqli_error($conn);
+        return false;
+    }
+}
 ?>

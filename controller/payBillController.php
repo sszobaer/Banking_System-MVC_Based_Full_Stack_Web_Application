@@ -128,8 +128,7 @@ function billPayController()
         termsValidation()
     );
 }
-function handleBillPayement()
-{
+function handleBillPayement(){
     $email = $_SESSION['email'];
     $password = $_SESSION['password'];
     $user = [

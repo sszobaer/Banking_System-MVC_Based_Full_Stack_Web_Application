@@ -1,5 +1,7 @@
 <?php
 //ZOBAER AHMED
+require_once "../model/users.php";
+require_once "../model/cards.php";
 function categoryValidation() {
     $category = isset($_POST['category']);
     if ($category === '') {
@@ -120,7 +122,22 @@ function fraudAlertController() {
     return fraudDetailsValidation();
 }
 
+function getCard(){
+    $email = $_SESSION['email'];
+    $password = $_SESSION['password'];
+    $user = [
+        'email' => $email,
+        'password' => $password
+    ];
+    $userInfo = fetchUser($user);
+
+    $card = ['user_id' => $userInfo];
+
+    $status = fetchAllFromCardByUserId($card);
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    getCard();
     if (isset($_POST['set-limit-button'])) {
         if (cardControlController()){
             header("Location: ../view/cardManagement.php");
@@ -137,4 +154,5 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             exit();
         }
     }
+    
 }

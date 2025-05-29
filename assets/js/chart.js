@@ -34,7 +34,7 @@ function fetchPayBills(callback) {
 
 function fetchFundTransfer(callback) {
     const xhttp = new XMLHttpRequest();
-    xhttp.open('GET', '../controller/transactionsController.php', true); // Adjust if this should be a different endpoint
+    xhttp.open('GET', '../controller/transactionsController.php', true); 
     xhttp.onreadystatechange = () => {
         if (xhttp.readyState === 4 && xhttp.status === 200) {
             try {
@@ -57,12 +57,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 const transactionChart = new Chart(ctx, {
                     type: 'pie',
                     data: {
-                        labels: ['Deposits', 'Withdrawals', 'Transfers', 'Bills'],
+                        labels: ['Deposits', 'Transfers', 'Bills'],
                         datasets: [{
                             label: 'Transaction Breakdown',
-                            data: [totalDeposit, 1200, fundTransfer, totalBills],
-                            backgroundColor: ['#ff7a00', '#182978', 'rgba(255, 153, 0, 0.7)', 'rgba(95, 194, 255, 0.7)'],
-                            borderColor: ['#ff7a00', '#182978', 'rgba(255, 153, 0, 0.7)', 'rgba(95, 194, 255, 0.7)'],
+                            data: [totalDeposit, fundTransfer, totalBills],
+                            backgroundColor: ['#ff7a00', 'rgba(255, 153, 0, 0.7)', 'rgba(95, 194, 255, 0.7)'],
+                            borderColor: ['#ff7a00', 'rgba(255, 153, 0, 0.7)', 'rgba(95, 194, 255, 0.7)'],
                             borderWidth: 1
                         }]
                     },
