@@ -1,10 +1,14 @@
+<?php
+session_start();
+if (isset($_SESSION['email'])) {
+?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card Management</title>
+    <title>Card Pin Management</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/_variable.css">
     <link rel="stylesheet" href="../assets/css/_global.css">
@@ -29,12 +33,11 @@
     <section class="card-management" id="card-management">
         <div class="card-management-container">
             <div id="pin-changer">
-                <form id="pin-changer-form" method="post" action="../controller/cardManagementController.php">
+                <form id="pin-changer-form" method="post" action="../controller/cardPinManagementController.php">
                     <div class="form-group">
                         <label for="set-pin">Set PIN</label>
                         <div class="password-container">
                             <input type="password" class="password-field" id="set-pin" name="set-pin" placeholder="Enter new PIN">
-                            <span class="toggle-password eye-icon">👁️</span>
                         </div>
                         <div id="newPinError" class="error-message"></div>
                     </div>
@@ -42,7 +45,6 @@
                         <label for="confirm-pin">Confirm New PIN</label>
                         <div class="password-container">
                             <input type="password" class="password-field" id="confirm-pin" name="confirm-pin" placeholder="Confirm new PIN">
-                            <span class="toggle-password eye-icon">👁️</span>
                         </div>
                         <div id="confirmPinError" class="error-message"></div>
                     </div>
@@ -61,3 +63,9 @@
 </body>
 
 </html>
+<?php
+} else {
+    header("Location: login.php");
+    exit();
+}
+?>
