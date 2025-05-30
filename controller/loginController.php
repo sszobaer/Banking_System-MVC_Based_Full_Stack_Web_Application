@@ -40,6 +40,7 @@ function loginUserController(){
     ];
     $status = fetchUser($user);
     
+    //Set Session
     if ($status) {
         $_SESSION['user_id'] = $status['user_id'];
         $_SESSION['email'] = $status['email'];
@@ -60,7 +61,15 @@ function loginUserController(){
         $_SESSION['role_id'] = $status['role_id'];
         $_SESSION['logged_in'] = true;
 
-        
+        //Set Cookie
+        if (isset($_POST['remember-me'])) {
+            setcookie('remember_email', $email, time() + (86400 * 7), "/"); 
+            setcookie('remember_password', $password, time() + (86400 * 7), "/"); 
+        } else {
+            setcookie('remember_email', '', time() - 3600, "/");
+            setcookie('remember_password', '', time() - 3600, "/");
+        }
+
         if($_SESSION['role_id']==='1'){
             header("Location: ../view/adminDashboard.php");
             exit();
