@@ -44,7 +44,6 @@ if (isset($_SESSION['email'])) {
                             <label>Card Status</label>
                             <button class="btn" id="freeze-button">Temporarily Freeze Card</button>
                             <button class="btn" id="report-lost-button">Report Lost/Stolen Card</button>
-                            <div id="control-message" class="error-message"></div>
                         </div>
                         <div class="form-group">
                             <label for="category">Spending Limit Category</label>
