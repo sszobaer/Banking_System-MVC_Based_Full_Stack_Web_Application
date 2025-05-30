@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             data: [totalDeposit, fundTransfer, totalBills],
                             backgroundColor: ['#ff7a00', 'rgba(255, 153, 0, 0.7)', 'rgba(95, 194, 255, 0.7)'],
                             borderColor: ['#ff7a00', 'rgba(255, 153, 0, 0.7)', 'rgba(95, 194, 255, 0.7)'],
-                            borderWidth: 1
+                            borderWidth: 2
                         }]
                     },
                     options: {
