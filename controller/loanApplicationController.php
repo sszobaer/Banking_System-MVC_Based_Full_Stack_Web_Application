@@ -1,4 +1,6 @@
 <?php
+require_once "../model/loan_applications.php";
+require_once "../model/users.php";
 // ZOBAER AHMED
 function validateFirstName() {
     $firstName = trim($_POST['firstName']);
@@ -170,8 +172,48 @@ function loanApplicationController() {
     );
 }
 
+function pushLoanApplications(){
+    $employment = trim($_POST['employment']);
+    $email = trim($_POST['email']);
+    $currency = trim($_POST['currency']);
+    $loanType = trim($_POST['loan-type']);
+    $monthlyIncome = trim($_POST['monthly-income']);
+    $loanAmount = trim($_POST['loan-amount']);
+    $taxSlip = trim($_POST['tax-slip']);
+    $password = $_SESSION['password'];
+    $user = [
+        'email' => $email,
+        'password' => $password
+    ];
+    $userInfo = fetchUser($user);
+
+    $loan = [
+        'loan_id' => NULL,
+        'employment_type' => $employment,
+        'currency' => $currency,
+        'loan_type' => $loanType,
+        'monthly_income' => $monthlyIncome,
+        'loan_amount' => $loanAmount,
+        'acknowledgement_slip_no' => $taxSlip,
+        'user_id' => $userInfo['user_id']
+    ];
+
+    $status = insertLoanApplications($loan);
+
+    if($status){
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function showLoanApplications() {
+    $loanApplications = fetchAllLoanApplication();
+    return $loanApplications;
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    if (loanApplicationController()) {
+    if (loanApplicationController() && pushLoanApplications()) {
         header("Location: ../view/loanApplication.php?success=1");
         exit();
     }
