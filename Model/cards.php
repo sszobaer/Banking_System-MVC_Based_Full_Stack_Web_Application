@@ -1,5 +1,4 @@
 <?php
-require_once "../model/cards.php";
 require_once "../model/connection.php";
    function InsertCard ($card){
     $conn = getConnection();
