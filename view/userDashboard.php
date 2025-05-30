@@ -104,7 +104,7 @@ if (isset($_SESSION['email'])) {
                 <div class="deposits">
                     <i class="fa-solid fa-upload"></i>
                     <h2>Deposits</h2>
-                    <p>$<?php echo $_SESSION['depositAmount']; ?></p>
+                    <p>bdt <?php echo $_SESSION['depositAmount']; ?></p>
                 </div>
                 <div class="withdrawals">
                     <i class="fa-solid fa-download"></i>
