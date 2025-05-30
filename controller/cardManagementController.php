@@ -2,6 +2,7 @@
 //ZOBAER AHMED
 require_once "../model/users.php";
 require_once "../model/cards.php";
+
 function categoryValidation() {
     $category = isset($_POST['category']);
     if ($category === '') {
@@ -135,9 +136,7 @@ function getCard(){
 
     $status = fetchAllFromCardByUserId($card);
 }
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    getCard();
     if (isset($_POST['set-limit-button'])) {
         if (cardControlController()){
             header("Location: ../view/cardManagement.php");
@@ -154,5 +153,4 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             exit();
         }
     }
-    
 }
