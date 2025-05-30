@@ -18,14 +18,14 @@
                 </a>
             </li>
             <li class="notification-sidebar">
-                <a href="./adminNotification.php"><i class="fa-solid fa-bell"></i>Notification</a>
+                <a href="./notification.php"><i class="fa-solid fa-bell"></i>Notification</a>
                 <span class="notification-count">3</span>
             </li>
             <li><a href="./error.php"><i class="fa-solid fa-money-bill"></i>
                     Transactions</a></li>
             <li><a href="./reports.php"><i class="fa-solid fa-chart-line"></i>
                     Reports</a></li>
-            <li><a href="./error.php"><i class="fa-solid fa-cog"></i>
+            <li><a href="./settings.php"><i class="fa-solid fa-cog"></i>
                     Settings</a></li>
             <li><a href="../view/userManagement.php"><i class="fa-solid fa-users"></i>
                     Manage Users</a></li>

@@ -72,8 +72,7 @@ function updateUser($user){
         `nid/passport` = '{$user['nid/passport']}',
         `presentAddress` = '{$user['presentAddress']}',
         `permanentAddress` = '{$user['permanentAddress']}',
-        `updatedAt` = '{$user['updatedAt']}',
-        `role_id` = '{$user['role_id']}'
+        `updatedAt` = '{$user['updatedAt']}'
      WHERE email = '{$user['email']}'";
     if (mysqli_query($conn, $sql)) {
         return true;

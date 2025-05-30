@@ -79,12 +79,12 @@
                         <div class="name-group">
                             <div class="name-field">
                                 <label for="firstName">First Name</label>
-                                <input type="text" id="firstName" name="firstName" placeholder="Enter your first name">
+                                <input type="text" id="firstName" name="firstName" placeholder="Enter your first name" value = <?= $_SESSION['firstName']?>>
                                 <div id="firstNameError" class="error-message"></div>
                             </div>
                             <div class="name-field">
                                 <label for="lastName">Last Name</label>
-                                <input type="text" id="lastName" name="lastName" placeholder="Enter your last name">
+                                <input type="text" id="lastName" name="lastName" placeholder="Enter your last name" value = <?= $_SESSION['lastName']?>>
                                 <div id="lastNameError" class="error-message"></div>
                             </div>
                         </div>
@@ -92,7 +92,7 @@
 
                     <div class="form-group">
                         <label for="mobile">Mobile Number</label>
-                        <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number">
+                        <input type="tel" id="mobile" name="mobile" placeholder="Enter your mobile number" value = <?= $_SESSION['phoneNo']?>>
                         <div id="mobileError" class="error-message"></div>
                     </div>
 
@@ -110,13 +110,13 @@
 
                     <div class="form-group">
                         <label for="nid-passport">NID/Passport Number</label>
-                        <input type="text" id="nid-passport" name="nid-passport" placeholder="Enter NID or Passport number">
+                        <input type="text" id="nid-passport" name="nid-passport" placeholder="Enter NID or Passport number" value = <?= $_SESSION['nid/passport']?>>
                         <div id="nidPassportError" class="error-message"></div>
                     </div>
 
                     <div class="form-group">
                         <label for="email">Email Address</label>
-                        <input type="email" id="email" name="email" placeholder="Enter your email">
+                        <input type="email" id="email" name="email" placeholder="Enter your email" value = <?= $_SESSION['email']?>>
                         <div id="emailError" class="error-message"></div>
                     </div>
 
