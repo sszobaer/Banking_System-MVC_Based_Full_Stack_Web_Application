@@ -74,7 +74,7 @@
 
             <!-- Apply for Loan Tab -->
             <div id="apply-loan" class="tab-content">
-                <form id="loan-form" method="post" action="../controller/loanApplicationController.php">
+                <form id="loan-form" method="post" action="../controller/loanManagementController.php">
                     <div class="form-group">
                         <div class="name-group">
                             <div class="name-field">

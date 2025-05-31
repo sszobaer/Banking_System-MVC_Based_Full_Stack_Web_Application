@@ -28,7 +28,7 @@
     <?php
     include_once "../view/header.php";
     include_once "../view/adminSidebar.php";
-    require_once "../controller/loanApplicationController.php";
+    require_once "../controller/loanManagementController.php";
     $loans = showLoanApplications();
     ?>
     <div class="all-users">
@@ -43,11 +43,6 @@
         <div class="all-users-table-div">
             <table class="all-users-table">
                 <thead>
-                    <!-- [loan_id] => 1 [employment_type] => salaried 
-                    [currency] => 0 [loan_type] => home 
-                    [monthly_income] => 30000 
-                    [loan_amount] => 5000000 
-                    [acknowledgement_slip_no] => 982909221' -->
                     <tr>
                         <th>Loan Id</th>
                         <th>Loan Type</th>
@@ -67,9 +62,9 @@
                                 <td><?=$loan['loan_amount']?></td>
                                 <td><?=$loan['acknowledgement_slip_no']?></td>
                                 <td>
-                                    <a href="../controller/userManagementController.php?approveLoan=<?= $loan['loan_id']; ?>" class="approve" 
+                                    <a href="../controller/loanManagementController.php?approveLoan=<?= $loan['loan_id']; ?>" class="approve" 
                                     onclick="return confirm('Are you sure you want to approve this user?');">Approve</a>
-                                    <a href="../controller/userManagementController.php?rejectUser=<?= $loan['loan_id']; ?>" class="reject"
+                                    <a href="../controller/loanManagementController.php?rejectLoan=<?= $loan['loan_id']; ?>" class="reject"
                                     onclick="return confirm('Are you sure you want to reject this user?');">Reject</a>
                                 </td>
                             </tr>

@@ -38,3 +38,19 @@ function fetchAllLoanApplication(){
     }
     return $loan;
 }
+
+function fetchRequestedLoanById($loan){
+    $conn = getConnection();
+
+    $sql = "SELECT * FROM loan_applications WHERE loan_id = '{$loan['loan_id']}'";
+
+    $result = mysqli_query($conn, $sql);
+    
+    if (mysqli_num_rows($result) == 1) {
+        return mysqli_fetch_assoc($result);
+    } else {
+        return false;
+    }
+}
+
+
