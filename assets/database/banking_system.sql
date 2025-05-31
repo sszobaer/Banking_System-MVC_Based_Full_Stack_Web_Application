@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 28, 2025 at 02:59 AM
+-- Generation Time: May 31, 2025 at 09:29 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- Database: `banking system`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `accepted_loans`
+--
+
+CREATE TABLE `accepted_loans` (
+  `accepted_loan_id` int(11) NOT NULL,
+  `loan_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `account_id` int(11) NOT NULL,
+  `loan_amount` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `accepted_loans`
+--
+
+INSERT INTO `accepted_loans` (`accepted_loan_id`, `loan_id`, `user_id`, `account_id`, `loan_amount`) VALUES
+(1, 1, 4, 5, 5000000);
 
 -- --------------------------------------------------------
 
@@ -44,8 +65,10 @@ CREATE TABLE `accounts` (
 --
 
 INSERT INTO `accounts` (`account_id`, `user_id`, `account_number`, `account_type`, `balance`, `currency`, `account_status`, `created_at`, `updated_at`) VALUES
-(2, 2, '1604853088', 'checking', 10.00, 'BDT', 'active', '2025-05-27 13:21:43', '2025-05-27 21:04:27'),
-(3, 3, '8024815668', 'savings', 755.00, 'BDT', 'active', '2025-05-27 13:27:11', '2025-05-28 03:14:45');
+(2, 2, '1604853088', 'checking', 1.00, 'BDT', 'active', '2025-05-27 13:21:43', '2025-05-31 02:19:13'),
+(3, 3, '8024815668', 'savings', 100499.97, 'BDT', 'active', '2025-05-27 13:27:11', '2025-05-30 03:15:06'),
+(5, 4, '3414795730', 'savings', 20555104.00, 'BDT', 'active', '2025-05-30 20:57:51', '2025-05-31 13:26:45'),
+(6, 6, '7670491449', 'savings', 100010.00, 'BDT', 'active', '2025-05-30 22:24:23', '2025-05-31 02:25:06');
 
 -- --------------------------------------------------------
 
@@ -59,8 +82,16 @@ CREATE TABLE `cards` (
   `brand` varchar(100) NOT NULL,
   `issue_date` date NOT NULL DEFAULT current_timestamp(),
   `expiry_date` date NOT NULL,
-  `user_id` date NOT NULL
+  `user_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `cards`
+--
+
+INSERT INTO `cards` (`card_id`, `card_type`, `brand`, `issue_date`, `expiry_date`, `user_id`) VALUES
+(10, 'credit', '1', '0000-00-00', '0000-00-00', 2),
+(11, 'credit', '1', '0000-00-00', '0000-00-00', 6);
 
 -- --------------------------------------------------------
 
@@ -98,8 +129,10 @@ CREATE TABLE `deposits` (
 --
 
 INSERT INTO `deposits` (`deposit_id`, `account_no`, `deposit_type`, `deposit_method`, `currency`, `amount_per_deposit`, `deposit_amount`, `memo`, `user_id`, `account_id`) VALUES
-(14, '8024815668', 'fixed', '', 'USD', 10000.00, 10000.00, '', 3, 3),
-(15, '8024815668', 'fixed', '', 'USD', 2000.00, 2000.00, '', 3, 3);
+(21, '8024815668', 'savings', 'check', 'BDT', 99999.97, 99999.97, '', 3, 3),
+(22, '3414795730', 'checking', 'cash', 'BDT', 100000.00, 100000.00, '', 4, 5),
+(23, '7670491449', 'savings', 'cash', 'BDT', 100000.00, 100000.00, '', 6, 6),
+(24, '3414795730', 'savings', 'cash', 'BDT', 500000.00, 500000.00, '', 4, 5);
 
 -- --------------------------------------------------------
 
@@ -111,14 +144,6 @@ CREATE TABLE `fixed_deposits` (
   `deposit_id` int(11) NOT NULL,
   `tenure` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `fixed_deposits`
---
-
-INSERT INTO `fixed_deposits` (`deposit_id`, `tenure`) VALUES
-(14, 36),
-(15, 24);
 
 -- --------------------------------------------------------
 
@@ -157,6 +182,13 @@ CREATE TABLE `loan_applications` (
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `loan_applications`
+--
+
+INSERT INTO `loan_applications` (`loan_id`, `employment_type`, `currency`, `loan_type`, `monthly_income`, `loan_amount`, `acknowledgement_slip_no`, `user_id`) VALUES
+(1, 'salaried', 0, 'home', 30000, 5000000, 982909221, 4);
+
 -- --------------------------------------------------------
 
 --
@@ -183,7 +215,11 @@ CREATE TABLE `pay_bills` (
 INSERT INTO `pay_bills` (`bill_id`, `dest_account_no`, `biller`, `currency`, `payment_amount`, `memo`, `receipt`, `user_id`, `account_id`, `account_no`) VALUES
 (12, 2147483647, 'internet', 'BDT', 300, '', '../assets/uploads/payBill/1748357403.pdf', 2, 2, 1604853088),
 (13, 1212121212, 'internet', 'BDT', 190, '', '../assets/uploads/payBill/1748358267.pdf', 2, 2, 1604853088),
-(14, 1892091567, 'phone', 'BDT', 245, '', '../assets/uploads/payBill/1748380485.png', 3, 3, 2147483647);
+(14, 1892091567, 'phone', 'BDT', 245, '', '../assets/uploads/payBill/1748380485.png', 3, 3, 2147483647),
+(15, 2147483647, 'internet', 'BDT', 200, '', '../assets/uploads/payBill/1748549796.png', 3, 3, 2147483647),
+(16, 2147483647, 'electric', 'BDT', 40000, '', '../assets/uploads/payBill/1748631587.pdf', 4, 5, 2147483647),
+(17, 2147483647, 'internet', 'BDT', 4996, '', '../assets/uploads/payBill/1748636259.pdf', 4, 5, 2147483647),
+(18, 2147483647, 'electric', 'BDT', 9, '', '../assets/uploads/payBill/1748636354.pdf', 2, 2, 1604853088);
 
 -- --------------------------------------------------------
 
@@ -248,12 +284,23 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `firstName`, `lastName`, `email`, `phoneNo`, `dob`, `gender`, `accountType`, `depositAmount`, `nid/passport`, `password`, `presentAddress`, `permanentAddress`, `imageUrl`, `createdAt`, `updatedAt`, `role_id`) VALUES
 (1, 'S. S. Zobaer', 'Ahmed', 'zobaer@fake.com', 1405098447, '2003-10-25', 'male', 'savings', 50000, 3486701911, 'zobaer123', 'Jagannathpur, Basundhara Road, Vatara, Dhaka - 1229', 'Nawabganj, Nawabganj, Dhaka - 1230', '../assets/uploads/profilePicture/1748346475.jpg', '2025-05-27 12:21:27.188820', '2025-05-27 08:21:27.000000', 1),
-(2, 'Najmul Hassan', 'Nayeem', 'dollarnayeem@gmail.com', 1607984450, '2002-02-02', 'male', 'checking', 10, 8735690378, '01405098', 'Airport Road, Dhaka', 'Comilla', '../assets/uploads/profilePicture/1748355580.jpg', '2025-05-27 15:04:27.445380', '2025-05-27 10:19:40.000000', 2),
-(3, 'Abid Hossain', 'Mahid', 'abid@fake.com', 1607984450, '2000-02-02', 'male', 'savings', 755, 2323564534, 'abid2232', 'Basundhara C Block', 'Narayanganj', '../assets/uploads/profilePicture/1748345153.jpg', '2025-05-27 21:14:45.047039', '2025-05-27 07:25:52.000000', 2);
+(2, 'Najmul Hassan', 'Nayeem', 'dollarnayeem@gmail.com', 1607984450, '2002-02-02', 'male', 'checking', 1, 8735690378, '01405098', 'Airport Road, Dhaka', 'Comilla', '../assets/uploads/profilePicture/1748631252.jpg', '2025-05-30 20:19:13.559255', '2025-05-30 14:54:12.000000', 2),
+(3, 'Abid Hossain', 'Mahid', 'abid@fake.com', 1607984450, '2000-02-02', 'male', 'savings', 100500, 2323564534, 'abid2232', 'Basundhara C Block', 'Narayanganj', '../assets/uploads/profilePicture/1748345153.jpg', '2025-05-29 21:15:06.973623', '2025-05-27 07:25:52.000000', 2),
+(4, 'Aronno', 'Prasad', 'aronno@fake.com', 1308045998, '2003-02-27', 'male', 'savings', 555104, 7890367820, 'aronno123', 'Dhaka, BD', 'Savar, Bangladesh', '../assets/uploads/profilePicture/1748676526.jpg', '2025-05-31 07:28:45.826880', '2025-05-31 03:28:45.000000', 2),
+(6, 'Alive', 'Ahmed', 'alive@gmail.com', 1308045998, '2025-05-01', 'male', 'savings', 100010, 1234567890, '123456', '1111 kuratoli treet', 'Savar, Bangladesh', '../assets/uploads/profilePicture/1748636629.png', '2025-05-30 20:25:06.682272', '2025-05-30 16:23:49.000000', 2);
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `accepted_loans`
+--
+ALTER TABLE `accepted_loans`
+  ADD PRIMARY KEY (`accepted_loan_id`),
+  ADD KEY `account_id` (`account_id`),
+  ADD KEY `user_id` (`user_id`),
+  ADD KEY `loan_id` (`loan_id`);
 
 --
 -- Indexes for table `accounts`
@@ -337,16 +384,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `accepted_loans`
+--
+ALTER TABLE `accepted_loans`
+  MODIFY `accepted_loan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `accounts`
 --
 ALTER TABLE `accounts`
-  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `account_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `cards`
 --
 ALTER TABLE `cards`
-  MODIFY `card_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `card_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `card_pins`
@@ -358,7 +411,7 @@ ALTER TABLE `card_pins`
 -- AUTO_INCREMENT for table `deposits`
 --
 ALTER TABLE `deposits`
-  MODIFY `deposit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `deposit_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `fund_transfers`
@@ -370,13 +423,13 @@ ALTER TABLE `fund_transfers`
 -- AUTO_INCREMENT for table `loan_applications`
 --
 ALTER TABLE `loan_applications`
-  MODIFY `loan_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `loan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `pay_bills`
 --
 ALTER TABLE `pay_bills`
-  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `bill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -388,11 +441,19 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `accepted_loans`
+--
+ALTER TABLE `accepted_loans`
+  ADD CONSTRAINT `accepted_loans_ibfk_1` FOREIGN KEY (`account_id`) REFERENCES `accounts` (`account_id`),
+  ADD CONSTRAINT `accepted_loans_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
+  ADD CONSTRAINT `accepted_loans_ibfk_3` FOREIGN KEY (`loan_id`) REFERENCES `loan_applications` (`loan_id`);
 
 --
 -- Constraints for table `accounts`
