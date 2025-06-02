@@ -31,7 +31,7 @@ A secure, role-based **MVC architecture** web banking system built using **PHP**
 ### 📥 Cloning the Project
 
 ```bash
-git clone https://github.com/your-username/banking-system-mvc.git
+git clone https://github.com/your-username/Banking_System-MVC_Based_Full_Stack_Web_Application.git
 ```
 
 ### 🗃️ Database Setup
@@ -157,7 +157,7 @@ User submits loan request → Controller validates and forwards → Model insert
 
 ## Feedback
 
-If you have any feedback or suggestions for this project, please feel free to reach out or submit an issue on the [GitHub repository](https://github.com/sszobaer/PharmacyApplicationManagementSystem/issues).
+If you have any feedback or suggestions for this project, please feel free to reach out or submit an issue on the [GitHub repository](https://github.com/sszobaer/Banking_System-MVC_Based_Full_Stack_Web_Application/issues).
 
 ---
 
