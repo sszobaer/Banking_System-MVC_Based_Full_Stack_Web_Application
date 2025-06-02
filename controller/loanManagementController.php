@@ -3,6 +3,7 @@ require_once "../model/loan_applications.php";
 require_once "../model/users.php";
 require_once "../model/accounts.php";
 require_once "../model/accepted_loans.php";
+session_start();
 // ZOBAER AHMED
 function validateFirstName()
 {

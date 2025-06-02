@@ -1,7 +1,6 @@
-<!-- ZOBAER AHMED -->
 <?php
+//ZOBAER AHMED
 require_once '../model/connection.php';
-//bill_id	dest_account_no	biller	currency	payment_amount	memo	receipt	user_id	account_id	account_no	
 
 function insertBillPayment($bill) {
     $conn = getConnection();

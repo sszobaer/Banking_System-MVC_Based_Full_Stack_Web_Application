@@ -60,10 +60,10 @@ document.addEventListener("DOMContentLoaded", function () {
                         labels: ['Deposits', 'Transfers', 'Bills'],
                         datasets: [{
                             label: 'Transaction Breakdown',
-                            data: [totalDeposit, fundTransfer, totalBills],
-                            backgroundColor: ['#ff7a00', 'rgba(255, 153, 0, 0.7)', 'rgba(95, 194, 255, 0.7)'],
-                            borderColor: ['#ff7a00', 'rgba(255, 153, 0, 0.7)', 'rgba(95, 194, 255, 0.7)'],
-                            borderWidth: 2
+                            data: [totalDeposit, 6000, totalBills],
+                            backgroundColor: ['#ff7a00', '#182978', '#ff3e04'],
+                            borderColor: ['#111', '#111', '#111'],
+                            borderWidth: 1
                         }]
                     },
                     options: {

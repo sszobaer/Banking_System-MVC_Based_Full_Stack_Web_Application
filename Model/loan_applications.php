@@ -1,9 +1,8 @@
-<!-- ZOBAER AHMED -->
 <?php
+//ZOBAER AHMED
 require_once "../model/connection.php";
-//loan_id	employment_type	currency	loan_type	monthly_income	loan_amount	acknowledgement_slip_no	user_id	
-function insertLoanApplications($loan)
-{
+
+function insertLoanApplications($loan){
     $conn = getConnection();
     $sql = "INSERT INTO loan_applications VALUES (
         '{$loan['loan_id']}',

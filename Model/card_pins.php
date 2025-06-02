@@ -1,5 +1,5 @@
-<!-- ZOBAER AHMED -->
 <?php
+//ZOBAER AHMED
 require_once "../model/connection.php";
 
 function insertPin($pin){

@@ -64,10 +64,10 @@ function loginUserController(){
         //Set Cookie
         if (isset($_POST['remember-me'])) {
             setcookie('remember_email', $email, time() + (86400 * 7), "/"); 
-            setcookie('remember_password', $password, time() + (86400 * 7), "/"); 
+            setcookie('remember_token', bin2hex(random_bytes(16)), time() + (86400 * 7), "/");
         } else {
             setcookie('remember_email', '', time() - 3600, "/");
-            setcookie('remember_password', '', time() - 3600, "/");
+            setcookie('remember_token', '', time() - 3600, "/");
         }
 
         if($_SESSION['role_id']==='1'){
