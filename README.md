@@ -66,7 +66,7 @@ $dbname = "banking_system";
 Start Apache and MySQL in your server tool, then visit:
 
 ```
-http://localhost/banking-system-mvc/
+http://localhost/Banking_System-MVC_Based_Full_Stack_Web_Application/
 ```
 
 ---
