@@ -2,15 +2,9 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone') {
+        stage('Build Docker Image') {
             steps {
-                git 'https://github.com/sszobaer/Banking_System-MVC_Based_Full_Stack_Web_Application.git'
-            }
-        }
-
-        stage('Build Image') {
-            steps {
-                sh 'docker build -t Banking_System-MVC_Based_Full_Stack_Web_Application .'
+                sh 'docker build -t banking-system-app .'
             }
         }
 
@@ -22,7 +16,7 @@ pipeline {
 
         stage('Deploy Locally') {
             steps {
-                sh 'docker run -d -p 8081:80 Banking_System-MVC_Based_Full_Stack_Web_Application'
+                sh 'docker run -d -p 8081:80 banking-system-app'
             }
         }
     }
