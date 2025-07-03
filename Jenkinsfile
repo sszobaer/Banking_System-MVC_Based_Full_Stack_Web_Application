@@ -9,13 +9,10 @@ pipeline {
         }
 
         stage('Security Scan') {
-    steps {
-        withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
-            bat '"C:\\Users\\zobae\\AppData\\Roaming\\npm\\snyk.cmd" test || exit /b 0'
+            steps {
+                bat 'snyk test || exit /b 0'
+            }
         }
-    }
-}
-
 
         stage('Deploy Locally') {
             steps {
