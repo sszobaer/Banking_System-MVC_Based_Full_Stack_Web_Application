@@ -1,0 +1,9 @@
+{
+    "name": "sszobaer/banking-system",
+    "description": "This is for testing purpose",
+    "type": "composer-plugin",
+    "require": {
+        "vlucas/phpdotenv": "5.5"
+    },
+    "license": "MIT"
+}
