@@ -16,7 +16,7 @@ pipeline {
 
         stage('Deploy Locally') {
             steps {
-                bat 'docker run -d -p 8081:80 banking-system-app'
+                bat 'docker run -d -p 8082:80 banking-system-app'
             }
         }
     }
