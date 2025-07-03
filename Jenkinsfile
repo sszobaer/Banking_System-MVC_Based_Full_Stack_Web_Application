@@ -9,10 +9,11 @@ pipeline {
         }
 
         stage('Security Scan') {
-            steps {
-                bat 'snyk test || exit /b 0'
-            }
+        steps {
+            bat '"C:\\Users\\zobae\\AppData\\Roaming\\npm\\snyk.cmd" test || exit /b 0'
         }
+    }
+
 
         stage('Deploy Locally') {
             steps {
