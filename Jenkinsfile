@@ -9,14 +9,17 @@ pipeline {
         }
 
         stage('Security Scan') {
-            steps {
-                bat 'snyk test || exit /b 0'
-            }
+    steps {
+        withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
+            bat '"C:\\Users\\zobae\\AppData\\Roaming\\npm\\snyk.cmd" test || exit /b 0'
         }
+    }
+}
+
 
         stage('Deploy Locally') {
             steps {
-                bat 'docker run -d -p 8082:80 banking-system-app'
+                bat 'docker run -d -p 8084:80 banking-system-app'
             }
         }
     }
