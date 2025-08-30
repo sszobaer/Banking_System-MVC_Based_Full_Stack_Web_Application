@@ -170,7 +170,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgements
 
 Special thanks to:
-- **Microsoft** for their development tools and platform.
 - **Stack Overflow** and **GitHub** communities for their valuable support and resources.
 - And Also <br>
 🎓 **MD. AL-AMIN**  <br>
